@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Platform analytics, revenue projections, category breakdowns, and learner growth for Chigos.">
+  <title>Analytics — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradAnalytics" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradAnalytics)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradAnalytics)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">Platform Analytics</h1>
+          <p class="topbar-sub">Comprehensive overview of revenue trends, student completions, and category demand.</p>
+        </div>
+        <div class="topbar-actions">
+          <div class="filter-pills">
+            <button type="button" class="filter-pill">7 Days</button>
+            <button type="button" class="filter-pill is-active">30 Days</button>
+            <button type="button" class="filter-pill">All Time</button>
+          </div>
+          <button type="button" class="btn btn--outline" id="downloadReportBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Report
+          </button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- KPI METRICS -->
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Monthly Active Learners</span>
+              <div class="metric-card__icon metric-card__icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value">1,840</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">↑ 22.4%</span>
+              <span>vs previous 30 days</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Average Lesson Completion</span>
+              <div class="metric-card__icon metric-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value">81.2%</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">↑ 4.5%</span>
+              <span>High retention on video lessons</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Catalog Conversion Rate</span>
+              <div class="metric-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value">14.8%</div>
+            <div class="metric-card__meta">
+              <span>Visitors who checkout lessons</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Teacher Payout Velocity</span>
+              <div class="metric-card__icon metric-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value">&lt; 2 hrs</div>
+            <div class="metric-card__meta">
+              <span>Automated bank settlement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVENUE CHART & CATEGORY DISTRIBUTION -->
+        <div style="display:grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr); gap: 20px;">
+          <!-- REVENUE BAR CHART CARD -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Weekly Revenue Trends (₦ Naira)</h2>
+                <p class="card-sub">Student purchase volume aggregated across past weeks.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="display:flex; align-items:flex-end; gap:16px; height:200px; padding: 20px 0 10px; border-bottom: 1px solid var(--border);">
+                <!-- Week 1 -->
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+                  <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">₦420k</span>
+                  <div style="width:100%; max-width:44px; height:50%; background:var(--orange-subtle); border:1px solid rgba(232,89,12,0.3); border-radius:var(--radius-sm);"></div>
+                  <span style="font-size:11px; color:var(--ink-secondary);">Wk 1</span>
+                </div>
+                <!-- Week 2 -->
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+                  <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">₦680k</span>
+                  <div style="width:100%; max-width:44px; height:70%; background:var(--orange-subtle); border:1px solid rgba(232,89,12,0.3); border-radius:var(--radius-sm);"></div>
+                  <span style="font-size:11px; color:var(--ink-secondary);">Wk 2</span>
+                </div>
+                <!-- Week 3 -->
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+                  <span style="font-size:11px; font-weight:700; color:var(--ink-muted);">₦590k</span>
+                  <div style="width:100%; max-width:44px; height:60%; background:var(--orange-subtle); border:1px solid rgba(232,89,12,0.3); border-radius:var(--radius-sm);"></div>
+                  <span style="font-size:11px; color:var(--ink-secondary);">Wk 3</span>
+                </div>
+                <!-- Week 4 (Active) -->
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+                  <span style="font-size:11px; font-weight:800; color:var(--orange);">₦940k</span>
+                  <div style="width:100%; max-width:44px; height:94%; background:var(--orange); border-radius:var(--radius-sm); box-shadow:0 4px 14px var(--orange-glow);"></div>
+                  <span style="font-size:11px; font-weight:700; color:var(--ink);">Wk 4</span>
+                </div>
+              </div>
+              <div style="margin-top:14px; display:flex; justify-content:space-between; font-size:12px; color:var(--ink-muted);">
+                <span>Total platform sales volume: ₦2,630,000</span>
+                <span style="color:var(--green); font-weight:700;">+38.5% Growth Month-over-Month</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CATEGORY BREAKDOWN -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Enrollment by Category</h2>
+                <p class="card-sub">Student demand distribution across topics.</p>
+              </div>
+            </div>
+            <div class="card-body" style="display:flex; flex-direction:column; gap:18px;">
+              <!-- Design -->
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:6px;">
+                  <span>UI/UX &amp; Design</span>
+                  <span>45% (780 students)</span>
+                </div>
+                <div style="height:8px; background:var(--bg-subtle); border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:45%; height:100%; background:var(--orange);"></div>
+                </div>
+              </div>
+
+              <!-- Development -->
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:6px;">
+                  <span>Web &amp; Software Dev</span>
+                  <span>35% (610 students)</span>
+                </div>
+                <div style="height:8px; background:var(--bg-subtle); border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:35%; height:100%; background:#2563EB;"></div>
+                </div>
+              </div>
+
+              <!-- Business -->
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:6px;">
+                  <span>Freelance &amp; Business</span>
+                  <span>20% (350 students)</span>
+                </div>
+                <div style="height:8px; background:var(--bg-subtle); border-radius:var(--radius-full); overflow:hidden;">
+                  <div style="width:20%; height:100%; background:var(--green);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOP GROSSING COURSES LEADERBOARD -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Top Grossing Courses</h2>
+              <p class="card-sub">Ranked by revenue contribution and active enrollments.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Rank &amp; Course</th>
+                  <th>Instructor</th>
+                  <th>Price</th>
+                  <th>Enrollments</th>
+                  <th>Total Gross Volume</th>
+                  <th>Avg Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="cell-user">
+                      <span style="font-weight:800; font-size:14px; color:var(--orange); width:24px;">#1</span>
+                      <div>
+                        <div class="cell-title">Design systems that stay useful</div>
+                        <div class="cell-sub">Design · Intermediate</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong>Ada Makes</strong></td>
+                  <td>₦4,800</td>
+                  <td><span class="badge badge--info">184 sales</span></td>
+                  <td><strong style="color:var(--green);">₦883,200</strong></td>
+                  <td><span style="color:#F59E0B; font-weight:700;">★ 4.9</span> (42)</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="cell-user">
+                      <span style="font-weight:800; font-size:14px; color:var(--ink-secondary); width:24px;">#2</span>
+                      <div>
+                        <div class="cell-title">JavaScript, without the fog</div>
+                        <div class="cell-sub">Development · Beginner</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong>Tunde Teaches</strong></td>
+                  <td>₦3,200</td>
+                  <td><span class="badge badge--info">240 sales</span></td>
+                  <td><strong style="color:var(--green);">₦768,000</strong></td>
+                  <td><span style="color:#F59E0B; font-weight:700;">★ 4.8</span> (58)</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="cell-user">
+                      <span style="font-weight:800; font-size:14px; color:var(--ink-secondary); width:24px;">#3</span>
+                      <div>
+                        <div class="cell-title">Figma for your first real project</div>
+                        <div class="cell-sub">Design · Beginner</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><strong>Ada Makes</strong></td>
+                  <td>₦2,500</td>
+                  <td><span class="badge badge--info">280 sales</span></td>
+                  <td><strong style="color:var(--green);">₦700,000</strong></td>
+                  <td><span style="color:#F59E0B; font-weight:700;">★ 5.0</span> (94)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('downloadReportBtn').addEventListener('click', function () {
+        var rows = [
+          ['Metric', 'Value', 'Growth Period'],
+          ['Gross Platform Volume', '₦2,630,000', 'Last 30 Days'],
+          ['Active Learners', '1,840', 'Month-over-month (+22.4%)'],
+          ['Avg Completion Rate', '81.2%', 'All courses'],
+          ['Top Category', 'UI/UX Design', '45% share']
+        ];
+        AdminExport.toCSV('chigos-analytics-summary-' + new Date().toISOString().slice(0, 10) + '.csv', rows);
+        AdminToast.show('Analytics executive summary downloaded.', 'success');
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Configure Chigos platform fees, marketplace settings, instructor policies, and system data.">
+  <title>Settings — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradSettings" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradSettings)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradSettings)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">Platform Settings</h1>
+          <p class="topbar-sub">Configure platform fees, marketplace economics, security, and demo data stores.</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn--outline" id="resetDefaultsBtn">Reset Defaults</button>
+          <button type="button" class="btn btn--primary" id="saveSettingsBtn">Save Changes</button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <form id="settingsForm">
+          <!-- SECTION 1: PLATFORM ECONOMICS & FEES -->
+          <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Marketplace Economics &amp; Fees</h2>
+                <p class="card-sub">Core financial parameters governing student checkouts and instructor signups.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="settingPlatformFee">
+                    Platform Fee Per Purchase (₦ Naira)
+                    <small>Fixed deduction from student checkouts</small>
+                  </label>
+                  <input type="number" class="form-control" id="settingPlatformFee" value="100" min="0" step="50">
+                  <span class="form-hint">Currently set to ₦100 per lesson checkout across all categories.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingTeacherRegFee">
+                    Teacher Registration Fee (₦ Naira)
+                    <small>One-time fee upon instructor channel creation</small>
+                  </label>
+                  <input type="number" class="form-control" id="settingTeacherRegFee" value="2000" min="0" step="500">
+                  <span class="form-hint">Charged when new teachers publish their inaugural profile.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingMinPayout">
+                    Minimum Payout Threshold (₦ Naira)
+                  </label>
+                  <input type="number" class="form-control" id="settingMinPayout" value="5000" min="1000" step="500">
+                  <span class="form-hint">Minimum accumulated balance required to initiate bank disbursements.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingCurrency">Platform Base Currency</label>
+                  <select class="form-control" id="settingCurrency" disabled>
+                    <option value="NGN">Nigerian Naira (₦ NGN)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2: PLATFORM IDENTITY & SUPPORT -->
+          <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title">Platform Identity &amp; Communications</h2>
+                <p class="card-sub">Global brand contact emails and notification recipients.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="settingSiteName">Platform Name</label>
+                  <input type="text" class="form-control" id="settingSiteName" value="Chigos E-learning">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingSupportEmail">Primary Support Email</label>
+                  <input type="email" class="form-control" id="settingSupportEmail" value="support@chigos.test">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="settingPayoutEmail">Disbursement Notification Email</label>
+                  <input type="email" class="form-control" id="settingPayoutEmail" value="finance@chigos.test">
+                </div>
+
+                <div class="form-group" style="justify-content: center;">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="settingAutoApprove" checked>
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <div>
+                      <span class="form-label">Instant Lesson Publishing</span>
+                      <div class="form-hint">Allow registered teachers to publish directly without pre-moderation queue.</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 3: DEMO STORAGE MANAGEMENT -->
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h2 class="card-title" style="color:var(--red);">Demo Database &amp; Local Storage</h2>
+                <p class="card-sub">Reset demo purchases, re-seed starter data, or clear browser caches.</p>
+              </div>
+            </div>
+            <div class="card-body" style="display:flex; flex-direction:column; gap:16px;">
+              <p style="color:var(--ink-secondary); font-size:13.5px; line-height:1.6;">
+                Chigos stores users, courses, and purchases inside this browser's <code>localStorage</code> (keys: <code>chigos.users</code>, <code>chigos.courses</code>, <code>chigos.purchases</code>). You can reset transactions or restore standard seeds at any time.
+              </p>
+
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <button type="button" class="btn btn--outline" id="reseedDataBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                  Re-seed Default Courses &amp; Teachers
+                </button>
+                <button type="button" class="btn btn--danger" id="clearStorageBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  Purge Local Demo Data
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var S = window.ChigosStorage;
+
+      document.getElementById('saveSettingsBtn').addEventListener('click', function () {
+        AdminToast.show('Platform settings successfully saved!', 'success');
+      });
+
+      document.getElementById('resetDefaultsBtn').addEventListener('click', function () {
+        document.getElementById('settingPlatformFee').value = 100;
+        document.getElementById('settingTeacherRegFee').value = 2000;
+        document.getElementById('settingMinPayout').value = 5000;
+        document.getElementById('settingSiteName').value = 'Chigos E-learning';
+        document.getElementById('settingSupportEmail').value = 'support@chigos.test';
+        document.getElementById('settingPayoutEmail').value = 'finance@chigos.test';
+        document.getElementById('settingAutoApprove').checked = true;
+        AdminToast.show('Default settings restored.', 'info');
+      });
+
+      document.getElementById('reseedDataBtn').addEventListener('click', function () {
+        AdminModal.confirm({
+          title: 'Re-seed Demo Data',
+          message: 'Restore default sample courses, instructors (Ada & Tunde), and demo students? This does not wipe your active login session.',
+          confirmText: 'Re-seed Platform',
+          onConfirm: function () {
+            localStorage.removeItem('chigos.courses');
+            localStorage.removeItem('chigos.users');
+            localStorage.removeItem('chigos.purchases');
+            location.reload();
+          }
+        });
+      });
+
+      document.getElementById('clearStorageBtn').addEventListener('click', function () {
+        AdminModal.confirm({
+          title: 'Purge Platform Storage',
+          message: 'Warning: This will clear all courses, user accounts, and purchase records from your browser localStorage. Are you sure you wish to proceed?',
+          confirmText: 'Purge Storage',
+          danger: true,
+          onConfirm: function () {
+            if (S && S.reset) S.reset();
+            AdminToast.show('Platform storage cleared. Reloading...', 'danger');
+            setTimeout(function () {
+              location.reload();
+            }, 800);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

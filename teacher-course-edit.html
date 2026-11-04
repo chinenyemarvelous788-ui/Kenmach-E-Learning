@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFFAF5">
+  <title>Edit course — Chigos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/teacher-sidebar.css">
+  <link rel="stylesheet" href="css/teacher-course-edit.css">
+</head>
+<body>
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="dashboard" id="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-header">
+          <a href="index.html" class="sidebar-logo">
+            <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#FFD9BA"/>
+                  <stop offset="0.5" stop-color="#E8590C"/>
+                  <stop offset="1" stop-color="#BF4A06"/>
+                </linearGradient>
+              </defs>
+              <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+              <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+            </svg>
+            <span>Chigos</span>
+          </a>
+          <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="sidebar-role"><span>Instructor</span></div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Main</span>
+          <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span class="nav-label">Dashboard</span>
+          </a>
+          <a href="teacher-courses.html" class="nav-item is-active" aria-current="page" data-tooltip="My courses">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span class="nav-label">My courses</span>
+            <span class="badge">4</span>
+          </a>
+          <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span class="nav-label">Students</span>
+          </a>
+          <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span class="nav-label">Earnings</span>
+          </a>
+          <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+            <span class="nav-label">Reviews</span>
+            <span class="badge">12</span>
+          </a>
+        </div>
+
+        <div class="nav-group">
+          <span class="nav-group-label">Account</span>
+          <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="nav-label">Profile</span>
+          </a>
+          <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+            <span class="nav-label">Settings</span>
+          </a>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="user-account">
+            <button type="button" class="user-pill" id="userPill" aria-haspopup="true" aria-expanded="false" aria-controls="userMenu">
+              <span class="user-avatar">SB</span>
+              <span class="user-meta"><strong>Sarah Bello</strong><span>Product Management</span></span>
+              <svg class="user-pill-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="edit-topbar">
+        <div>
+          <a class="back-link" href="teacher-courses.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back to courses
+          </a>
+          <h1>Edit <span>course</span></h1>
+          <p>Update your course details, curriculum, and pricing.</p>
+        </div>
+        <div class="top-actions">
+          <span class="course-status"><span class="status-dot"></span> Published</span>
+          <button type="button" class="button button--outline" id="previewBtn">Preview course</button>
+          <button type="button" class="button button--primary" id="saveBtn">Save changes</button>
+        </div>
+      </header>
+
+      <nav class="edit-tabs" id="tabs" aria-label="Course edit sections">
+        <button type="button" class="tab active" data-tab="details" aria-selected="true"><span class="tab-number">01</span> Course details</button>
+        <button type="button" class="tab" data-tab="curriculum" aria-selected="false"><span class="tab-number">02</span> Curriculum</button>
+        <button type="button" class="tab" data-tab="pricing" aria-selected="false"><span class="tab-number">03</span> Pricing</button>
+      </nav>
+
+      <form id="courseEditForm">
+        <section class="tab-panel active" data-panel="details" aria-labelledby="detailsTitle">
+          <div class="section-heading">
+            <div><span class="eyebrow">COURSE OVERVIEW</span><h2 id="detailsTitle">Course details</h2><p>Make it easy for students to understand what they’ll learn.</p></div>
+          </div>
+          <div class="edit-layout">
+            <div class="edit-card details-card">
+              <div class="field">
+                <label for="courseTitle">Course title <span class="required">*</span></label>
+                <input id="courseTitle" name="title" type="text" value="Product Management: From Idea to Launch" maxlength="100" required>
+                <small class="field-hint">Use a clear title that tells students what the course is about.</small>
+              </div>
+              <div class="field">
+                <label for="courseSubtitle">Short summary</label>
+                <input id="courseSubtitle" name="subtitle" type="text" value="A practical guide to building and launching products people love." maxlength="160">
+              </div>
+              <div class="field">
+                <label for="courseDescription">Course description <span class="required">*</span></label>
+                <textarea id="courseDescription" name="description" rows="6" required>Learn the complete product journey, from discovering customer needs to launching a product with confidence. Build practical skills through real-world examples, frameworks, and guided exercises.</textarea>
+                <small class="field-hint">Describe who the course is for and what students can expect.</small>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="courseCategory">Category</label>
+                  <select id="courseCategory" name="category">
+                    <option selected>Business</option>
+                    <option>Design</option>
+                    <option>Development</option>
+                    <option>Marketing</option>
+                    <option>Personal development</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="courseLevel">Level</label>
+                  <select id="courseLevel" name="level">
+                    <option>Beginner</option>
+                    <option selected>All levels</option>
+                    <option>Intermediate</option>
+                    <option>Advanced</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <aside class="edit-card cover-card">
+              <div class="cover-heading"><div><h3>Course cover</h3><p>This image represents your course.</p></div></div>
+              <div class="cover-preview" id="coverPreview" aria-label="Course cover preview">
+                <span class="cover-mark">PM</span><span class="cover-caption">PRODUCT<br>MANAGEMENT</span>
+              </div>
+              <label class="button button--outline cover-upload" for="coverInput">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Change cover
+              </label>
+              <input class="visually-hidden" type="file" id="coverInput" accept="image/png,image/jpeg,image/webp">
+              <small class="field-hint">JPG, PNG, or WebP. Use a wide image for best results.</small>
+            </aside>
+          </div>
+          <div class="edit-card outcomes-card">
+            <div class="card-heading">
+              <div><h3>What students will learn</h3><p>Add clear outcomes students can expect from this course.</p></div>
+              <button type="button" class="button button--outline button--small" id="addOutcomeBtn">+ Add outcome</button>
+            </div>
+            <div class="outcomes-list" id="outcomesList">
+              <div class="outcome-item"><span class="outcome-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><input type="text" value="Identify customer problems worth solving" aria-label="Learning outcome"><button type="button" class="remove-btn" aria-label="Remove outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+              <div class="outcome-item"><span class="outcome-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><input type="text" value="Create a product strategy and roadmap" aria-label="Learning outcome"><button type="button" class="remove-btn" aria-label="Remove outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+              <div class="outcome-item"><span class="outcome-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><input type="text" value="Prioritize features using proven frameworks" aria-label="Learning outcome"><button type="button" class="remove-btn" aria-label="Remove outcome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="curriculum" aria-labelledby="curriculumTitle" hidden>
+          <div class="section-heading section-heading--row">
+            <div><span class="eyebrow">COURSE CONTENT</span><h2 id="curriculumTitle">Curriculum</h2><p>Organize your lessons into modules and keep your course easy to follow.</p></div>
+            <button type="button" class="button button--primary" id="addModuleBtn">+ Add module</button>
+          </div>
+          <div class="module-list" id="moduleList">
+            <article class="module">
+              <div class="module-header">
+                <button type="button" class="module-toggle" aria-expanded="true" aria-label="Collapse Module 1: Foundations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <div class="module-title"><span>MODULE 01</span><h3>Foundations of Product Management</h3></div>
+                <span class="module-count">4 lessons</span>
+                <button type="button" class="remove-btn module-remove" aria-label="Remove module"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+              </div>
+              <div class="module-content">
+                <div class="lesson-row"><span class="lesson-grip" aria-hidden="true">⠿</span><span class="lesson-type lesson-type--video">▶</span><div class="lesson-info"><strong>What does a product manager do?</strong><span>Video lesson · 12 min</span></div><button type="button" class="lesson-edit">Edit lesson</button></div>
+                <div class="lesson-row"><span class="lesson-grip" aria-hidden="true">⠿</span><span class="lesson-type lesson-type--video">▶</span><div class="lesson-info"><strong>The product lifecycle</strong><span>Video lesson · 18 min</span></div><button type="button" class="lesson-edit">Edit lesson</button></div>
+                <div class="lesson-row"><span class="lesson-grip" aria-hidden="true">⠿</span><span class="lesson-type lesson-type--doc">▤</span><div class="lesson-info"><strong>Product thinking: a field guide</strong><span>Reading · 8 min</span></div><button type="button" class="lesson-edit">Edit lesson</button></div>
+                <button type="button" class="add-lesson">+ Add lesson</button>
+              </div>
+            </article>
+            <article class="module">
+              <div class="module-header">
+                <button type="button" class="module-toggle" aria-expanded="true" aria-label="Collapse Module 2: Discovery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <div class="module-title"><span>MODULE 02</span><h3>Customer Discovery &amp; Research</h3></div>
+                <span class="module-count">4 lessons</span>
+                <button type="button" class="remove-btn module-remove" aria-label="Remove module"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+              </div>
+              <div class="module-content">
+                <div class="lesson-row"><span class="lesson-grip" aria-hidden="true">⠿</span><span class="lesson-type lesson-type--video">▶</span><div class="lesson-info"><strong>Finding your target customer</strong><span>Video lesson · 16 min</span></div><button type="button" class="lesson-edit">Edit lesson</button></div>
+                <div class="lesson-row"><span class="lesson-grip" aria-hidden="true">⠿</span><span class="lesson-type lesson-type--video">▶</span><div class="lesson-info"><strong>Interviewing for insights</strong><span>Video lesson · 22 min</span></div><button type="button" class="lesson-edit">Edit lesson</button></div>
+                <button type="button" class="add-lesson">+ Add lesson</button>
+              </div>
+            </article>
+            <button type="button" class="add-module-row" id="addModuleRow">+ Add another module</button>
+          </div>
+        </section>
+
+        <section class="tab-panel" data-panel="pricing" aria-labelledby="pricingTitle" hidden>
+          <div class="section-heading"><div><span class="eyebrow">PAYMENT &amp; ACCESS</span><h2 id="pricingTitle">Pricing</h2><p>Set the price students will pay to access your course.</p></div></div>
+          <div class="price-options" id="priceOptions">
+            <button type="button" class="price-option" data-value="free" aria-pressed="false">
+              <span class="price-option-icon">◎</span><span class="price-option-copy"><strong>Free course</strong><span>Let students enroll at no cost.</span></span><span class="price-radio"></span>
+            </button>
+            <button type="button" class="price-option selected" data-value="paid" aria-pressed="true">
+              <span class="price-option-icon">₦</span><span class="price-option-copy"><strong>Paid course</strong><span>Set a one-time price for lifetime access.</span></span><span class="price-radio"></span>
+            </button>
+          </div>
+          <div class="edit-card price-card" id="priceCard">
+            <div class="field">
+              <label for="coursePrice">Course price</label>
+              <div class="price-input-wrap"><span>₦</span><input id="coursePrice" type="number" min="0" step="500" value="15000"><span class="price-suffix">NGN</span></div>
+              <small class="field-hint">Students pay this amount once for course access.</small>
+            </div>
+            <div class="price-preview"><span>Current course price</span><strong id="pricePreview">₦15,000</strong></div>
+          </div>
+        </section>
+      </form>
+
+      <footer class="edit-footer">
+        <button type="button" class="button button--danger-ghost" id="discardBtn">Discard changes</button>
+        <div class="footer-actions"><span id="saveStatus" role="status" aria-live="polite"></span><button type="button" class="button button--primary" id="saveFooterBtn">Save changes</button></div>
+      </footer>
+    </main>
+  </div>
+
+  <dialog class="preview-dialog" id="previewDialog" aria-labelledby="previewHeading">
+    <div class="preview-dialog-head"><h2 id="previewHeading">Course preview</h2><button type="button" class="preview-close" id="closePreviewBtn" aria-label="Close preview">×</button></div>
+    <div class="preview-dialog-body"><span class="eyebrow">STUDENT VIEW</span><h3 id="previewTitle">Product Management: From Idea to Launch</h3><p id="previewDescription"></p><span class="preview-price" id="previewPrice">₦15,000</span></div>
+  </dialog>
+
+  <script src="js/teacher-sidebar.js"></script>
+  <script src="js/teacher-user-menu.js"></script>
+  <script src="js/teacher-course-edit.js"></script>
+</body>
+</html>

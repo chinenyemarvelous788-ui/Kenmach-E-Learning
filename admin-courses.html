@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage all lessons and courses across the Chigos platform.">
+  <title>Courses — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradCourses" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradCourses)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradCourses)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">Course Management</h1>
+          <p class="topbar-sub">Inspect, feature, approve, or remove published and draft courses.</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn--outline" id="exportCoursesBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export CSV
+          </button>
+          <button type="button" class="btn btn--primary" id="openAddCourseBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Course
+          </button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- KPI METRICS -->
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Total Courses</span>
+              <div class="metric-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="statTotalCourses">6</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">↑ 100%</span>
+              <span>Across all categories</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Published &amp; Live</span>
+              <div class="metric-card__icon metric-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="statLiveCourses">6</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">Active</span>
+              <span>Available in catalog</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Featured on Homepage</span>
+              <div class="metric-card__icon metric-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="statFeaturedCourses">3</div>
+            <div class="metric-card__meta">
+              <span>Highlighted on landing page</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Total Enrollments</span>
+              <div class="metric-card__icon metric-card__icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="statTotalEnrollments">2</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">↑ 18%</span>
+              <span>Demo purchases</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="toolbar-left">
+              <div class="search-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" class="search-input" id="courseSearchInput" placeholder="Search by title, teacher, or topic...">
+              </div>
+
+              <div class="filter-pills" id="categoryFilterPills">
+                <button type="button" class="filter-pill is-active" data-cat="all">All</button>
+                <button type="button" class="filter-pill" data-cat="Design">Design</button>
+                <button type="button" class="filter-pill" data-cat="Development">Development</button>
+                <button type="button" class="filter-pill" data-cat="Business">Business</button>
+              </div>
+            </div>
+
+            <div class="toolbar-right">
+              <select class="filter-select" id="sortFilter">
+                <option value="newest">Sort: Newest</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="title">Alphabetical (A-Z)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 38%;">Course Title &amp; Category</th>
+                  <th>Instructor</th>
+                  <th>Price</th>
+                  <th>Lessons / Duration</th>
+                  <th>Featured</th>
+                  <th>Sales</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="coursesTableBody">
+                <!-- Dynamically populated from JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-footer">
+            <span id="tableResultsCount">Showing 6 courses</span>
+            <span style="font-size:12px; color:var(--ink-muted);">Clicking "Remove" triggers verified deletion from local storage.</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ADD COURSE MODAL -->
+  <div class="modal-overlay" id="addCourseModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Create Platform Course</h3>
+        <button type="button" class="modal-close" data-close-modal="addCourseModal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="addCourseForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label" for="newCourseTitle">Course Title</label>
+              <input type="text" class="form-control" id="newCourseTitle" required placeholder="e.g. Mastering Modern Frontend Systems">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCourseCategory">Category</label>
+              <select class="form-control" id="newCourseCategory" required>
+                <option value="Design">Design</option>
+                <option value="Development">Development</option>
+                <option value="Business">Business</option>
+                <option value="Marketing">Marketing</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCoursePrice">Price (₦ Naira)</label>
+              <input type="number" class="form-control" id="newCoursePrice" required placeholder="2500" min="500" step="100">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCourseTeacher">Assign Instructor</label>
+              <select class="form-control" id="newCourseTeacher" required>
+                <!-- Populated with teachers -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCourseLevel">Difficulty Level</label>
+              <select class="form-control" id="newCourseLevel">
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="All levels">All levels</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCourseDuration">Duration</label>
+              <input type="text" class="form-control" id="newCourseDuration" placeholder="e.g. 1h 45m" value="1h 30m">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newCourseLessons">Lessons Count</label>
+              <input type="number" class="form-control" id="newCourseLessons" placeholder="10" value="8" min="1">
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label" for="newCourseDesc">Short Description</label>
+              <textarea class="form-control" id="newCourseDesc" rows="3" placeholder="Explain what students will learn..."></textarea>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="toggle-switch">
+                <input type="checkbox" id="newCourseFeatured" checked>
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                <span class="form-label">Feature on Homepage</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn--outline" data-close-modal="addCourseModal">Cancel</button>
+          <button type="submit" class="btn btn--primary">Publish Course</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var S = window.ChigosStorage;
+      if (!S) return;
+
+      var tbody = document.getElementById('coursesTableBody');
+      var searchInput = document.getElementById('courseSearchInput');
+      var sortFilter = document.getElementById('sortFilter');
+      var categoryPills = document.querySelectorAll('#categoryFilterPills .filter-pill');
+      var selectedCat = 'all';
+
+      function escape(str) {
+        return String(str || '').replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function formatNaira(num) {
+        return '₦' + Number(num || 0).toLocaleString('en-NG');
+      }
+
+      function render() {
+        var courses = S.getCourses();
+        var users = S.getUsers();
+        var purchases = S.getPurchases();
+
+        // Update stats
+        document.getElementById('statTotalCourses').textContent = courses.length;
+        document.getElementById('statLiveCourses').textContent = courses.length;
+        var featuredCount = courses.filter(function (c) { return c.featured; }).length;
+        document.getElementById('statFeaturedCourses').textContent = featuredCount;
+        document.getElementById('statTotalEnrollments').textContent = purchases.length;
+        var sbCount = document.getElementById('sidebarCoursesCount');
+        if (sbCount) sbCount.textContent = courses.length;
+
+        // Populate Teacher dropdown
+        var teacherSelect = document.getElementById('newCourseTeacher');
+        if (teacherSelect && teacherSelect.children.length === 0) {
+          var teachers = users.filter(function (u) { return u.role === 'teacher'; });
+          teacherSelect.innerHTML = teachers.map(function (t) {
+            return '<option value="' + escape(t.id) + '">' + escape(t.channelName || t.name) + ' (' + escape(t.email) + ')</option>';
+          }).join('') || '<option value="teacher-ada">Ada Makes</option>';
+        }
+
+        // Filter by category
+        var filtered = courses.slice();
+        if (selectedCat !== 'all') {
+          filtered = filtered.filter(function (c) {
+            return String(c.category || '').toLowerCase() === selectedCat.toLowerCase();
+          });
+        }
+
+        // Filter by search query
+        var q = (searchInput.value || '').trim().toLowerCase();
+        if (q) {
+          filtered = filtered.filter(function (c) {
+            var teacher = S.getUserById(c.teacherId);
+            var teacherName = teacher ? (teacher.name + ' ' + (teacher.channelName || '')) : '';
+            return c.title.toLowerCase().indexOf(q) !== -1 ||
+                   c.category.toLowerCase().indexOf(q) !== -1 ||
+                   teacherName.toLowerCase().indexOf(q) !== -1;
+          });
+        }
+
+        // Sort
+        var sortVal = sortFilter.value;
+        if (sortVal === 'price-desc') {
+          filtered.sort(function (a, b) { return b.price - a.price; });
+        } else if (sortVal === 'price-asc') {
+          filtered.sort(function (a, b) { return a.price - b.price; });
+        } else if (sortVal === 'title') {
+          filtered.sort(function (a, b) { return a.title.localeCompare(b.title); });
+        } else {
+          // newest
+          filtered.sort(function (a, b) { return new Date(b.createdAt || 0) - new Date(a.createdAt || 0); });
+        }
+
+        document.getElementById('tableResultsCount').textContent = 'Showing ' + filtered.length + ' of ' + courses.length + ' courses';
+
+        if (!filtered.length) {
+          tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; padding: 48px; color: var(--ink-muted);">' +
+            '<div style="font-size:24px; margin-bottom:8px;">🔍</div>' +
+            '<strong>No courses found matching your criteria</strong>' +
+            '<p style="font-size:12.5px; margin-top:4px;">Try searching for a different keyword or category.</p>' +
+          '</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = filtered.map(function (c) {
+          var teacher = S.getUserById(c.teacherId);
+          var teacherLabel = teacher ? (teacher.channelName || teacher.name) : 'Instructor';
+          var salesCount = S.getPurchasesByCourse(c.id).length;
+
+          return '<tr>' +
+            '<td>' +
+              '<div class="cell-user">' +
+                '<div class="cell-avatar" style="background:#FFF2E8; color:#E8590C;">' +
+                  '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>' +
+                '</div>' +
+                '<div>' +
+                  '<div class="cell-title"><a href="course.html?id=' + encodeURIComponent(c.id) + '" target="_blank" style="color:var(--ink);">' + escape(c.title) + ' ↗</a></div>' +
+                  '<div class="cell-sub">' + escape(c.category) + ' · ' + escape(c.level || 'Beginner') + '</div>' +
+                '</div>' +
+              '</div>' +
+            '</td>' +
+            '<td>' +
+              '<strong>' + escape(teacherLabel) + '</strong>' +
+              (teacher ? '<div style="font-size:11px; color:var(--ink-muted);">' + escape(teacher.email) + '</div>' : '') +
+            '</td>' +
+            '<td><strong style="color:var(--ink);">' + formatNaira(c.price) + '</strong></td>' +
+            '<td>' + (c.lessons || 6) + ' lessons · ' + escape(c.duration || '1h 30m') + '</td>' +
+            '<td>' +
+              '<button type="button" class="badge ' + (c.featured ? 'badge--success' : 'badge--neutral') + '" data-toggle-featured="' + escape(c.id) + '" title="Click to toggle featured status">' +
+                (c.featured ? '★ Featured' : 'Standard') +
+              '</button>' +
+            '</td>' +
+            '<td><span class="badge badge--info">' + salesCount + ' sales</span></td>' +
+            '<td style="text-align: right;">' +
+              '<div style="display:inline-flex; gap:6px;">' +
+                '<a href="course.html?id=' + encodeURIComponent(c.id) + '" target="_blank" class="btn btn--outline btn--sm" title="View public page">View</a>' +
+                '<button type="button" class="btn btn--danger btn--sm" data-delete-course="' + escape(c.id) + '" title="Delete course">Delete</button>' +
+              '</div>' +
+            '</td>' +
+          '</tr>';
+        }).join('');
+      }
+
+      // Event: Search & Sort
+      searchInput.addEventListener('input', render);
+      sortFilter.addEventListener('change', render);
+
+      // Event: Category Filter Pills
+      categoryPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          categoryPills.forEach(function (p) { p.classList.remove('is-active'); });
+          pill.classList.add('is-active');
+          selectedCat = pill.getAttribute('data-cat');
+          render();
+        });
+      });
+
+      // Event: Delete & Feature Toggle in Table
+      tbody.addEventListener('click', function (e) {
+        var delBtn = e.target.closest('[data-delete-course]');
+        if (delBtn) {
+          var id = delBtn.getAttribute('data-delete-course');
+          var c = S.getCourseById(id);
+          AdminModal.confirm({
+            title: 'Delete Course',
+            message: 'Are you sure you want to permanently remove "' + (c ? c.title : id) + '"? Students who previously purchased it will retain access.',
+            confirmText: 'Delete Permanently',
+            danger: true,
+            onConfirm: function () {
+              S.deleteCourse(id);
+              AdminToast.show('Course deleted successfully.', 'success');
+              render();
+            }
+          });
+          return;
+        }
+
+        var featBtn = e.target.closest('[data-toggle-featured]');
+        if (featBtn) {
+          var featId = featBtn.getAttribute('data-toggle-featured');
+          var all = S.getCourses();
+          var target = all.find(function (item) { return item.id === featId; });
+          if (target) {
+            target.featured = !target.featured;
+            S.setCourses(all);
+            AdminToast.show('Course featured status updated.', 'info');
+            render();
+          }
+        }
+      });
+
+      // Event: Export CSV
+      document.getElementById('exportCoursesBtn').addEventListener('click', function () {
+        var courses = S.getCourses();
+        var rows = [['ID', 'Title', 'Category', 'Price (NGN)', 'Instructor ID', 'Duration', 'Lessons', 'Featured']];
+        courses.forEach(function (c) {
+          rows.push([c.id, c.title, c.category, c.price, c.teacherId, c.duration, c.lessons, c.featured ? 'Yes' : 'No']);
+        });
+        AdminExport.toCSV('chigos-courses-' + new Date().toISOString().slice(0, 10) + '.csv', rows);
+        AdminToast.show('Course data exported to CSV.', 'success');
+      });
+
+      // Event: Add Course Modal
+      var addModal = document.getElementById('addCourseModal');
+      document.getElementById('openAddCourseBtn').addEventListener('click', function () {
+        AdminModal.open('addCourseModal');
+      });
+
+      document.querySelectorAll('[data-close-modal="addCourseModal"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          AdminModal.close('addCourseModal');
+        });
+      });
+
+      document.getElementById('addCourseForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var title = document.getElementById('newCourseTitle').value.trim();
+        var cat = document.getElementById('newCourseCategory').value;
+        var price = parseInt(document.getElementById('newCoursePrice').value, 10) || 2500;
+        var teacherId = document.getElementById('newCourseTeacher').value;
+        var level = document.getElementById('newCourseLevel').value;
+        var duration = document.getElementById('newCourseDuration').value.trim() || '1h 30m';
+        var lessons = parseInt(document.getElementById('newCourseLessons').value, 10) || 8;
+        var desc = document.getElementById('newCourseDesc').value.trim();
+        var featured = document.getElementById('newCourseFeatured').checked;
+
+        var newCourse = {
+          id: 'course-' + Date.now().toString(36),
+          title: title,
+          category: cat,
+          price: price,
+          teacherId: teacherId,
+          level: level,
+          duration: duration,
+          lessons: lessons,
+          description: desc,
+          featured: featured,
+          image: cat === 'Development' ? 'Laptop.jfif' : 'Teacher.jfif',
+          videoUrl: 'https://www.youtube.com/embed/ysz5S6PUM-U',
+          createdAt: new Date().toISOString()
+        };
+
+        var courses = S.getCourses();
+        courses.unshift(newCourse);
+        S.setCourses(courses);
+
+        AdminModal.close('addCourseModal');
+        document.getElementById('addCourseForm').reset();
+        AdminToast.show('Course "' + title + '" published successfully!', 'success');
+        render();
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>
+

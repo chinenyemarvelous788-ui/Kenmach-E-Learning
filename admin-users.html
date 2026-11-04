@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage students, instructors, and administrators across Chigos.">
+  <title>Users — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradUsers" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradUsers)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradUsers)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">User Directory</h1>
+          <p class="topbar-sub">Manage instructor channels, student learner profiles, and platform administrators.</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn--outline" id="exportUsersBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export Users
+          </button>
+          <button type="button" class="btn btn--primary" id="openAddUserBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Create User
+          </button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- KPI METRICS -->
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Total Accounts</span>
+              <div class="metric-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="kpiTotalUsers">4</div>
+            <div class="metric-card__meta">
+              <span>All platform roles</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Verified Teachers</span>
+              <div class="metric-card__icon metric-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="kpiTeachers">2</div>
+            <div class="metric-card__meta">
+              <span class="badge badge--success">Channel Creators</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Registered Students</span>
+              <div class="metric-card__icon metric-card__icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="kpiStudents">1</div>
+            <div class="metric-card__meta">
+              <span>Active learners</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Administrators</span>
+              <div class="metric-card__icon metric-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="kpiAdmins">1</div>
+            <div class="metric-card__meta">
+              <span>Super admins</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- USERS TABLE CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="toolbar-left">
+              <div class="search-input-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" class="search-input" id="userSearchInput" placeholder="Search by name, email, or channel...">
+              </div>
+
+              <div class="filter-pills" id="roleFilterPills">
+                <button type="button" class="filter-pill is-active" data-role="all">All</button>
+                <button type="button" class="filter-pill" data-role="teacher">Instructors</button>
+                <button type="button" class="filter-pill" data-role="student">Students</button>
+                <button type="button" class="filter-pill" data-role="admin">Admins</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>User Details</th>
+                  <th>Role</th>
+                  <th>Channel / Note</th>
+                  <th>Balance / Sales</th>
+                  <th>Date Joined</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-footer">
+            <span id="userCountText">Showing users</span>
+            <span style="font-size:12px; color:var(--ink-muted);">Passwords stored securely as hashed salted mocks in browser storage.</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ADD USER MODAL -->
+  <div class="modal-overlay" id="addUserModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Create Platform User</h3>
+        <button type="button" class="modal-close" data-close-modal="addUserModal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="addUserForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="newUserName">Full Name</label>
+              <input type="text" class="form-control" id="newUserName" required placeholder="e.g. Oluwaseun Adeleke">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newUserEmail">Email Address</label>
+              <input type="email" class="form-control" id="newUserEmail" required placeholder="seun@example.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="newUserRole">Account Role</label>
+              <select class="form-control" id="newUserRole" required>
+                <option value="student">Student Learner</option>
+                <option value="teacher">Instructor / Teacher</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="channelNameGroup" style="display:none;">
+              <label class="form-label" for="newUserChannel">Creator Channel Name</label>
+              <input type="text" class="form-control" id="newUserChannel" placeholder="e.g. Seun Designs">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn--outline" data-close-modal="addUserModal">Cancel</button>
+          <button type="submit" class="btn btn--primary">Save User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var S = window.ChigosStorage;
+      if (!S) return;
+
+      var tbody = document.getElementById('usersTableBody');
+      var searchInput = document.getElementById('userSearchInput');
+      var rolePills = document.querySelectorAll('#roleFilterPills .filter-pill');
+      var currentRole = 'all';
+
+      function escape(str) {
+        return String(str || '').replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function formatNaira(num) {
+        return '₦' + Number(num || 0).toLocaleString('en-NG');
+      }
+
+      function render() {
+        var users = S.getUsers();
+        var teachers = users.filter(function (u) { return u.role === 'teacher'; });
+        var students = users.filter(function (u) { return u.role === 'student'; });
+        var admins = users.filter(function (u) { return u.role === 'admin'; });
+
+        document.getElementById('kpiTotalUsers').textContent = users.length;
+        document.getElementById('kpiTeachers').textContent = teachers.length;
+        document.getElementById('kpiStudents').textContent = students.length;
+        document.getElementById('kpiAdmins').textContent = admins.length;
+        var sbCount = document.getElementById('sidebarUsersCount');
+        if (sbCount) sbCount.textContent = users.length;
+
+        var q = (searchInput.value || '').trim().toLowerCase();
+        var filtered = users.slice();
+
+        if (currentRole !== 'all') {
+          filtered = filtered.filter(function (u) { return u.role === currentRole; });
+        }
+
+        if (q) {
+          filtered = filtered.filter(function (u) {
+            return (u.name || '').toLowerCase().indexOf(q) !== -1 ||
+                   (u.email || '').toLowerCase().indexOf(q) !== -1 ||
+                   (u.channelName || '').toLowerCase().indexOf(q) !== -1;
+          });
+        }
+
+        document.getElementById('userCountText').textContent = 'Showing ' + filtered.length + ' of ' + users.length + ' registered users';
+
+        if (!filtered.length) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:36px; color:var(--ink-muted);">' +
+            'No matching users found.' +
+          '</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = filtered.map(function (u) {
+          var roleBadgeClass = 'badge--info';
+          if (u.role === 'teacher') roleBadgeClass = 'badge--warning';
+          if (u.role === 'admin') roleBadgeClass = 'badge--danger';
+
+          var note = u.channelName ? ('Channel: ' + u.channelName) : (u.role === 'student' ? 'Student Learner' : 'Administrator');
+          var balanceInfo = u.role === 'teacher' ? formatNaira(u.balance || 0) : '—';
+          var joined = u.createdAt ? new Date(u.createdAt).toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Jan 2025';
+
+          return '<tr>' +
+            '<td>' +
+              '<div class="cell-user">' +
+                '<div class="cell-avatar">' + escape((u.name || 'U').slice(0, 2).toUpperCase()) + '</div>' +
+                '<div>' +
+                  '<div class="cell-title">' + escape(u.name) + '</div>' +
+                  '<div class="cell-sub">' + escape(u.email) + '</div>' +
+                '</div>' +
+              '</div>' +
+            '</td>' +
+            '<td><span class="badge ' + roleBadgeClass + '">' + escape(u.role.toUpperCase()) + '</span></td>' +
+            '<td><strong>' + escape(note) + '</strong></td>' +
+            '<td><strong style="color:var(--green);">' + balanceInfo + '</strong></td>' +
+            '<td style="color:var(--ink-muted); font-size:12px;">' + joined + '</td>' +
+            '<td style="text-align: right;">' +
+              (u.role !== 'admin' ? '<button type="button" class="btn btn--danger btn--sm" data-delete-user="' + escape(u.id) + '">Delete</button>' : '<span class="badge badge--neutral">Protected</span>') +
+            '</td>' +
+          '</tr>';
+        }).join('');
+      }
+
+      searchInput.addEventListener('input', render);
+
+      rolePills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          rolePills.forEach(function (p) { p.classList.remove('is-active'); });
+          pill.classList.add('is-active');
+          currentRole = pill.getAttribute('data-role');
+          render();
+        });
+      });
+
+      // Role switcher in Add Modal
+      var roleSelect = document.getElementById('newUserRole');
+      var channelGroup = document.getElementById('channelNameGroup');
+      roleSelect.addEventListener('change', function () {
+        channelGroup.style.display = roleSelect.value === 'teacher' ? 'flex' : 'none';
+      });
+
+      // Open Modal
+      document.getElementById('openAddUserBtn').addEventListener('click', function () {
+        AdminModal.open('addUserModal');
+      });
+
+      document.querySelectorAll('[data-close-modal="addUserModal"]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          AdminModal.close('addUserModal');
+        });
+      });
+
+      // Form submit
+      document.getElementById('addUserForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('newUserName').value.trim();
+        var email = document.getElementById('newUserEmail').value.trim().toLowerCase();
+        var role = document.getElementById('newUserRole').value;
+        var channel = document.getElementById('newUserChannel').value.trim();
+
+        var users = S.getUsers();
+        if (users.some(function (u) { return u.email.toLowerCase() === email; })) {
+          AdminToast.show('An account with this email already exists.', 'danger');
+          return;
+        }
+
+        var newUser = {
+          id: 'user-' + Date.now().toString(36),
+          name: name,
+          email: email,
+          password: 'learn123',
+          role: role,
+          channelName: channel,
+          balance: 0,
+          createdAt: new Date().toISOString()
+        };
+
+        users.push(newUser);
+        S.setUsers(users);
+
+        AdminModal.close('addUserModal');
+        document.getElementById('addUserForm').reset();
+        AdminToast.show('User "' + name + '" successfully created!', 'success');
+        render();
+      });
+
+      // Delete User
+      tbody.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-delete-user]');
+        if (!btn) return;
+        var id = btn.getAttribute('data-delete-user');
+        var u = S.getUserById(id);
+        AdminModal.confirm({
+          title: 'Delete User Account',
+          message: 'Are you sure you want to delete user account ' + (u ? u.name : id) + '? This action is irreversible.',
+          confirmText: 'Delete User',
+          danger: true,
+          onConfirm: function () {
+            var users = S.getUsers().filter(function (item) { return item.id !== id; });
+            S.setUsers(users);
+            AdminToast.show('User removed.', 'success');
+            render();
+          }
+        });
+      });
+
+      // Export CSV
+      document.getElementById('exportUsersBtn').addEventListener('click', function () {
+        var users = S.getUsers();
+        var rows = [['ID', 'Name', 'Email', 'Role', 'Channel Name', 'Balance', 'Created At']];
+        users.forEach(function (u) {
+          rows.push([u.id, u.name, u.email, u.role, u.channelName || '', u.balance || 0, u.createdAt]);
+        });
+        AdminExport.toCSV('chigos-users-' + new Date().toISOString().slice(0, 10) + '.csv', rows);
+        AdminToast.show('Users directory exported.', 'success');
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>
+

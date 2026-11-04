@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reviews — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-reviews.css">
+<link rel="stylesheet" href="css/teacher-sidebar.css">
+</head>
+<body>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<div class="dashboard" id="dashboard">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item" aria-current="page" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item is-active" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-pill">
+          <div class="user-avatar">SB</div>
+          <div class="user-meta">
+            <strong>Sarah Bello</strong>
+            <span>Product Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Your <span class="accent">reviews</span></h1>
+        <p>Every rating and review students have left across your courses.</p>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Total reviews</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">412</div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +18 this month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Average rating</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">4.87</div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +0.12 vs last month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Unanswered</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">7</div>
+        <span class="stat-delta stat-delta--neutral">Reply to boost rating</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Response rate</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">98<span class="unit">%</span></div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          Top 5% of instructors
+        </span>
+      </div>
+    </section>
+
+    <section class="rating-overview">
+      <div class="rating-big">
+        <strong>4.87</strong>
+        <div class="rating-stars">★★★★★</div>
+        <span>Course average</span>
+      </div>
+      <div class="rating-bars">
+        <div class="bar-row">
+          <span>5 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></span>
+          <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+          <em>86%</em>
+        </div>
+        <div class="bar-row">
+          <span>4 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></span>
+          <div class="bar-track"><div class="bar-fill" style="width:10%"></div></div>
+          <em>10%</em>
+        </div>
+        <div class="bar-row">
+          <span>3 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></span>
+          <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+          <em>3%</em>
+        </div>
+        <div class="bar-row">
+          <span>2 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></span>
+          <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+          <em>1%</em>
+        </div>
+        <div class="bar-row">
+          <span>1 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></span>
+          <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          <em>0%</em>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="6"/>
+          <path d="M16 16l5 5"/>
+        </svg>
+        <input type="search" id="reviewSearch" aria-label="Search reviews" placeholder="Search reviews…">
+      </div>
+
+      <div class="filter-tabs" id="filterTabs" role="group" aria-label="Filter reviews">
+        <button type="button" class="filter-tab is-active" data-filter="all" aria-pressed="true">
+          All <span class="tab-count">412</span>
+        </button>
+        <button type="button" class="filter-tab" data-filter="unanswered" aria-pressed="false">
+          Unanswered <span class="tab-count">7</span>
+        </button>
+        <button type="button" class="filter-tab" data-filter="5star" aria-pressed="false">
+          5★ <span class="tab-count">354</span>
+        </button>
+        <button type="button" class="filter-tab" data-filter="low" aria-pressed="false">
+          ≤ 3★ <span class="tab-count">14</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="reviews-list" id="reviewsList">
+
+      <article class="review-card" data-rating="5" data-answered="true" data-text="Adaeze Okafor product management practical projects">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#FFD9BA,#E8590C)">AO</div>
+          <div class="review-info">
+            <strong>Adaeze Okafor</strong>
+            <span>Product Management: From Idea to Launch</span>
+          </div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">2 days ago</span>
+          </div>
+        </div>
+        <div class="review-course">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Verified purchase
+        </div>
+        <p class="review-text">This course completely changed how I approach product strategy. The real-world projects were the highlight — I built a full product spec that I now use in job interviews. Sarah is a phenomenal teacher.</p>
+
+        <div class="instructor-response">
+          <div class="instructor-response-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+            Your response
+          </div>
+          <p>Thank you so much, Adaeze! 🎉 So glad the product spec project paid off — that's exactly the kind of work I want students to leave with. Best of luck with your interviews!</p>
+        </div>
+
+        <div class="review-actions">
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Helpful (24)
+          </button>
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Edit reply
+          </button>
+        </div>
+      </article>
+
+      <article class="review-card" data-rating="5" data-answered="false" data-text="Tunde Martins growth marketing realistic">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#FFCC99,#BF4A06)">TM</div>
+          <div class="review-info">
+            <strong>Tunde Martins</strong>
+            <span>Growth Marketing for Modern Startups</span>
+          </div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">5 hours ago</span>
+          </div>
+        </div>
+        <div class="review-course">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Verified purchase
+        </div>
+        <p class="review-text">Hands down the most practical marketing course I've taken. The ad audit templates alone were worth the price. Highly recommend for anyone running paid ads for the first time.</p>
+
+        <div class="reply-form" data-reply-for="review-2">
+          <textarea aria-label="Reply to Tunde Martins" placeholder="Write a thoughtful reply to Tunde…"></textarea>
+          <div class="reply-actions">
+            <button type="button" class="reply-btn reply-btn--ghost" data-cancel-reply>Cancel</button>
+            <button type="button" class="reply-btn reply-btn--primary" data-submit-reply>Post reply</button>
+          </div>
+        </div>
+
+        <div class="review-actions">
+          <button type="button" class="review-action is-primary" data-open-reply>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Reply
+          </button>
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Helpful (12)
+          </button>
+        </div>
+      </article>
+
+      <article class="review-card" data-rating="4" data-answered="false" data-text="Ngozi Kalu pricing section would love more depth">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#FFD9BA,#8A1C00)">NK</div>
+          <div class="review-info">
+            <strong>Ngozi Kalu</strong>
+            <span>Product Management: From Idea to Launch</span>
+          </div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★☆</div>
+            <span class="review-date">1 day ago</span>
+          </div>
+        </div>
+        <div class="review-course">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Verified purchase
+        </div>
+        <p class="review-text">Great course overall, but the pricing section felt rushed. Would love a deeper dive into pricing psychology and how to test pricing decisions. Everything else was excellent.</p>
+
+        <div class="reply-form" data-reply-for="review-3">
+          <textarea aria-label="Reply to Ngozi Kalu" placeholder="Write a thoughtful reply to Ngozi…"></textarea>
+          <div class="reply-actions">
+            <button type="button" class="reply-btn reply-btn--ghost" data-cancel-reply>Cancel</button>
+            <button type="button" class="reply-btn reply-btn--primary" data-submit-reply>Post reply</button>
+          </div>
+        </div>
+
+        <div class="review-actions">
+          <button type="button" class="review-action is-primary" data-open-reply>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Reply
+          </button>
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Helpful (8)
+          </button>
+        </div>
+      </article>
+
+      <article class="review-card" data-rating="5" data-answered="true" data-text="Efe Kalu best course investment worth every naira">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#FFE0C2,#BF4A06)">EK</div>
+          <div class="review-info">
+            <strong>Efe Kalu</strong>
+            <span>Growth Marketing for Modern Startups</span>
+          </div>
+          <div class="review-meta">
+            <div class="review-stars">★★★★★</div>
+            <span class="review-date">3 days ago</span>
+          </div>
+        </div>
+        <div class="review-course">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Verified purchase
+        </div>
+        <p class="review-text">Worth every naira. I applied the ad frameworks to my small business and within 3 weeks my cost per lead dropped by 40%. Sarah clearly knows what she's doing.</p>
+
+        <div class="instructor-response">
+          <div class="instructor-response-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+            Your response
+          </div>
+          <p>Efe — 40% lower CPL in 3 weeks is incredible! 🚀 Keep iterating and you'll keep improving. Thanks for sharing the win.</p>
+        </div>
+
+        <div class="review-actions">
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Helpful (31)
+          </button>
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Edit reply
+          </button>
+        </div>
+      </article>
+
+      <article class="review-card" data-rating="3" data-answered="false" data-text="Jide Adeyemi audio issues content solid">
+        <div class="review-head">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#FFB066,#8A1C00)">JA</div>
+          <div class="review-info">
+            <strong>Jide Adeyemi</strong>
+            <span>Product Management: From Idea to Launch</span>
+          </div>
+          <div class="review-meta">
+            <div class="review-stars">★★★☆☆</div>
+            <span class="review-date">4 days ago</span>
+          </div>
+        </div>
+        <div class="review-course">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Verified purchase
+        </div>
+        <p class="review-text">Content is solid, but a couple of modules had audio issues — voices were muffled in modules 4 and 5. Also, the pace slowed down significantly in the middle. Worth the price, but I'd love to see the audio fixed.</p>
+
+        <div class="reply-form" data-reply-for="review-5">
+          <textarea aria-label="Reply to Jide Adeyemi" placeholder="Write a thoughtful reply to Jide…"></textarea>
+          <div class="reply-actions">
+            <button type="button" class="reply-btn reply-btn--ghost" data-cancel-reply>Cancel</button>
+            <button type="button" class="reply-btn reply-btn--primary" data-submit-reply>Post reply</button>
+          </div>
+        </div>
+
+        <div class="review-actions">
+          <button type="button" class="review-action is-primary" data-open-reply>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Reply
+          </button>
+          <button type="button" class="review-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            Helpful (5)
+          </button>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="empty-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="6"/>
+          <path d="M21 21l-4.3-4.3"/>
+        </svg>
+      </div>
+      <h3>No reviews match</h3>
+      <p>Try a different keyword or filter.</p>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/teacher-reviews.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffcfa">
+  <meta name="description" content="Continue your courses and track your learning progress on Chigos.">
+  <title>My courses — Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/student.css">
+  <link rel="stylesheet" href="css/student-my-courses.css">
+  <script src="js/student.js" defer></script>
+  <script src="js/student-my-courses.js" defer></script>
+</head>
+<body class="my-courses-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a href="index.html" class="brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="studentLogoGradient" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFD9BA"/>
+              <stop offset="0.5" stop-color="#E8590C"/>
+              <stop offset="1" stop-color="#BF4A06"/>
+            </linearGradient>
+          </defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#studentLogoGradient)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#studentLogoGradient)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+
+      <div class="student-label"><span></span> Student portal</div>
+
+      <nav class="navigation" aria-label="Dashboard">
+        <p class="nav-heading">Learning</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link is-active" href="student-my-courses.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>My courses</span><span class="nav-count" id="sidebarCourseCount">3</span>
+        </a>
+        <a class="nav-link" href="student-progress.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span>My progress</span>
+        </a>
+        <a class="nav-link" href="student-certificates.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1 8 4.8-2.8 4.8 2.8-1-8"/></svg>
+          <span>Certificates</span><span class="nav-count">3</span>
+        </a>
+        <a class="nav-link" href="student-wishlist.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+          <span>Wishlist</span><span class="nav-count" id="sidebarWishlistCount">5</span>
+        </a>
+
+        <p class="nav-heading nav-heading--account">Your account</p>
+        <a class="nav-link" href="student-purchases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span>Purchases</span>
+        </a>
+        <a class="nav-link" href="student-profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          <span>Profile</span>
+        </a>
+        <a class="nav-link" href="student-settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button class="user-pill" id="userPill" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="userMenu">
+            <span class="user-avatar" id="sidebarAvatar">AJ</span>
+            <span class="user-meta"><strong id="sidebarName">Amara James</strong><span>Student account</span></span>
+            <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="user-menu" id="userMenu" role="menu" aria-label="Account options">
+            <a class="user-menu-item" href="login.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Switch account</span>
+            </a>
+            <a class="user-menu-item" href="student-notifications.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span>Notifications</span><span class="nav-count" id="sidebarNotifCount">4</span>
+            </a>
+            <a class="user-menu-item" href="student-help.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/><path d="M12 17h.01"/></svg><span>Help &amp; support</span>
+            </a>
+            <span class="user-menu-divider" role="separator"></span>
+            <button class="user-menu-item user-menu-item--danger" id="logoutBtn" type="button" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="backdrop" id="backdrop"></div>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="eyebrow"><span class="eyebrow-mark"></span> YOUR LEARNING LIBRARY</p>
+          <h1 class="page-title">My <span>courses</span></h1>
+          <p class="page-sub">All the courses you're enrolled in — pick up where you left off.</p>
+        </div>
+        <div class="topbar-actions">
+          <a href="student-explore.html" class="button button--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Explore lessons
+          </a>
+        </div>
+      </header>
+
+      <section class="library-section" aria-label="Your courses">
+        <div class="tabs" id="tabs" role="group" aria-label="Filter courses">
+          <button type="button" class="tab active" data-filter="all" aria-pressed="true">All <span class="tab-count" id="countAll">0</span></button>
+          <button type="button" class="tab" data-filter="in-progress" aria-pressed="false">In progress <span class="tab-count" id="countInProgress">0</span></button>
+          <button type="button" class="tab" data-filter="completed" aria-pressed="false">Completed <span class="tab-count" id="countCompleted">0</span></button>
+          <button type="button" class="tab" data-filter="not-started" aria-pressed="false">Not started <span class="tab-count" id="countNotStarted">0</span></button>
+        </div>
+
+        <div class="courses-grid" id="coursesGrid">
+          <a href="student-course-player.html" class="course-card" data-status="in-progress">
+            <div class="course-cover cover-product">
+              <span class="cover-orbit cover-orbit--one"></span><span class="cover-orbit cover-orbit--two"></span>
+              <span class="course-watermark">PM</span>
+              <span class="cover-caption">THINK · PLAN · BUILD</span>
+              <span class="course-status status-in-progress"><i></i> In progress</span>
+              <span class="course-percent">42%</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">BUSINESS &amp; PRODUCT</div>
+              <h2 class="course-title">Product Management: From Idea to Launch</h2>
+              <p class="course-instructor">By Sarah Bello</p>
+              <div class="course-progress">
+                <div class="progress-label"><span>YOUR PROGRESS</span><strong>42%</strong></div>
+                <div class="progress-bar" role="progressbar" aria-label="Product Management course progress" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill" style="width:42%"></span></div>
+                <div class="course-progress-text"><span>Lesson 5 of 12</span><span>42% complete</span></div>
+              </div>
+              <div class="course-meta">
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>3h 45m</span>
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 6.8-6.2-3.5-6.2 3.5 1.3-6.8L2 9.4l7-.9L12 2Z"/></svg>4.9</span>
+                <span class="course-meta-item">2 hours ago</span>
+              </div>
+            </div>
+            <div class="course-footer"><span class="course-action">Continue learning</span><span class="course-arrow" aria-hidden="true">→</span></div>
+          </a>
+
+          <a href="student-course-player.html" class="course-card" data-status="in-progress">
+            <div class="course-cover cover-marketing">
+              <span class="cover-orbit cover-orbit--one"></span><span class="cover-orbit cover-orbit--two"></span>
+              <span class="course-watermark">MKT</span>
+              <span class="cover-caption">FIND YOUR PEOPLE</span>
+              <span class="course-status status-in-progress"><i></i> In progress</span>
+              <span class="course-percent">18%</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">MARKETING</div>
+              <h2 class="course-title">Growth Marketing for Modern Startups</h2>
+              <p class="course-instructor">By David Okonkwo</p>
+              <div class="course-progress">
+                <div class="progress-label"><span>YOUR PROGRESS</span><strong>18%</strong></div>
+                <div class="progress-bar" role="progressbar" aria-label="Growth Marketing course progress" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill" style="width:18%"></span></div>
+                <div class="course-progress-text"><span>Lesson 2 of 8</span><span>18% complete</span></div>
+              </div>
+              <div class="course-meta">
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>2h 30m</span>
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 6.8-6.2-3.5-6.2 3.5 1.3-6.8L2 9.4l7-.9L12 2Z"/></svg>4.8</span>
+                <span class="course-meta-item">Yesterday</span>
+              </div>
+            </div>
+            <div class="course-footer"><span class="course-action">Continue learning</span><span class="course-arrow" aria-hidden="true">→</span></div>
+          </a>
+
+          <a href="student-certificates.html" class="course-card" data-status="completed">
+            <div class="course-cover cover-business">
+              <span class="cover-orbit cover-orbit--one"></span><span class="cover-orbit cover-orbit--two"></span>
+              <span class="course-watermark">BIZ</span>
+              <span class="cover-caption">MAKE A PLAN. MAKE IT HAPPEN.</span>
+              <span class="course-status status-completed"><i>✓</i> Completed</span>
+              <span class="course-percent">100%</span>
+            </div>
+            <div class="course-body">
+              <div class="course-category">BUSINESS</div>
+              <h2 class="course-title">Business Strategy Fundamentals</h2>
+              <p class="course-instructor">By Amaka Eze</p>
+              <div class="course-progress">
+                <div class="progress-label"><span>YOUR PROGRESS</span><strong>100%</strong></div>
+                <div class="progress-bar" role="progressbar" aria-label="Business Strategy course progress" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span class="progress-fill progress-fill--complete" style="width:100%"></span></div>
+                <div class="course-progress-text"><span>All 10 lessons</span><span>Certificate earned</span></div>
+              </div>
+              <div class="course-meta">
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>4h 15m</span>
+                <span class="course-meta-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3 6.5 7 .9-5.1 4.8 1.3 6.8-6.2-3.5-6.2 3.5 1.3-6.8L2 9.4l7-.9L12 2Z"/></svg>4.7</span>
+                <span class="course-meta-item">1 week ago</span>
+              </div>
+            </div>
+            <div class="course-footer course-footer--complete"><span class="course-action">View certificate</span><span class="course-arrow" aria-hidden="true">→</span></div>
+          </a>
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <span class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </span>
+          <h2>Nothing here yet</h2>
+          <p>When you enroll in courses that match this filter, they'll show up here.</p>
+          <a href="student-explore.html" class="button button--primary">Explore lessons <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>Made for curious minds.</span><span>© 2026 Chigos</span></footer>
+    </main>
+  </div>
+</body>
+</html>

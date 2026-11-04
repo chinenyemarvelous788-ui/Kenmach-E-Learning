@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Chigos</title>
+<meta name="description" content="Meet Chigos and learn why we make practical skills, fair teaching, and honest learning accessible to everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/homepage.css">
+<link rel="stylesheet" href="css/about.css">
+<script src="js/homepage.js" defer></script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-glow" id="navGlow"></div>
+
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg width="38" height="38" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navLogoGrad" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#E8590C"/>
+            <stop offset="1" stop-color="#BF4A06"/>
+          </linearGradient>
+        </defs>
+        <circle cx="256" cy="256" r="150" stroke="url(#navLogoGrad)" stroke-width="64"
+                stroke-linecap="round" stroke-dasharray="642.5 300"
+                transform="rotate(60 256 256)"/>
+        <circle cx="256" cy="256" r="32" fill="url(#navLogoGrad)"/>
+      </svg>
+    </div>
+    <span class="logo-text">Chigos</span>
+  </a>
+
+  <ul class="nav-links" id="primaryNav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="about.html" aria-current="page">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <label class="nav-search" id="navSearch">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="6"/>
+      <path d="M16 16l5 5"/>
+    </svg>
+    <input type="search" placeholder="Search courses…" aria-label="Search courses">
+  </label>
+
+  <button class="search-toggle" id="searchToggle" type="button" aria-label="Open course search" aria-expanded="false" aria-controls="navSearch">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="6"/>
+      <path d="m16 16 5 5"/>
+    </svg>
+  </button>
+
+  <div class="nav-actions">
+    <a href="login.html" class="btn btn--ghost">Log in</a>
+    <a href="signup-student.html" class="btn btn--orange">
+      <span class="shimmer"></span>
+      Get Started
+    </a>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<main class="page">
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      <span>About</span>
+    </div>
+
+    <section class="about-hero">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Our Story</span>
+        <h1>We believe learning should be <span class="accent">practical, honest,</span> and within reach.</h1>
+        <p class="hero-lede">Chigos is a Nigerian-built learning platform with one goal: teach real skills from real practitioners — so learners can build real careers. No inflated promises. No recycled theory. Just work that works.</p>
+        <div class="hero-stats">
+          <div class="stat-block"><strong>12,400+</strong><span>Students learning</span></div>
+          <div class="stat-block"><strong>60+</strong><span>Expert instructors</span></div>
+          <div class="stat-block"><strong>340+</strong><span>Courses &amp; paths</span></div>
+          <div class="stat-block"><strong>21</strong><span>Categories</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-img-frame">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=85" alt="Students learning together">
+          <div class="hero-img-overlay"></div>
+          <div class="hero-img-caption">
+            <span class="caption-label">BUILT IN LAGOS</span>
+            <h3>Made for Africa, built for the world.</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block mission-block">
+      <div class="mission-grid">
+        <div class="mission-copy">
+          <span class="section-eyebrow">Our Mission</span>
+          <h2>Make world-class learning genuinely accessible.</h2>
+          <p>Africa has no shortage of talent — it has a shortage of access. Access to mentors who've actually done the work. Access to affordable, practical courses that respect your time.</p>
+          <p>We built Chigos to close that gap. Every course teaches something you can use <strong>this week</strong> — not something you'll "someday" need. Every instructor is vetted, verified, and still working in their field.</p>
+          <a href="courses.html" class="mission-cta">Explore our courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="mission-visual">
+          <div class="mission-card">
+            <div class="mission-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+            <h4>Real skills</h4>
+            <p>Taught by people who've shipped the work they teach — not just studied it.</p>
+          </div>
+          <div class="mission-card">
+            <div class="mission-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h4>Fair pricing</h4>
+            <p>Courses from ₦0. Instructors keep almost everything — flat ₦100 platform fee.</p>
+          </div>
+          <div class="mission-card">
+            <div class="mission-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h4>Learn at your pace</h4>
+            <p>Lifetime access. Study on any device, at any hour, from any city.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-head">
+        <span class="section-eyebrow">What We Stand For</span>
+        <h2>The values behind every course we ship.</h2>
+      </div>
+      <div class="values-grid">
+        <article class="value-card">
+          <div class="value-num">01</div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h3>Transparency</h3>
+          <p>No hidden fees. No inflated reviews. No "get rich quick" promises. What you see is what you get.</p>
+        </article>
+        <article class="value-card">
+          <div class="value-num">02</div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg></div>
+          <h3>Craft over fluff</h3>
+          <p>Every lesson earns its place. We cut anything that doesn't make you better at the thing you came to learn.</p>
+        </article>
+        <article class="value-card">
+          <div class="value-num">03</div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Community first</h3>
+          <p>Chigos isn't a content library — it's a community of learners and instructors who care about each other's progress.</p>
+        </article>
+        <article class="value-card">
+          <div class="value-num">04</div>
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Real outcomes</h3>
+          <p>We measure success by what our learners build, earn, and become — not by how many certificates we hand out.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block story-block">
+      <div class="section-head">
+        <span class="section-eyebrow">Our Journey</span>
+        <h2>From a small idea in Lagos to a growing movement.</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2021</span>
+            <h3>The idea</h3>
+            <p>Two engineers frustrated by outdated online courses decided to build something better — a platform where practitioners teach what they actually do for a living.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2022</span>
+            <h3>First 10 instructors</h3>
+            <p>We onboarded our first 10 instructors — senior engineers, designers, and data scientists from companies like Paystack, Flutterwave, and Google.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2023</span>
+            <h3>1,000 learners</h3>
+            <p>Chigos crossed 1,000 enrolled learners. Our first cohort of students landed jobs at companies they'd only dreamed of.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2024</span>
+            <h3>Expanded into 21 categories</h3>
+            <p>We grew beyond tech — adding music, cooking, health, languages, and more. Learning became broader than career skills.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-year">2025</span>
+            <h3>12,400+ strong</h3>
+            <p>Today, over 12,000 learners across Africa and beyond call Chigos home. And we're just getting started.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-head">
+        <span class="section-eyebrow">The Team</span>
+        <h2>Small team. Big obsession with craft.</h2>
+      </div>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-avatar">AO</div>
+          <h3>Adaeze Okafor</h3>
+          <p class="team-role">Co-founder &amp; CEO</p>
+          <p class="team-bio">Ex-Paystack engineer. Built payments infrastructure for millions. Now building the platform she wished she had when she started.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar">TM</div>
+          <h3>Tunde Martins</h3>
+          <p class="team-role">Co-founder &amp; Design</p>
+          <p class="team-bio">Former design lead at Flutterwave. Obsessed with making complex learning experiences feel effortless.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar">NK</div>
+          <h3>Ngozi Kalu</h3>
+          <p class="team-role">Head of Instructors</p>
+          <p class="team-bio">Ex-Google data scientist. Curates our instructor roster and makes sure every course earns its place.</p>
+        </article>
+        <article class="team-card">
+          <div class="team-avatar">EK</div>
+          <h3>Efe Kalu</h3>
+          <p class="team-role">Head of Growth</p>
+          <p class="team-bio">Three-time startup founder. Leads community, partnerships, and everything that makes Chigos feel like home.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block cta-block">
+      <div class="cta-inner">
+        <span class="cta-eyebrow">Join Us</span>
+        <h2>Ready to learn something <span class="accent">extraordinary?</span></h2>
+        <p>Join 12,400+ learners already building real skills on Chigos. Start free — no card required.</p>
+        <div class="cta-actions">
+          <a href="courses.html" class="cta-primary">Explore courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="contact.html" class="cta-secondary">Talk to us</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-brand-logo">
+          <div class="footer-brand-logo-mark">
+            <svg width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footerBrandGrad" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#FFD9BA"/>
+                  <stop offset="0.5" stop-color="#E8590C"/>
+                  <stop offset="1" stop-color="#BF4A06"/>
+                </linearGradient>
+              </defs>
+              <circle cx="256" cy="256" r="150" stroke="url(#footerBrandGrad)" stroke-width="64"
+                      stroke-linecap="round" stroke-dasharray="642.5 300"
+                      transform="rotate(60 256 256)"/>
+              <circle cx="256" cy="256" r="32" fill="url(#footerBrandGrad)"/>
+            </svg>
+          </div>
+          <span class="footer-brand-logo-text">Chigos</span>
+        </a>
+        <p class="brand-tagline">
+          Real skills, real teachers, real outcomes. Learn from practitioners who've shipped the work they teach.
+        </p>
+        <div class="social-row">
+          <a href="#" class="social-icon" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.9l-5.4-7.1L4.5 22H1.4l8-9.2L1 2h7.1l4.9 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4l12.3 16.1z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.5-5.6a2.8 2.8 0 0 0-2-2C18.8 4 12 4 12 4s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.8.5-5.6.5-5.6zM9.75 15.5v-7l6 3.5z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.7a4.9 4.9 0 0 1-3.8-4.2h-3v13.6a2.8 2.8 0 1 1-2.4-2.8V10a6.2 6.2 0 1 0 5.4 6.1V9.4a8 8 0 0 0 4.6 1.4V7.6a4.9 4.9 0 0 1-.8-.9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul><li><a href="courses.html">Courses</a></li><li><a href="#paths">Learning Paths</a></li><li><a href="#">Pricing</a></li><li><a href="#">Mobile App</a></li><li><a href="#">Certificates</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="#">Careers<span class="link-badge">Hiring</span></a></li><li><a href="#">Blog</a></li><li><a href="#">Press</a></li><li><a href="#">Partners</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul><li><a href="#">Help Center</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">System Status</a></li><li><a href="#">Accessibility</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul><li><a href="#">Terms of Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Cookie Settings</a></li><li><a href="#">Refund Policy</a></li><li><a href="#">Security</a></li></ul>
+      </div>
+    </div>
+
+    <div class="footer-middle">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+          <span class="flag" id="currentFlag">🇳🇬</span>
+          <span id="currentLang">English (NG)</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <button data-flag="🇳🇬" data-label="English (NG)" class="active"><span class="flag">🇳🇬</span> English (NG)</button>
+          <button data-flag="🇬🇧" data-label="English (UK)"><span class="flag">🇬🇧</span> English (UK)</button>
+          <button data-flag="🇫🇷" data-label="Français"><span class="flag">🇫🇷</span> Français</button>
+          <button data-flag="🇪🇸" data-label="Español"><span class="flag">🇪🇸</span> Español</button>
+          <button data-flag="🇸🇦" data-label="العربية"><span class="flag">🇸🇦</span> العربية</button>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>Visa</span>
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>Mastercard</span>
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 15h4"/></svg>Verve</span>
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/><path d="M9 12l2 2 4-4"/></svg>Paystack</span>
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/></svg>Flutterwave</span>
+        <span class="pay-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>SSL Secured</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© 2025 <strong>Chigos Learning Ltd.</strong> · Made with 🔥 in Lagos, Nigeria.</p>
+      <div class="bottom-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Cookies</a><a href="#">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" type="button" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="m5 12 7-7 7 7"/>
+  </svg>
+</button>
+
+<script src="js/about.js" defer></script>
+
+</body>
+</html>

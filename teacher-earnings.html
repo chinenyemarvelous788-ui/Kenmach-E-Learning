@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Earnings — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-earnings.css">
+<link rel="stylesheet" href="css/teacher-sidebar.css">
+</head>
+<body>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<div class="dashboard" id="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item" aria-current="page" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item is-active" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-pill">
+          <div class="user-avatar">SB</div>
+          <div class="user-meta">
+            <strong>Sarah Bello</strong>
+            <span>Product Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Your <span class="accent">earnings</span></h1>
+        <p>Everything you've earned on Chigos — ready to withdraw when you are.</p>
+      </div>
+      <button type="button" class="action-btn action-btn--primary" id="withdrawBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        Withdraw funds
+      </button>
+    </header>
+
+    <!-- BALANCE HERO -->
+    <section class="balance-hero">
+      <div class="balance-copy">
+        <div class="balance-label">Available to withdraw</div>
+        <div class="balance-value">₦142,300</div>
+        <div class="balance-sub">Next scheduled payout: <strong>March 15, 2025</strong></div>
+      </div>
+      <div class="balance-actions">
+        <button type="button" class="balance-btn" id="instantBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          Instant withdraw
+        </button>
+        <button type="button" class="balance-btn balance-btn--ghost" id="scheduleBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+          Schedule payout
+        </button>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Total earned</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">₦1.28<span class="unit">M</span></div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +18.4% this month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">This month</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">₦142,300</div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +22.8% vs last month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Pending</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">₦8,400</div>
+        <span class="stat-delta stat-delta--neutral">Clears in ~3 days</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Withdrawn</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">₦1.14<span class="unit">M</span></div>
+        <span class="stat-delta stat-delta--neutral">Lifetime</span>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section class="panel chart-panel">
+      <div class="chart-head">
+        <div>
+          <h2>Earnings overview</h2>
+          <p>Your monthly earnings over the last 6 months</p>
+        </div>
+        <div class="chart-range" id="chartRange" role="group" aria-label="Earnings chart period">
+          <button type="button" class="range-btn" data-range="30d" aria-pressed="false">30 days</button>
+          <button type="button" class="range-btn" data-range="90d" aria-pressed="false">90 days</button>
+          <button type="button" class="range-btn is-active" data-range="6m" aria-pressed="true">6 months</button>
+          <button type="button" class="range-btn" data-range="1y" aria-pressed="false">1 year</button>
+        </div>
+      </div>
+      <div class="chart-total">
+        <span class="chart-total-value" id="chartTotal">₦846,400</span>
+        <span class="chart-total-delta" id="chartDelta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +24.6%
+        </span>
+      </div>
+      <div class="chart" id="chart"></div>
+    </section>
+
+    <!-- TWO COLUMN -->
+    <section class="grid-2">
+
+      <!-- Breakdown by course -->
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Earnings by course</h2>
+            <p>Where your money comes from</p>
+          </div>
+        </div>
+        <div class="course-breakdown">
+          <div class="breakdown-row">
+            <div class="breakdown-info">
+              <div class="breakdown-dot" style="background:linear-gradient(135deg,#E8590C,#BF4A06)"></div>
+              <div class="breakdown-text">
+                <strong>Product Management: From Idea to Launch</strong>
+                <span>248 students · ₦15,000</span>
+              </div>
+            </div>
+            <div class="breakdown-value">
+              <strong>₦842,500</strong>
+              <span>66%</span>
+            </div>
+          </div>
+          <div class="breakdown-bar"><span style="width:66%;background:linear-gradient(90deg,#E8590C,#BF4A06)"></span></div>
+
+          <div class="breakdown-row">
+            <div class="breakdown-info">
+              <div class="breakdown-dot" style="background:linear-gradient(135deg,#FF8C00,#BF4A06)"></div>
+              <div class="breakdown-text">
+                <strong>Growth Marketing for Modern Startups</strong>
+                <span>128 students · ₦12,000</span>
+              </div>
+            </div>
+            <div class="breakdown-value">
+              <strong>₦436,800</strong>
+              <span>34%</span>
+            </div>
+          </div>
+          <div class="breakdown-bar"><span style="width:34%;background:linear-gradient(90deg,#FF8C00,#BF4A06)"></span></div>
+
+          <div class="breakdown-row">
+            <div class="breakdown-info">
+              <div class="breakdown-dot" style="background:rgba(31,26,23,.4)"></div>
+              <div class="breakdown-text">
+                <strong>Intro to Public Speaking</strong>
+                <span>36 students · ₦8,000 — archived</span>
+              </div>
+            </div>
+            <div class="breakdown-value">
+              <strong>₦68,000</strong>
+              <span>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payout history -->
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Payout history</h2>
+            <p>Your last 5 withdrawals</p>
+          </div>
+          <a href="#" class="panel-link">View all</a>
+        </div>
+        <div class="payout-list">
+          <div class="payout-row">
+            <div class="payout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="payout-info">
+              <strong>₦85,000</strong>
+              <span>Mar 1, 2025 · GTBank ···· 4821</span>
+            </div>
+            <span class="payout-status">Completed</span>
+          </div>
+          <div class="payout-row">
+            <div class="payout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="payout-info">
+              <strong>₦120,000</strong>
+              <span>Feb 15, 2025 · GTBank ···· 4821</span>
+            </div>
+            <span class="payout-status">Completed</span>
+          </div>
+          <div class="payout-row">
+            <div class="payout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="payout-info">
+              <strong>₦95,500</strong>
+              <span>Feb 1, 2025 · GTBank ···· 4821</span>
+            </div>
+            <span class="payout-status">Completed</span>
+          </div>
+          <div class="payout-row">
+            <div class="payout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="payout-info">
+              <strong>₦72,000</strong>
+              <span>Jan 15, 2025 · GTBank ···· 4821</span>
+            </div>
+            <span class="payout-status">Completed</span>
+          </div>
+          <div class="payout-row">
+            <div class="payout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <div class="payout-info">
+              <strong>₦64,800</strong>
+              <span>Jan 1, 2025 · GTBank ···· 4821</span>
+            </div>
+            <span class="payout-status">Completed</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- WITHDRAW MODAL -->
+<div class="modal-overlay" id="withdrawModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="withdrawTitle">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+    </div>
+
+    <h3 class="modal-title" id="withdrawTitle">Withdraw funds</h3>
+    <p class="modal-sub">Available: <strong>₦142,300</strong></p>
+
+    <div class="modal-form">
+      <label for="withdrawAmount">Amount to withdraw</label>
+      <div class="modal-input-wrap">
+        <span class="modal-prefix">₦</span>
+        <input type="number" id="withdrawAmount" placeholder="0" min="1000" max="142300" value="142300">
+      </div>
+      <p class="modal-hint">Minimum ₦1,000 · Maximum ₦142,300</p>
+
+      <label>Payout method</label>
+      <div class="payout-method">
+        <div class="payout-method-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <div class="payout-method-info">
+          <strong>GTBank ···· 4821</strong>
+          <span>Sarah Bello · Default</span>
+        </div>
+        <button type="button" class="payout-method-change">Change</button>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="modal-btn modal-btn--ghost" id="modalCancel">Cancel</button>
+        <button type="button" class="modal-btn modal-btn--primary" id="modalConfirm">
+          Withdraw now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/teacher-earnings.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+
+</body>
+</html>

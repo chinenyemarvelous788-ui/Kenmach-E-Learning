@@ -1,0 +1,826 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instructor dashboard — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-dashboard.css">
+<link rel="stylesheet" href="css/teacher-sidebar.css">
+<style>
+.user-account {
+  position: relative;
+  width: 100%;
+}
+
+.user-pill {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: rgba(255,255,255,.04);
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+
+.user-pill-chevron {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  transition: transform .25s var(--ease);
+}
+
+.user-pill[aria-expanded="true"] .user-pill-chevron {
+  transform: rotate(180deg);
+}
+
+.user-menu {
+  position: absolute;
+  z-index: 2;
+  right: 8px;
+  bottom: calc(100% + 8px);
+  left: 8px;
+  padding: 6px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  background: #241c17;
+  box-shadow: 0 12px 32px rgba(0,0,0,.45);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(6px) scale(.98);
+  pointer-events: none;
+  transition: all .25s var(--ease);
+}
+
+.user-pill[aria-expanded="true"] + .user-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.user-menu-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255,255,255,.8);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.user-menu-item:hover {
+  background: rgba(255,255,255,.07);
+}
+
+.user-menu-item svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.user-menu-divider {
+  height: 1px;
+  margin: 6px 4px;
+  background: rgba(255,255,255,.08);
+}
+
+.user-menu-item--danger {
+  color: #FF8A8A;
+}
+
+.user-menu-item--danger:hover {
+  background: rgba(220,38,38,.15);
+}
+
+.dashboard.is-collapsed .user-pill-chevron {
+  display: none;
+}
+
+.dashboard.is-collapsed .user-menu {
+  right: auto;
+  bottom: 0;
+  left: calc(100% + 8px);
+  width: 220px;
+}
+
+@media (min-width: 901px) {
+  .dashboard.is-collapsed .sidebar {
+    overflow: visible;
+  }
+
+  .dashboard.is-collapsed .user-account {
+    z-index: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard.is-collapsed .user-pill-chevron {
+    display: block;
+  }
+
+  .dashboard.is-collapsed .user-menu {
+    right: 8px;
+    bottom: calc(100% + 8px);
+    left: 8px;
+    width: auto;
+  }
+}
+</style>
+<style>
+body.teacher-dashboard-page {
+  overflow-x: hidden;
+}
+
+.dashboard,
+.main,
+.stats-grid,
+.grid-2,
+.courses-grid,
+.chart {
+  min-width: 0;
+}
+
+.grid-2 {
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+}
+
+.chart-bar {
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.panel-head,
+.chart-head,
+.courses-head {
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1201px) {
+  .courses-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .stats-grid,
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard,
+  body.teacher-dashboard-page .dashboard,
+  body.teacher-dashboard-page .dashboard.is-collapsed {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar,
+  body.teacher-dashboard-page .dashboard.is-collapsed .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 50;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .4s var(--ease);
+    box-shadow: 0 0 40px rgba(0,0,0,.3);
+  }
+
+  .sidebar.is-open,
+  body.teacher-dashboard-page .dashboard.is-collapsed .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-toggle {
+    display: grid;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    width: 44px;
+    height: 44px;
+    z-index: 100;
+    border-radius: 12px;
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(31,26,23,.3);
+  }
+
+  .collapse-btn,
+  .dashboard.is-collapsed .collapse-btn {
+    display: none;
+  }
+
+  .dashboard.is-collapsed .sidebar-header {
+    min-height: auto;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0;
+  }
+
+  .dashboard.is-collapsed .sidebar-logo {
+    flex: 1;
+    justify-content: flex-start;
+    padding: 6px 8px;
+  }
+
+  .dashboard.is-collapsed .sidebar-logo span {
+    display: inline;
+    width: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .dashboard.is-collapsed .sidebar-role {
+    width: auto;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+  }
+
+  .dashboard.is-collapsed .sidebar-role span {
+    width: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .dashboard.is-collapsed .nav-group {
+    margin-top: 0;
+  }
+
+  .dashboard.is-collapsed .nav-group-label {
+    display: block;
+    height: auto;
+    overflow: visible;
+    padding: 8px 12px 4px;
+    opacity: 1;
+  }
+
+  .dashboard.is-collapsed .nav-item {
+    min-height: 44px;
+    justify-content: flex-start;
+    padding: 11px 14px;
+  }
+
+  .dashboard.is-collapsed .nav-item .nav-label {
+    display: inline;
+    width: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .dashboard.is-collapsed .nav-item .badge {
+    display: inline-flex;
+    position: static;
+    min-width: 21px;
+    height: 21px;
+    margin-left: auto;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    text-align: center;
+  }
+
+  .dashboard.is-collapsed .earnings-mini {
+    display: block;
+  }
+
+  .dashboard.is-collapsed .user-pill {
+    justify-content: flex-start;
+    padding: 10px 8px 4px;
+  }
+
+  .dashboard.is-collapsed .user-meta {
+    display: grid;
+    width: auto;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .dashboard.is-collapsed .nav-item::after,
+  .collapsed-tooltip {
+    display: none;
+    content: none;
+  }
+
+  .dashboard.is-collapsed .user-pill-chevron {
+    display: block;
+  }
+
+  .dashboard.is-collapsed .user-menu {
+    right: 8px;
+    bottom: calc(100% + 8px);
+    left: 8px;
+    width: auto;
+    max-width: calc(100% - 16px);
+  }
+
+  .main,
+  .dashboard.is-collapsed .main {
+    width: 100%;
+    margin-left: 0;
+    padding: 80px 20px 40px;
+  }
+
+  .stats-grid,
+  .courses-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nav-item,
+  .action-btn,
+  .payout-btn {
+    min-height: 44px;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    z-index: 40;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .3s var(--ease), visibility .3s var(--ease);
+  }
+
+  .sidebar-backdrop.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .topbar-copy {
+    flex: 1 1 100%;
+  }
+
+  .topbar-actions .action-btn {
+    min-width: 0;
+    flex: 1 1 0;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .topbar-copy {
+    min-width: 0;
+  }
+
+  .topbar-copy h1 {
+    max-width: 100%;
+    font-size: clamp(24px, 2.8vw, 34px);
+  }
+
+  .payout-card {
+    align-items: stretch;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .payout-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .chart {
+    gap: 6px;
+  }
+
+  .bar-label {
+    font-size: 10px;
+  }
+
+  .panel-head,
+  .chart-head,
+  .courses-head {
+    flex-wrap: wrap;
+  }
+}
+</style>
+</head>
+<body class="teacher-dashboard-page">
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<div class="dashboard" id="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item is-active" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item" aria-current="page" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button type="button" class="user-pill" aria-haspopup="true" aria-expanded="false" aria-controls="userMenu">
+            <span class="user-avatar">SB</span>
+            <span class="user-meta">
+              <strong>Sarah Bello</strong>
+              <span>Product Management</span>
+            </span>
+            <svg class="user-pill-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="user-menu" id="userMenu">
+            <a href="login.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10 17 15 12 10 7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              <span>Switch account</span>
+            </a>
+            <a href="teacher-help.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/>
+                <path d="M12 17h.01"/>
+              </svg>
+              <span>Help &amp; support</span>
+            </a>
+            <div class="user-menu-divider" aria-hidden="true"></div>
+            <button type="button" class="user-menu-item user-menu-item--danger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              <span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Welcome back, <span class="accent">Sarah</span> 👋</h1>
+        <p>Here's what's happening with your courses today.</p>
+      </div>
+      <div class="topbar-actions">
+        <a href="teacher-courses.html" class="action-btn action-btn--ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          View all courses
+        </a>
+        <a href="teacher-upload.html" class="action-btn action-btn--primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Create a course
+        </a>
+      </div>
+    </header>
+
+    <!-- STATS -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Total earnings</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">₦1.28<span class="unit">M</span></div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +18.4% this month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Students</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+              <circle cx="10" cy="7" r="4"/>
+              <path d="M21 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">412</div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +24 this week
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Avg. rating</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">4.87</div>
+        <span class="stat-delta stat-delta--up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+          +0.12 from last month
+        </span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-head">
+          <span class="stat-label">Courses live</span>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-value">3<span class="unit"> / 4</span></div>
+        <span class="stat-delta stat-delta--neutral">1 draft in progress</span>
+      </div>
+    </section>
+
+    <!-- CHART + STUDENTS -->
+    <section class="grid-2">
+      <div class="panel chart-panel">
+        <div class="chart-head">
+          <div>
+            <h2>Revenue</h2>
+            <p>Your earnings over the last 7 days</p>
+          </div>
+          <div class="chart-range" id="chartRange">
+            <button type="button" class="range-btn is-active" data-range="7d">7 days</button>
+            <button type="button" class="range-btn" data-range="30d">30 days</button>
+            <button type="button" class="range-btn" data-range="90d">90 days</button>
+          </div>
+        </div>
+        <div class="chart-total">
+          <span class="chart-total-value" id="chartTotal">₦84,500</span>
+          <span class="chart-total-delta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            +22.8%
+          </span>
+        </div>
+        <div class="chart" id="chart"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Recent students</h2>
+            <p>Latest 5 enrolments</p>
+          </div>
+          <a href="teacher-students.html" class="panel-link">
+            View all
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="students-list">
+          <div class="student-row">
+            <div class="student-avatar">AO</div>
+            <div class="student-info">
+              <strong>Adaeze Okafor</strong>
+              <span>Product Management · 2h ago</span>
+            </div>
+            <span class="student-price">₦15,000</span>
+          </div>
+          <div class="student-row">
+            <div class="student-avatar" style="background:linear-gradient(135deg,#FFCC99,#BF4A06)">TM</div>
+            <div class="student-info">
+              <strong>Tunde Martins</strong>
+              <span>Product Management · 5h ago</span>
+            </div>
+            <span class="student-price">₦15,000</span>
+          </div>
+          <div class="student-row">
+            <div class="student-avatar" style="background:linear-gradient(135deg,#FFD9BA,#8A1C00)">NK</div>
+            <div class="student-info">
+              <strong>Ngozi Kalu</strong>
+              <span>Growth Marketing · Yesterday</span>
+            </div>
+            <span class="student-price">₦12,000</span>
+          </div>
+          <div class="student-row">
+            <div class="student-avatar" style="background:linear-gradient(135deg,#FFE0C2,#BF4A06)">EK</div>
+            <div class="student-info">
+              <strong>Efe Kalu</strong>
+              <span>Product Management · 2 days ago</span>
+            </div>
+            <span class="student-price">₦15,000</span>
+          </div>
+          <div class="student-row">
+            <div class="student-avatar" style="background:linear-gradient(135deg,#FFB066,#8A1C00)">JA</div>
+            <div class="student-info">
+              <strong>Jide Adeyemi</strong>
+              <span>Growth Marketing · 3 days ago</span>
+            </div>
+            <span class="student-price">₦12,000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section>
+      <div class="courses-head">
+        <h2>Your courses</h2>
+        <a href="teacher-courses.html" class="panel-link">
+          Manage all
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="courses-grid">
+        <a href="teacher-course-edit.html" class="course-card">
+          <div class="course-cover cover-1">
+            <span class="course-watermark">PM</span>
+            <span class="course-status status-live">Live</span>
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Product Management: From Idea to Launch</h3>
+            <div class="course-stats">
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+                248
+              </span>
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+                4.9
+              </span>
+              <span class="course-price">₦15,000</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="teacher-course-edit.html" class="course-card">
+          <div class="course-cover cover-2">
+            <span class="course-watermark">MKT</span>
+            <span class="course-status status-live">Live</span>
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Growth Marketing for Modern Startups</h3>
+            <div class="course-stats">
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+                128
+              </span>
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+                4.8
+              </span>
+              <span class="course-price">₦12,000</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="teacher-course-edit.html" class="course-card">
+          <div class="course-cover cover-3">
+            <span class="course-watermark">BIZ</span>
+            <span class="course-status status-draft">Draft</span>
+          </div>
+          <div class="course-body">
+            <h3 class="course-title">Business Strategy Fundamentals</h3>
+            <div class="course-stats">
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+                0
+              </span>
+              <span class="course-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                42% done
+              </span>
+              <span class="course-price">₦—</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="teacher-upload.html" class="new-course-card">
+          <div class="new-course-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+          <span class="new-course-title">Create a new course</span>
+          <span class="new-course-sub">Share your knowledge and start earning</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/teacher-dashboard.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+
+</body>
+</html>

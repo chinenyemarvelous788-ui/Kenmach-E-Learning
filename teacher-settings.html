@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Settings — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-profile.css">
+<link rel="stylesheet" href="css/teacher-settings.css">
+<link rel="stylesheet" href="css/teacher-sidebar.css">
+</head>
+<body>
+
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<div class="dashboard" id="dashboard">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item" aria-current="page" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item is-active" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-pill">
+          <div class="user-avatar">SB</div>
+          <div class="user-meta">
+            <strong>Sarah Bello</strong>
+            <span>Product Management</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Settings</h1>
+        <p>Manage your account, notifications, security and billing preferences.</p>
+      </div>
+      <button type="button" class="action-btn action-btn--primary" id="saveAllBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+          <polyline points="17 21 17 13 7 13 7 21"/>
+          <polyline points="7 3 7 8 15 8"/>
+        </svg>
+        Save all changes
+      </button>
+    </header>
+
+    <div class="settings-layout">
+
+      <nav class="settings-nav" aria-label="Settings sections">
+        <button type="button" class="settings-nav-item is-active" data-section="account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Account</span>
+        </button>
+        <button type="button" class="settings-nav-item" data-section="notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span>Notifications</span>
+        </button>
+        <button type="button" class="settings-nav-item" data-section="security">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Security</span>
+        </button>
+        <button type="button" class="settings-nav-item" data-section="billing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <span>Billing & payouts</span>
+        </button>
+        <button type="button" class="settings-nav-item" data-section="preferences">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span>Preferences</span>
+        </button>
+      </nav>
+
+      <div class="settings-content">
+
+        <!-- ACCOUNT -->
+        <section class="settings-panel is-active" id="panel-account">
+          <div class="settings-panel-head">
+            <h2>Account details</h2>
+            <p>Your basic account information. Your public profile is edited separately.</p>
+          </div>
+
+          <div class="settings-card">
+            <div class="account-avatar-row">
+              <div class="account-avatar">SB</div>
+              <div class="account-avatar-copy">
+                <strong>Profile photo</strong>
+                <p>JPG or PNG, max 2MB. Shown on your profile and courses.</p>
+                <button type="button" class="settings-btn settings-btn--ghost settings-btn--sm" id="uploadPhotoBtn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  Upload new photo
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="acctFirstName">First name</label>
+                <input type="text" id="acctFirstName" value="Sarah">
+              </div>
+              <div class="form-field">
+                <label for="acctLastName">Last name</label>
+                <input type="text" id="acctLastName" value="Bello">
+              </div>
+              <div class="form-field">
+                <label for="acctEmail">Email address</label>
+                <input type="email" id="acctEmail" value="sarah.bello@chigos.ng">
+                <span class="form-hint">Used for login and important account emails.</span>
+              </div>
+              <div class="form-field">
+                <label for="acctPhone">Phone number</label>
+                <input type="tel" id="acctPhone" value="+234 800 000 0000">
+              </div>
+              <div class="form-field">
+                <label for="acctTimezone">Timezone</label>
+                <select id="acctTimezone">
+                  <option selected>Africa/Lagos (GMT+1)</option>
+                  <option>Africa/Accra (GMT)</option>
+                  <option>Africa/Nairobi (GMT+3)</option>
+                  <option>Europe/London (GMT+1)</option>
+                  <option>America/New_York (GMT-4)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="acctLanguage">Language</label>
+                <select id="acctLanguage">
+                  <option selected>English</option>
+                  <option>Yoruba</option>
+                  <option>French</option>
+                  <option>Swahili</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card settings-card--danger">
+            <div class="danger-head">
+              <div>
+                <h3>Deactivate account</h3>
+                <p>Your courses will be unpublished and students won't be able to enroll. You can reactivate anytime.</p>
+              </div>
+              <button type="button" class="settings-btn settings-btn--danger-ghost" id="deactivateBtn">Deactivate</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOTIFICATIONS -->
+        <section class="settings-panel" id="panel-notifications">
+          <div class="settings-panel-head">
+            <h2>Notifications</h2>
+            <p>Choose what we email you about and how often.</p>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Email notifications</h3>
+            <div class="toggle-list">
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>New enrollment</strong>
+                  <span>Get an email when a student enrolls in one of your courses.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>New review</strong>
+                  <span>Be notified when a student leaves a review on your course.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>New question</strong>
+                  <span>Receive an email when a student asks a question in your course.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Payout updates</strong>
+                  <span>Get notified when a payout is sent or fails.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Product news & tips</strong>
+                  <span>Occasional updates from Chigos about new features and teaching tips.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">In-app & push notifications</h3>
+            <div class="toggle-list">
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Browser push notifications</strong>
+                  <span>Show desktop notifications for new activity on your courses.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Weekly digest</strong>
+                  <span>A summary of your earnings, enrollments and reviews every Monday.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid form-grid--mt">
+              <div class="form-field">
+                <label for="notifDigestDay">Digest day</label>
+                <select id="notifDigestDay">
+                  <option selected>Monday</option>
+                  <option>Wednesday</option>
+                  <option>Friday</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="notifDigestTime">Digest time</label>
+                <select id="notifDigestTime">
+                  <option>07:00</option>
+                  <option selected>09:00</option>
+                  <option>12:00</option>
+                  <option>18:00</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURITY -->
+        <section class="settings-panel" id="panel-security">
+          <div class="settings-panel-head">
+            <h2>Security</h2>
+            <p>Keep your account safe with a strong password and two-factor authentication.</p>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Password</h3>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="secCurrent">Current password</label>
+                <input type="password" id="secCurrent" placeholder="Enter current password" autocomplete="current-password">
+              </div>
+              <div class="form-field">
+                <label for="secNew">New password</label>
+                <input type="password" id="secNew" placeholder="At least 8 characters" autocomplete="new-password">
+              </div>
+              <div class="form-field">
+                <label for="secConfirm">Confirm new password</label>
+                <input type="password" id="secConfirm" placeholder="Repeat new password" autocomplete="new-password">
+              </div>
+            </div>
+            <div class="strength-meter" id="strengthMeter">
+              <div class="strength-bar"><span class="strength-fill" id="strengthFill"></span></div>
+              <span class="strength-label" id="strengthLabel">Password strength</span>
+            </div>
+            <div class="settings-card-actions">
+              <button type="button" class="settings-btn settings-btn--primary" id="updatePasswordBtn">Update password</button>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="toggle-row toggle-row--standalone">
+              <div class="toggle-copy">
+                <strong>Two-factor authentication (2FA)</strong>
+                <span>Add an extra layer of security with a code from your authenticator app.</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="twoFactorToggle">
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </div>
+            <div class="settings-divider"></div>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="secTwoFactor">Authenticator code</label>
+                <input type="text" id="secTwoFactor" placeholder="Enter 6-digit code from your app" inputmode="numeric" autocomplete="one-time-code" disabled>
+                <span class="form-hint">Turn on 2FA above to enable this field.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Active sessions</h3>
+            <div class="session-list">
+              <div class="session-row">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="session-copy">
+                  <strong>Chrome on macOS <span class="session-current">Current</span></strong>
+                  <span>Lagos, Nigeria · Active now</span>
+                </div>
+              </div>
+              <div class="session-row">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div class="session-copy">
+                  <strong>Chigos app on iPhone</strong>
+                  <span>Lagos, Nigeria · Last active 2 hours ago</span>
+                </div>
+                <button type="button" class="settings-btn settings-btn--ghost settings-btn--sm session-revoke">Revoke</button>
+              </div>
+              <div class="session-row">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="session-copy">
+                  <strong>Firefox on Windows</strong>
+                  <span>Accra, Ghana · Last active 3 days ago</span>
+                </div>
+                <button type="button" class="settings-btn settings-btn--ghost settings-btn--sm session-revoke">Revoke</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BILLING -->
+        <section class="settings-panel" id="panel-billing">
+          <div class="settings-panel-head">
+            <h2>Billing & payouts</h2>
+            <p>Manage how you get paid and where your payout goes.</p>
+          </div>
+
+          <div class="settings-card">
+            <div class="payout-summary">
+              <div>
+                <span class="payout-label">Next payout</span>
+                <strong class="payout-amount">₦142,500</strong>
+                <span class="payout-date">Scheduled for 30 June 2026</span>
+              </div>
+              <button type="button" class="settings-btn settings-btn--ghost settings-btn--sm" id="viewPayoutsBtn">View payout history</button>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <h3 class="settings-card-title">Payout method</h3>
+            <div class="payout-method">
+              <div class="payout-method-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </div>
+              <div class="payout-method-copy">
+                <strong>Bank transfer · GTBank</strong>
+                <span>Account ending •••• 4821</span>
+              </div>
+              <button type="button" class="settings-btn settings-btn--ghost settings-btn--sm" id="editPayoutBtn">Edit</button>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <h3 class="settings-card-title">Payout schedule</h3>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="billSchedule">Frequency</label>
+                <select id="billSchedule">
+                  <option selected>Monthly</option>
+                  <option>Every two weeks</option>
+                  <option>Weekly</option>
+                  <option>Manual (when I request)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="billThreshold">Minimum payout threshold</label>
+                <select id="billThreshold">
+                  <option>₦5,000</option>
+                  <option selected>₦10,000</option>
+                  <option>₦25,000</option>
+                  <option>₦50,000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Tax information</h3>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="billTaxId">Tax ID / TIN</label>
+                <input type="text" id="billTaxId" value="TIN-2049-8812">
+              </div>
+              <div class="form-field">
+                <label for="billTaxCountry">Tax country</label>
+                <select id="billTaxCountry">
+                  <option selected>Nigeria</option>
+                  <option>Ghana</option>
+                  <option>Kenya</option>
+                  <option>South Africa</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-card-actions">
+              <button type="button" class="settings-btn settings-btn--ghost" id="downloadTaxBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download tax summary
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PREFERENCES -->
+        <section class="settings-panel" id="panel-preferences">
+          <div class="settings-panel-head">
+            <h2>Preferences</h2>
+            <p>Customize how the Chigos dashboard looks and behaves for you.</p>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Appearance</h3>
+            <div class="theme-options">
+              <label class="theme-option is-selected">
+                <input type="radio" name="theme" value="light" checked>
+                <span class="theme-preview theme-preview--light"></span>
+                <span class="theme-name">Light</span>
+              </label>
+              <label class="theme-option">
+                <input type="radio" name="theme" value="dark">
+                <span class="theme-preview theme-preview--dark"></span>
+                <span class="theme-name">Dark</span>
+              </label>
+              <label class="theme-option">
+                <input type="radio" name="theme" value="system">
+                <span class="theme-preview theme-preview--system"></span>
+                <span class="theme-name">System</span>
+              </label>
+            </div>
+
+            <div class="settings-divider"></div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="prefDensity">Dashboard density</label>
+                <select id="prefDensity">
+                  <option selected>Comfortable</option>
+                  <option>Compact</option>
+                  <option>Spacious</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="prefCurrency">Currency display</label>
+                <select id="prefCurrency">
+                  <option selected>Nigerian Naira (₦)</option>
+                  <option>US Dollar ($)</option>
+                  <option>Ghanaian Cedi (₵)</option>
+                  <option>Kenyan Shilling (KSh)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 class="settings-card-title">Course defaults</h3>
+            <div class="toggle-list">
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Auto-publish new courses</strong>
+                  <span>New courses go live immediately after creation instead of saving as drafts.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Allow student questions</strong>
+                  <span>Let students ask questions on lessons in your courses by default.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div class="toggle-copy">
+                  <strong>Show enrollment count publicly</strong>
+                  <span>Display how many students have enrolled on your public course cards.</span>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-track"><span class="switch-thumb"></span></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" id="toastIcon">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+  <span id="toastText">Saved</span>
+</div>
+
+<!-- DEACTIVATE MODAL -->
+<div class="modal-overlay" id="deactivateModal">
+  <div class="modal">
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <h3 class="modal-title">Deactivate your account?</h3>
+    <p class="modal-sub">This will unpublish all your courses and hide your profile. Students won't be able to enroll. You can reactivate your account anytime by logging back in.</p>
+    <div class="modal-actions">
+      <button type="button" class="modal-btn modal-btn--ghost" id="deactivateCancel">Cancel</button>
+      <button type="button" class="modal-btn modal-btn--danger" id="deactivateConfirm">Yes, deactivate</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/teacher-settings.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+</body>
+</html>

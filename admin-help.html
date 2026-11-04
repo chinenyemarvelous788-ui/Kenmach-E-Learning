@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Administrator handbook, platform FAQ, system diagnostics, and operational support for Chigos.">
+  <title>Help &amp; Support — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradHelp" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradHelp)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradHelp)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">Help &amp; Documentation</h1>
+          <p class="topbar-sub">Administrative procedures, marketplace economics guide, and system diagnostics.</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="btn btn--outline" onclick="window.print();">Print Runbook</button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- QUICK CARDS -->
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Commission Architecture</span>
+              <div class="metric-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.5;">
+              Chigos deducts a flat ₦100 fee per checkout. Teachers receive (Course Price - ₦100) credited directly to their balance.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Teacher Registration</span>
+              <div class="metric-card__icon metric-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.5;">
+              Instructors pay a one-time ₦2,000 onboarding charge to activate channel publishing privileges on Chigos.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Client-Side Persistence</span>
+              <div class="metric-card__icon metric-card__icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.5;">
+              All records run via <code>ChigosStorage</code> inside your browser's persistent storage. Works offline without external backends.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Account Shortcuts</span>
+              <div class="metric-card__icon metric-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.5;">
+              Quickly access Notifications and Help &amp; Support or securely log out via the sidebar account pill.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ACCORDIONS -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Frequently Asked Questions</h2>
+              <p class="card-sub">Common operational questions regarding courses, users, and platform payments.</p>
+            </div>
+          </div>
+          <div class="card-body" style="display:flex; flex-direction:column; gap:16px;">
+            <div style="border:1px solid var(--border); border-radius:var(--radius-md); padding:16px;">
+              <h3 style="font-size:14px; font-weight:800; color:var(--ink); margin-bottom:6px;">
+                Q: How are course payouts computed for instructors?
+              </h3>
+              <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">
+                Whenever a student purchases a course on Chigos, the system automatically registers the transaction under <code>chigos.purchases</code>. The student pays the listed price, the platform retains ₦100, and the remainder is added to the instructor's balance. When the admin clicks "Pay Out Now" on the Payments page, the instructor's balance resets to zero and an audit entry is recorded.
+              </p>
+            </div>
+
+            <div style="border:1px solid var(--border); border-radius:var(--radius-md); padding:16px;">
+              <h3 style="font-size:14px; font-weight:800; color:var(--ink); margin-bottom:6px;">
+                Q: What happens when an administrator removes a course?
+              </h3>
+              <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">
+                Removing a course via the Courses tab removes it from the public catalog search results. However, students who previously bought the course retain lifetime access in their purchased dashboard library.
+              </p>
+            </div>
+
+            <div style="border:1px solid var(--border); border-radius:var(--radius-md); padding:16px;">
+              <h3 style="font-size:14px; font-weight:800; color:var(--ink); margin-bottom:6px;">
+                Q: How do demo accounts work?
+              </h3>
+              <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">
+                Chigos ships pre-seeded with 4 accounts:
+                <br>• <strong>Admin</strong>: <code>admin@chigos.test</code> (pwd: <code>admin123</code>)
+                <br>• <strong>Teacher 1</strong>: <code>ada@chigos.test</code> (Ada Makes)
+                <br>• <strong>Teacher 2</strong>: <code>tunde@chigos.test</code> (Tunde Teaches)
+                <br>• <strong>Student</strong>: <code>student@chigos.test</code> (Amara James)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIAGNOSTICS CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">System Diagnostics</h2>
+              <p class="card-sub">Client runtime environment, storage consumption, and software version.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <tbody>
+                <tr>
+                  <td style="font-weight:700; width:30%;">Application Build</td>
+                  <td>Chigos E-learning v2.4.0 (Enterprise Demo Edition)</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Storage Driver</td>
+                  <td>HTML5 Web Storage (<code>localStorage</code>)</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Calculated Storage Usage</td>
+                  <td id="diagStorageUsage">Calculating...</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Network / Connectivity</td>
+                  <td><span class="badge badge--success">● Online &amp; Autonomous</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Calculate local storage size
+      var total = 0;
+      for (var x in localStorage) {
+        if (localStorage.hasOwnProperty(x)) {
+          total += ((localStorage[x].length + x.length) * 2);
+        }
+      }
+      var kb = (total / 1024).toFixed(2);
+      document.getElementById('diagStorageUsage').textContent = kb + ' KB / ~5,120 KB available quota';
+    });
+  </script>
+</body>
+</html>
+

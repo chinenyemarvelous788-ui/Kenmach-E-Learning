@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffcfa">
+  <meta name="description" content="Save courses to your Chigos wishlist and enroll when you are ready.">
+  <title>Wishlist — Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/student.css">
+  <link rel="stylesheet" href="css/student-wishlist.css">
+  <script src="js/student.js" defer></script>
+  <script src="js/wishlist-storage.js" defer></script>
+  <script src="js/student-wishlist.js" defer></script>
+</head>
+<body class="wishlist-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h16"/>
+    </svg>
+  </button>
+
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a href="index.html" class="brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" aria-hidden="true">
+          <defs><linearGradient id="wishlistLogoGradient" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD9BA"/><stop offset="0.5" stop-color="#E8590C"/><stop offset="1" stop-color="#BF4A06"/></linearGradient></defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#wishlistLogoGradient)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#wishlistLogoGradient)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+
+      <div class="student-label"><span></span> Student portal</div>
+
+      <nav class="navigation" aria-label="Dashboard">
+        <p class="nav-heading">Learning</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="student-my-courses.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>My courses</span><span class="nav-count" id="sidebarCourseCount">3</span>
+        </a>
+        <a class="nav-link" href="student-progress.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span>My progress</span>
+        </a>
+        <a class="nav-link" href="student-certificates.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1 8 4.8-2.8 4.8 2.8-1-8"/></svg>
+          <span>Certificates</span><span class="nav-count">3</span>
+        </a>
+        <a class="nav-link is-active" href="student-wishlist.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+          <span>Wishlist</span><span class="nav-count" id="sidebarWishlistCount">5</span>
+        </a>
+
+        <p class="nav-heading nav-heading--account">Your account</p>
+        <a class="nav-link" href="student-purchases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span>Purchases</span>
+        </a>
+        <a class="nav-link" href="student-profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          <span>Profile</span>
+        </a>
+        <a class="nav-link" href="student-settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button class="user-pill" id="userPill" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="userMenu">
+            <span class="user-avatar" id="sidebarAvatar">AJ</span>
+            <span class="user-meta"><strong id="sidebarName">Amara James</strong><span>Student account</span></span>
+            <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="user-menu" id="userMenu" role="menu" aria-label="Account options">
+            <a class="user-menu-item" href="login.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Switch account</span>
+            </a>
+            <a class="user-menu-item" href="student-notifications.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span>Notifications</span><span class="nav-count" id="sidebarNotifCount">4</span>
+            </a>
+            <a class="user-menu-item" href="student-help.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/><path d="M12 17h.01"/></svg><span>Help &amp; support</span>
+            </a>
+            <span class="user-menu-divider" role="separator"></span>
+            <button class="user-menu-item user-menu-item--danger" id="logoutBtn" type="button" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="backdrop" id="backdrop"></div>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-mark"></span> YOUR LEARNING LIBRARY</p>
+          <h1>Your <span>wishlist</span></h1>
+          <p class="topbar-subtitle">Courses you've saved for later. Enroll when you're ready to start.</p>
+        </div>
+        <div class="topbar-actions">
+          <a href="student-explore.html" class="button button--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            Explore courses
+          </a>
+        </div>
+      </header>
+
+      <section class="summary-bar" id="summaryBar" aria-label="Wishlist summary" aria-live="polite">
+        <div class="summary-left">
+          <div class="summary-stat"><span class="summary-stat-label">Saved courses</span><strong class="summary-stat-value" id="summaryCount">5</strong></div>
+          <span class="summary-divider" aria-hidden="true"></span>
+          <div class="summary-stat"><span class="summary-stat-label">Total value</span><strong class="summary-stat-value" id="summaryTotal">₦73,000</strong></div>
+          <span class="summary-divider" aria-hidden="true"></span>
+          <div class="summary-stat"><span class="summary-stat-label">Average rating</span><strong class="summary-stat-value" id="summaryRating">4.7 <span class="unit">★</span></strong></div>
+        </div>
+        <div class="summary-right">
+          <button type="button" class="button button--ghost" id="clearWishlistBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6"/></svg>
+            Clear all
+          </button>
+          <button type="button" class="button button--primary" id="enrollAllBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            Enroll in all
+          </button>
+        </div>
+      </section>
+
+      <section class="wishlist-grid" id="wishlistGrid" aria-label="Saved courses">
+        <article class="course-card" data-course-id="demo-uiux" data-price="18000" data-rating="4.9" data-title="UI/UX Design Foundations">
+          <div class="course-cover cover-design">
+            <span class="course-level">Beginner</span>
+            <button class="course-wish" type="button" aria-label="Remove UI/UX Design Foundations from wishlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="course-watermark">UX</span>
+          </div>
+          <div class="course-body">
+            <div class="course-cat">Design</div>
+            <h2 class="course-title">UI/UX Design Foundations</h2>
+            <div class="course-instructor"><span class="instructor-avatar avatar-violet">AE</span><span>Amaka Eze</span></div>
+            <div class="course-rating"><span class="stars" aria-label="5 stars">★★★★★</span><strong>4.9</strong><span class="dot-sep"></span><span>412 students</span></div>
+            <div class="course-meta"><span class="course-meta-item">◷ 5h 15m</span><span class="course-meta-item">▤ 18 lessons</span><span class="course-saved-at">Saved 3 days ago</span></div>
+          </div>
+          <div class="course-footer"><span class="course-price">₦18,000</span><button class="enroll-btn" type="button"><span aria-hidden="true">＋</span> Enroll</button></div>
+        </article>
+
+        <article class="course-card" data-course-id="demo-python" data-price="20000" data-rating="4.8" data-title="Data Analytics with Python">
+          <div class="course-cover cover-data">
+            <span class="course-level">Advanced</span>
+            <button class="course-wish" type="button" aria-label="Remove Data Analytics with Python from wishlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="course-watermark">PY</span>
+          </div>
+          <div class="course-body">
+            <div class="course-cat">Data</div>
+            <h2 class="course-title">Data Analytics with Python</h2>
+            <div class="course-instructor"><span class="instructor-avatar avatar-gold">CO</span><span>Chidi Obi</span></div>
+            <div class="course-rating"><span class="stars" aria-label="5 stars">★★★★★</span><strong>4.8</strong><span class="dot-sep"></span><span>156 students</span></div>
+            <div class="course-meta"><span class="course-meta-item">◷ 8h 20m</span><span class="course-meta-item">▤ 24 lessons</span><span class="course-saved-at">Saved 1 week ago</span></div>
+          </div>
+          <div class="course-footer"><span class="course-price">₦20,000</span><button class="enroll-btn" type="button"><span aria-hidden="true">＋</span> Enroll</button></div>
+        </article>
+
+        <article class="course-card" data-course-id="demo-fullstack" data-price="25000" data-rating="4.6" data-title="Full-Stack Web Development">
+          <div class="course-cover cover-web">
+            <span class="course-level">Beginner</span>
+            <button class="course-wish" type="button" aria-label="Remove Full-Stack Web Development from wishlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="course-watermark">WEB</span>
+          </div>
+          <div class="course-body">
+            <div class="course-cat">Engineering</div>
+            <h2 class="course-title">Full-Stack Web Development</h2>
+            <div class="course-instructor"><span class="instructor-avatar avatar-pink">FA</span><span>Femi Adebayo</span></div>
+            <div class="course-rating"><span class="stars" aria-label="4 out of 5 stars">★★★★☆</span><strong>4.6</strong><span class="dot-sep"></span><span>203 students</span></div>
+            <div class="course-meta"><span class="course-meta-item">◷ 12h</span><span class="course-meta-item">▤ 42 lessons</span><span class="course-saved-at">Saved 2 weeks ago</span></div>
+          </div>
+          <div class="course-footer"><span class="course-price">₦25,000</span><button class="enroll-btn" type="button"><span aria-hidden="true">＋</span> Enroll</button></div>
+        </article>
+
+        <article class="course-card" data-course-id="demo-marketing" data-price="10000" data-rating="4.7" data-title="Content Marketing Masterclass">
+          <div class="course-cover cover-marketing">
+            <span class="course-level">Intermediate</span>
+            <button class="course-wish" type="button" aria-label="Remove Content Marketing Masterclass from wishlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="course-watermark">CM</span>
+          </div>
+          <div class="course-body">
+            <div class="course-cat">Marketing</div>
+            <h2 class="course-title">Content Marketing Masterclass</h2>
+            <div class="course-instructor"><span class="instructor-avatar avatar-pink">NK</span><span>Ngozi Kalu</span></div>
+            <div class="course-rating"><span class="stars" aria-label="5 stars">★★★★★</span><strong>4.7</strong><span class="dot-sep"></span><span>67 students</span></div>
+            <div class="course-meta"><span class="course-meta-item">◷ 3h 20m</span><span class="course-meta-item">▤ 14 lessons</span><span class="course-saved-at">Saved 3 weeks ago</span></div>
+          </div>
+          <div class="course-footer"><span class="course-price">₦10,000</span><button class="enroll-btn" type="button"><span aria-hidden="true">＋</span> Enroll</button></div>
+        </article>
+
+        <article class="course-card" data-course-id="demo-product" data-price="0" data-rating="4.5" data-title="Intro to Product Thinking (Free)">
+          <div class="course-cover cover-product">
+            <span class="course-level">Beginner</span>
+            <button class="course-wish" type="button" aria-label="Remove Intro to Product Thinking from wishlist">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+            <span class="course-watermark">PT</span>
+          </div>
+          <div class="course-body">
+            <div class="course-cat">Product</div>
+            <h2 class="course-title">Intro to Product Thinking (Free)</h2>
+            <div class="course-instructor"><span class="instructor-avatar avatar-product">SB</span><span>Sarah Bello</span></div>
+            <div class="course-rating"><span class="stars" aria-label="4 out of 5 stars">★★★★☆</span><strong>4.5</strong><span class="dot-sep"></span><span>892 students</span></div>
+            <div class="course-meta"><span class="course-meta-item">◷ 45 min</span><span class="course-meta-item">▤ 3 lessons</span><span class="course-saved-at">Saved 1 month ago</span></div>
+          </div>
+          <div class="course-footer"><span class="course-price free">Free</span><button class="enroll-btn" type="button"><span aria-hidden="true">＋</span> Enroll</button></div>
+        </article>
+      </section>
+
+      <section class="empty-state" id="emptyState" hidden aria-labelledby="emptyTitle">
+        <span class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+        </span>
+        <h2 id="emptyTitle">Your wishlist is empty</h2>
+        <p>Save courses you're interested in while browsing — they'll show up here so you can come back to them later.</p>
+        <a href="student-explore.html" class="button button--primary">Explore courses <span aria-hidden="true">→</span></a>
+      </section>
+
+      <footer class="page-footer"><span>Made for curious minds.</span><span>© 2026 Chigos</span></footer>
+    </main>
+  </div>
+</body>
+</html>

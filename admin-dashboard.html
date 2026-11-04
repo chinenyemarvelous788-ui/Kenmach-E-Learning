@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chigos Admin Portal Overview — Real-time platform metrics, teachers, students, and courses.">
+  <title>Dashboard — Admin Portal · Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- MOBILE TOGGLE BUTTON -->
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <div class="admin-layout" id="adminLayout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="adminSidebar" aria-label="Admin Navigation">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="adminLogoGradDash" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#adminLogoGradDash)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#adminLogoGradDash)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Toggle sidebar collapse" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-badge">
+        <span class="sidebar-badge__dot"></span>
+        <span>Admin Portal</span>
+      </div>
+
+      <!-- NAV GROUP: MANAGEMENT -->
+      <nav class="nav-group" aria-label="Platform Management">
+        <span class="nav-group-title">Management</span>
+        <a href="admin-dashboard.html" class="nav-item is-active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="admin-users.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Users</span>
+          <span class="nav-badge" id="sidebarUsersCount">4</span>
+        </a>
+        <a href="admin-courses.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">Courses</span>
+          <span class="nav-badge" id="sidebarCoursesCount">6</span>
+        </a>
+        <a href="admin-payments.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Payments</span>
+        </a>
+        <a href="admin-reviews.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="nav-badge">12</span>
+        </a>
+      </nav>
+
+      <!-- NAV GROUP: SYSTEM -->
+      <nav class="nav-group" aria-label="System & Insights">
+        <span class="nav-group-title">System</span>
+        <a href="admin-analytics.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span class="nav-label">Analytics</span>
+        </a>
+        <a href="admin-settings.html" class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </nav>
+
+      <!-- SIDEBAR FOOTER USER PILL -->
+      <div class="sidebar-user">
+        <button class="user-pill" id="adminUserPill" type="button" aria-expanded="false" aria-haspopup="true">
+          <div class="user-avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Chigos Admin</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="user-menu" id="adminUserMenu" role="menu">
+          <a href="admin-notifications.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span>Notification</span>
+          </a>
+          <a href="admin-help.html" class="user-menu-item" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Help &amp; Support</span>
+          </a>
+          <div class="user-menu-divider"></div>
+          <button type="button" class="user-menu-item user-menu-item--danger" data-admin-logout role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN BODY -->
+    <main class="admin-main" id="mainContent">
+      <header class="topbar">
+        <div class="topbar-copy">
+          <h1 class="topbar-title">Admin Overview</h1>
+          <p class="topbar-sub">Live operational data from your local storage database.</p>
+        </div>
+        <div class="topbar-actions">
+          <a href="admin-courses.html" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Manage Courses
+          </a>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- METRIC GRID -->
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Total Instructors</span>
+              <div class="metric-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="dashTotalTeachers">2</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">Verified</span>
+              <span>Active creators</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Total Students</span>
+              <div class="metric-card__icon metric-card__icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="dashTotalStudents">1</div>
+            <div class="metric-card__meta">
+              <span class="trend-badge trend-badge--up">Enrolled</span>
+              <span>Registered learners</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Live Courses</span>
+              <div class="metric-card__icon metric-card__icon--purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="dashTotalCourses">6</div>
+            <div class="metric-card__meta">
+              <span>Catalog size</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-card__header">
+              <span class="metric-card__title">Chigos Revenue</span>
+              <div class="metric-card__icon metric-card__icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+            <div class="metric-card__value" id="dashTotalRevenue">₦4,200</div>
+            <div class="metric-card__meta">
+              <span>Fees + registrations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK ACCESS LINKS -->
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+          <a href="admin-users.html" class="card" style="padding:18px 22px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s ease;">
+            <div>
+              <strong style="color:var(--ink); font-size:14px; display:block;">User Directory</strong>
+              <span style="color:var(--ink-muted); font-size:12px;">Manage students and teacher accounts</span>
+            </div>
+            <span style="color:var(--orange); font-size:18px;">→</span>
+          </a>
+
+          <a href="admin-payments.html" class="card" style="padding:18px 22px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s ease;">
+            <div>
+              <strong style="color:var(--ink); font-size:14px; display:block;">Payouts &amp; Ledger</strong>
+              <span style="color:var(--ink-muted); font-size:12px;">Process pending teacher settlements</span>
+            </div>
+            <span style="color:var(--orange); font-size:18px;">→</span>
+          </a>
+
+          <a href="admin-analytics.html" class="card" style="padding:18px 22px; display:flex; align-items:center; justify-content:space-between; transition:all 0.15s ease;">
+            <div>
+              <strong style="color:var(--ink); font-size:14px; display:block;">Insights &amp; Reports</strong>
+              <span style="color:var(--ink-muted); font-size:12px;">Check completion and revenue growth</span>
+            </div>
+            <span style="color:var(--orange); font-size:18px;">→</span>
+          </a>
+        </div>
+
+        <!-- RECENT INSTRUCTORS -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Active Platform Teachers</h2>
+              <p class="card-sub">Instructors publishing lessons and earning through Chigos.</p>
+            </div>
+            <a href="admin-users.html" class="btn btn--outline btn--sm">View All Users</a>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Teacher</th>
+                  <th>Channel Name</th>
+                  <th>Email</th>
+                  <th>Current Balance</th>
+                  <th style="text-align:right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dashTeachersBody">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- RECENT PURCHASES -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Recent Student Checkouts</h2>
+              <p class="card-sub">Latest course enrollments and commission breakdown.</p>
+            </div>
+            <a href="admin-payments.html" class="btn btn--outline btn--sm">Full Ledger</a>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Student</th>
+                  <th>Course</th>
+                  <th>Amount Paid</th>
+                  <th>Platform Fee</th>
+                  <th>Teacher Earned</th>
+                </tr>
+              </thead>
+              <tbody id="dashPurchasesBody">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var S = window.ChigosStorage;
+      if (!S) return;
+
+      function escape(str) {
+        return String(str || '').replace(/[&<>"']/g, function (m) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+        });
+      }
+
+      function formatNaira(num) {
+        return '₦' + Number(num || 0).toLocaleString('en-NG');
+      }
+
+      var users = S.getUsers();
+      var courses = S.getCourses();
+      var purchases = S.getPurchases();
+
+      var teachers = users.filter(function (u) { return u.role === 'teacher'; });
+      var students = users.filter(function (u) { return u.role === 'student'; });
+
+      var totalPlatformFees = (purchases.length * 100) + (teachers.length * 2000);
+
+      document.getElementById('dashTotalTeachers').textContent = teachers.length;
+      document.getElementById('dashTotalStudents').textContent = students.length;
+      document.getElementById('dashTotalCourses').textContent = courses.length;
+      document.getElementById('dashTotalRevenue').textContent = formatNaira(totalPlatformFees);
+
+      // Render Teachers
+      var tBody = document.getElementById('dashTeachersBody');
+      tBody.innerHTML = teachers.map(function (t) {
+        return '<tr>' +
+          '<td>' +
+            '<div class="cell-user">' +
+              '<div class="cell-avatar">' + escape(t.name.slice(0, 2).toUpperCase()) + '</div>' +
+              '<div class="cell-title">' + escape(t.name) + '</div>' +
+            '</div>' +
+          '</td>' +
+          '<td><strong>' + escape(t.channelName || 'Personal') + '</strong></td>' +
+          '<td style="color:var(--ink-secondary);">' + escape(t.email) + '</td>' +
+          '<td><strong style="color:var(--green);">' + formatNaira(t.balance || 0) + '</strong></td>' +
+          '<td style="text-align:right;">' +
+            '<a href="admin-payments.html" class="btn btn--outline btn--sm">Payout</a>' +
+          '</td>' +
+        '</tr>';
+      }).join('') || '<tr><td colspan="5" style="text-align:center; padding:24px;">No teachers found.</td></tr>';
+
+      // Render Purchases
+      var pBody = document.getElementById('dashPurchasesBody');
+      pBody.innerHTML = purchases.slice().reverse().map(function (p) {
+        var st = S.getUserById(p.studentId);
+        var c = S.getCourseById(p.courseId);
+        var d = p.date ? new Date(p.date).toLocaleDateString('en-NG', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Recent';
+
+        return '<tr>' +
+          '<td style="color:var(--ink-muted); font-size:12px;">' + d + '</td>' +
+          '<td><strong>' + escape(st ? st.name : 'Amara James') + '</strong></td>' +
+          '<td>' + escape(c ? c.title : 'Course') + '</td>' +
+          '<td><strong>' + formatNaira(p.amountPaid) + '</strong></td>' +
+          '<td><span style="color:var(--orange); font-weight:700;">' + formatNaira(p.platformFee || 100) + '</span></td>' +
+          '<td><span style="color:var(--green); font-weight:700;">' + formatNaira(p.teacherEarning || (p.amountPaid - 100)) + '</span></td>' +
+        '</tr>';
+      }).join('') || '<tr><td colspan="6" style="text-align:center; padding:24px;">No transactions recorded.</td></tr>';
+    });
+  </script>
+</body>
+</html>
+

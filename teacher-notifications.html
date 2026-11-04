@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Notifications — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-courses.css">
+<link rel="stylesheet" href="css/teacher-sidebar.css">
+<link rel="stylesheet" href="css/teacher-notifications.css">
+</head>
+<body>
+<button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+<div class="dashboard" id="dashboard">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button type="button" class="user-pill" aria-haspopup="true" aria-expanded="false" aria-controls="userMenu">
+            <span class="user-avatar">SB</span>
+            <span class="user-meta">
+              <strong>Sarah Bello</strong>
+              <span>Product Management</span>
+            </span>
+            <svg class="user-pill-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="user-menu" id="userMenu">
+            <a href="login.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10 17 15 12 10 7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              <span>Switch account</span>
+            </a>
+            <a href="teacher-help.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/>
+                <path d="M12 17h.01"/>
+              </svg>
+              <span>Help &amp; support</span>
+            </a>
+            <div class="user-menu-divider" aria-hidden="true"></div>
+            <button type="button" class="user-menu-item user-menu-item--danger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              <span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+  <main class="main notifications-main">
+    <header class="topbar">
+      <div class="topbar-copy">
+        <h1>Notifications</h1>
+        <p>Stay up to date with your students, reviews, and payouts.</p>
+      </div>
+      <div class="notification-actions">
+        <button type="button" class="text-action" id="markAllBtn">Mark all as read</button>
+        <button type="button" class="text-action text-action--danger" id="clearBtn">Clear all</button>
+      </div>
+    </header>
+
+    <section class="notification-panel" aria-label="Your notifications">
+      <div class="notification-summary">
+        <div>
+          <strong id="unreadSummary">You’re all caught up</strong>
+          <span>Notifications are kept here so you don’t miss an update.</span>
+        </div>
+        <button type="button" class="preferences-button" id="preferencesBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>
+          </svg>
+          Preferences
+        </button>
+      </div>
+    </section>
+
+    <nav class="notification-tabs" id="tabs" aria-label="Filter notifications">
+      <button type="button" class="tab active" data-filter="all" aria-pressed="true">All <span id="countAll">0</span></button>
+      <button type="button" class="tab" data-filter="unread" aria-pressed="false">Unread <span id="countUnread">0</span></button>
+      <button type="button" class="tab" data-filter="students" aria-pressed="false">Students <span id="countStudents">0</span></button>
+      <button type="button" class="tab" data-filter="reviews" aria-pressed="false">Reviews <span id="countReviews">0</span></button>
+      <button type="button" class="tab" data-filter="payouts" aria-pressed="false">Payouts <span id="countPayouts">0</span></button>
+      <button type="button" class="tab" data-filter="system" aria-pressed="false">System <span id="countSystem">0</span></button>
+    </nav>
+
+    <div class="notification-list" id="notifList">
+      <section class="notif-group" aria-labelledby="todayLabel">
+        <h2 class="notif-group-title" id="todayLabel">Today</h2>
+        <article class="notif unread" data-cat="students">
+          <div class="notif-icon notif-icon--students" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="notif-content">
+            <div class="notif-heading"><h3>New student enrolled</h3><time datetime="2026-10-27T07:15">7:15 AM</time></div>
+            <p><strong>Michael Okafor</strong> enrolled in <strong>Product Management: From Idea to Launch</strong>.</p>
+            <span class="notif-category">Student activity</span>
+          </div>
+          <div class="notif-controls">
+            <span class="unread-dot" aria-label="Unread"></span>
+            <button type="button" class="notif-action" data-action="read" aria-label="Mark notification as read" title="Mark as read">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button type="button" class="notif-action" data-action="dismiss" aria-label="Dismiss notification" title="Dismiss">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </article>
+        <article class="notif unread" data-cat="reviews">
+          <div class="notif-icon notif-icon--reviews" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3z"/></svg>
+          </div>
+          <div class="notif-content">
+            <div class="notif-heading"><h3>You received a new review</h3><time datetime="2026-10-27T06:42">6:42 AM</time></div>
+            <p><strong>Adaeze N.</strong> left a 5-star review on <strong>Growth Marketing for Modern Startups</strong>.</p>
+            <span class="notif-category">Reviews</span>
+          </div>
+          <div class="notif-controls">
+            <span class="unread-dot" aria-label="Unread"></span>
+            <button type="button" class="notif-action" data-action="read" aria-label="Mark notification as read" title="Mark as read">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button type="button" class="notif-action" data-action="dismiss" aria-label="Dismiss notification" title="Dismiss">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="notif-group" aria-labelledby="yesterdayLabel">
+        <h2 class="notif-group-title" id="yesterdayLabel">Yesterday</h2>
+        <article class="notif unread" data-cat="payouts">
+          <div class="notif-icon notif-icon--payouts" aria-hidden="true"><span>₦</span></div>
+          <div class="notif-content">
+            <div class="notif-heading"><h3>Your payout is on its way</h3><time datetime="2026-10-26T14:20">2:20 PM</time></div>
+            <p>Your payout of <strong>₦84,500</strong> has been processed and should arrive within 1–2 business days.</p>
+            <span class="notif-category">Payouts</span>
+          </div>
+          <div class="notif-controls">
+            <span class="unread-dot" aria-label="Unread"></span>
+            <button type="button" class="notif-action" data-action="read" aria-label="Mark notification as read" title="Mark as read">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button type="button" class="notif-action" data-action="dismiss" aria-label="Dismiss notification" title="Dismiss">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </article>
+        <article class="notif" data-cat="system">
+          <div class="notif-icon notif-icon--system" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <div class="notif-content">
+            <div class="notif-heading"><h3>Account security check complete</h3><time datetime="2026-10-26T10:05">10:05 AM</time></div>
+            <p>Your instructor account security review is complete. No action is needed.</p>
+            <span class="notif-category">Account &amp; security</span>
+          </div>
+          <div class="notif-controls">
+            <span class="unread-dot" aria-label="Unread"></span>
+            <button type="button" class="notif-action" data-action="read" aria-label="Mark notification as read" title="Mark as read">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button type="button" class="notif-action" data-action="dismiss" aria-label="Dismiss notification" title="Dismiss">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <section class="notif-group" aria-labelledby="earlierLabel">
+        <h2 class="notif-group-title" id="earlierLabel">Earlier this week</h2>
+        <article class="notif unread" data-cat="students">
+          <div class="notif-icon notif-icon--students" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="notif-content">
+            <div class="notif-heading"><h3>Your course is gaining momentum</h3><time datetime="2026-10-24T16:30">Oct 24</time></div>
+            <p><strong>12 new students</strong> joined your courses this week. Keep sharing your knowledge!</p>
+            <span class="notif-category">Student activity</span>
+          </div>
+          <div class="notif-controls">
+            <span class="unread-dot" aria-label="Unread"></span>
+            <button type="button" class="notif-action" data-action="read" aria-label="Mark notification as read" title="Mark as read">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+            <button type="button" class="notif-action" data-action="dismiss" aria-label="Dismiss notification" title="Dismiss">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <div class="empty-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+      </div>
+      <h2>You’re all caught up</h2>
+      <p>There are no notifications in this view. Check back later for updates.</p>
+    </div>
+    <p class="notification-live-status" id="notificationStatus" role="status" aria-live="polite"></p>
+  </main>
+</div>
+<script src="js/teacher-sidebar.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+<script src="js/teacher-notifications.js"></script>
+</body>
+</html>

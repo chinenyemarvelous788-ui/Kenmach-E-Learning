@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffcfa">
+  <meta name="description" content="View your Chigos course purchases and download receipts.">
+  <title>Purchases — Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/student.css">
+  <link rel="stylesheet" href="css/student-purchases.css">
+  <script src="js/student.js" defer></script>
+  <script src="js/student-purchases.js" defer></script>
+</head>
+<body class="purchases-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a href="index.html" class="brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="studentLogoGradient" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD9BA"/><stop offset="0.5" stop-color="#E8590C"/><stop offset="1" stop-color="#BF4A06"/></linearGradient></defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#studentLogoGradient)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#studentLogoGradient)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+      <div class="student-label"><span></span> Student portal</div>
+      <nav class="navigation" aria-label="Dashboard">
+        <p class="nav-heading">Learning</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="student-my-courses.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>My courses</span><span class="nav-count" id="sidebarCourseCount">3</span>
+        </a>
+        <a class="nav-link" href="student-progress.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span>My progress</span>
+        </a>
+        <a class="nav-link" href="student-certificates.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1 8 4.8-2.8 4.8 2.8-1-8"/></svg>
+          <span>Certificates</span><span class="nav-count">3</span>
+        </a>
+        <a class="nav-link" href="student-wishlist.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+          <span>Wishlist</span><span class="nav-count" id="sidebarWishlistCount">5</span>
+        </a>
+
+        <p class="nav-heading nav-heading--account">Your account</p>
+        <a class="nav-link is-active" href="student-purchases.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span>Purchases</span>
+        </a>
+        <a class="nav-link" href="student-profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          <span>Profile</span>
+        </a>
+        <a class="nav-link" href="student-settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button class="user-pill" id="userPill" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="userMenu">
+            <span class="user-avatar" id="sidebarAvatar">AJ</span>
+            <span class="user-meta"><strong id="sidebarName">Amara James</strong><span>Student account</span></span>
+            <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="user-menu" id="userMenu" role="menu" aria-label="Account options">
+            <a class="user-menu-item" href="login.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Switch account</span>
+            </a>
+            <a class="user-menu-item" href="student-notifications.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span>Notifications</span><span class="nav-count" id="sidebarNotifCount">4</span>
+            </a>
+            <a class="user-menu-item" href="student-help.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/><path d="M12 17h.01"/></svg><span>Help &amp; support</span>
+            </a>
+            <span class="user-menu-divider" role="separator"></span>
+            <button class="user-menu-item user-menu-item--danger" id="logoutBtn" type="button" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="eyebrow"><span class="eyebrow-mark"></span> YOUR ACCOUNT</p>
+          <h1 class="page-title">Purchase <span>history</span></h1>
+          <p class="page-sub">View your course purchases, payment details, and receipts.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="button button--primary" id="exportBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg>Export transactions</button>
+        </div>
+      </header>
+
+      <section class="purchase-overview" aria-label="Purchase overview">
+        <article class="purchase-stat"><span class="purchase-stat-icon purchase-stat-icon--orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="8" cy="5" r="2" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="2" fill="currentColor" stroke="none"/></svg></span><span class="purchase-stat-label">Total purchases</span><strong id="countAll">0</strong><span class="purchase-stat-note">Across your account</span></article>
+        <article class="purchase-stat"><span class="purchase-stat-icon purchase-stat-icon--green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span><span class="purchase-stat-label">This year</span><strong id="countYear">0</strong><span class="purchase-stat-note">Purchases this year</span></article>
+        <article class="purchase-stat"><span class="purchase-stat-icon purchase-stat-icon--violet" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg></span><span class="purchase-stat-label">Paid courses</span><strong id="countPaid">0</strong><span class="purchase-stat-note">Successful payments</span></article>
+        <article class="purchase-stat"><span class="purchase-stat-icon purchase-stat-icon--blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 9.5c.3-1 1.4-1.6 3.2-1.6 1.9 0 3 .7 3 1.8 0 1.2-1.2 1.7-3 2.1-1.8.4-3 1-3 2.2 0 1.1 1.1 1.9 3.1 1.9 1.7 0 2.9-.6 3.3-1.7M12 6v12"/></svg></span><span class="purchase-stat-label">Free courses</span><strong id="countFree">0</strong><span class="purchase-stat-note">Added to your library</span></article>
+      </section>
+
+      <section class="purchase-section" aria-label="Your transactions">
+        <div class="purchase-toolbar">
+          <div class="filter-tabs" id="filterTabs" role="group" aria-label="Filter purchases">
+            <button type="button" class="filter-tab active" data-filter="all" aria-pressed="true">All <span id="filterCountAll">0</span></button>
+            <button type="button" class="filter-tab" data-filter="this-year" aria-pressed="false">This year</button>
+            <button type="button" class="filter-tab" data-filter="paid" aria-pressed="false">Paid</button>
+            <button type="button" class="filter-tab" data-filter="free" aria-pressed="false">Free</button>
+          </div>
+          <label class="purchase-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+            <span class="visually-hidden">Search purchases</span>
+            <input id="searchInput" type="search" placeholder="Search courses or transactions" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="transaction-list" id="transactions" aria-live="polite">
+          <section class="txn-group" aria-labelledby="txn-october">
+            <div class="txn-group-heading"><h2 id="txn-october">October 2026</h2><span class="group-total">₦0</span></div>
+            <button class="txn-row" type="button" data-year="2026" data-price="25000" data-title="Product Management: From Idea to Launch" data-instructor="Sarah Bello" data-txn="CHG-2026-10482" data-date="October 16, 2026 · 10:34 AM" data-method="Visa •••• 4242" data-method-sub="Card payment" data-status="Paid">
+              <span class="txn-course-icon txn-course-icon--product" aria-hidden="true">PM</span><span class="txn-course-copy"><strong>Product Management: From Idea to Launch</strong><small>Sarah Bello <span aria-hidden="true">·</span> CHG-2026-10482</small></span><span class="txn-date">October 16, 2026<small>10:34 AM</small></span><span class="txn-status txn-status--paid"><i></i> Paid</span><span class="txn-price">₦25,000</span><span class="txn-chevron" aria-hidden="true">→</span>
+            </button>
+          </section>
+          <section class="txn-group" aria-labelledby="txn-september">
+            <div class="txn-group-heading"><h2 id="txn-september">September 2026</h2><span class="group-total">₦0</span></div>
+            <button class="txn-row" type="button" data-year="2026" data-price="18500" data-title="Growth Marketing for Modern Startups" data-instructor="David Okonkwo" data-txn="CHG-2026-09831" data-date="September 2, 2026 · 2:18 PM" data-method="Mastercard •••• 8080" data-method-sub="Card payment" data-status="Paid">
+              <span class="txn-course-icon txn-course-icon--marketing" aria-hidden="true">GM</span><span class="txn-course-copy"><strong>Growth Marketing for Modern Startups</strong><small>David Okonkwo <span aria-hidden="true">·</span> CHG-2026-09831</small></span><span class="txn-date">September 2, 2026<small>2:18 PM</small></span><span class="txn-status txn-status--paid"><i></i> Paid</span><span class="txn-price">₦18,500</span><span class="txn-chevron" aria-hidden="true">→</span>
+            </button>
+          </section>
+          <section class="txn-group" aria-labelledby="txn-june">
+            <div class="txn-group-heading"><h2 id="txn-june">June 2026</h2><span class="group-total">₦0</span></div>
+            <button class="txn-row" type="button" data-year="2026" data-price="0" data-title="Business Strategy Fundamentals" data-instructor="Amaka Eze" data-txn="CHG-2026-07126" data-date="June 10, 2026 · 9:05 AM" data-method="No charge" data-method-sub="Free course" data-status="Complete">
+              <span class="txn-course-icon txn-course-icon--business" aria-hidden="true">BS</span><span class="txn-course-copy"><strong>Business Strategy Fundamentals</strong><small>Amaka Eze <span aria-hidden="true">·</span> CHG-2026-07126</small></span><span class="txn-date">June 10, 2026<small>9:05 AM</small></span><span class="txn-status txn-status--free"><i></i> Free</span><span class="txn-price">Free</span><span class="txn-chevron" aria-hidden="true">→</span>
+            </button>
+          </section>
+          <section class="txn-group" aria-labelledby="txn-2025">
+            <div class="txn-group-heading"><h2 id="txn-2025">2025</h2><span class="group-total">₦0</span></div>
+            <button class="txn-row" type="button" data-year="2025" data-price="12000" data-title="Figma for Your First Real Project" data-instructor="Ada Okafor" data-txn="CHG-2025-04117" data-date="November 18, 2025 · 11:42 AM" data-method="Visa •••• 4242" data-method-sub="Card payment" data-status="Paid">
+              <span class="txn-course-icon txn-course-icon--design" aria-hidden="true">Fi</span><span class="txn-course-copy"><strong>Figma for Your First Real Project</strong><small>Ada Okafor <span aria-hidden="true">·</span> CHG-2025-04117</small></span><span class="txn-date">November 18, 2025<small>11:42 AM</small></span><span class="txn-status txn-status--paid"><i></i> Paid</span><span class="txn-price">₦12,000</span><span class="txn-chevron" aria-hidden="true">→</span>
+            </button>
+          </section>
+          <section class="txn-group" aria-labelledby="txn-2024">
+            <div class="txn-group-heading"><h2 id="txn-2024">2024</h2><span class="group-total">₦0</span></div>
+            <button class="txn-row" type="button" data-year="2024" data-price="0" data-title="Introduction to JavaScript" data-instructor="Tunde Bello" data-txn="CHG-2024-00652" data-date="December 4, 2024 · 8:16 AM" data-method="No charge" data-method-sub="Free course" data-status="Complete">
+              <span class="txn-course-icon txn-course-icon--code" aria-hidden="true">JS</span><span class="txn-course-copy"><strong>Introduction to JavaScript</strong><small>Tunde Bello <span aria-hidden="true">·</span> CHG-2024-00652</small></span><span class="txn-date">December 4, 2024<small>8:16 AM</small></span><span class="txn-status txn-status--free"><i></i> Free</span><span class="txn-price">Free</span><span class="txn-chevron" aria-hidden="true">→</span>
+            </button>
+          </section>
+        </div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg></span>
+          <h2>No purchases found</h2><p>Try a different search or filter to find a course in your purchase history.</p>
+          <button class="button button--primary" id="clearFilters" type="button">Clear filters</button>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>Questions about a payment?</span><a href="student-help.html">Contact student support <span aria-hidden="true">→</span></a></footer>
+    </main>
+  </div>
+
+  <div class="receipt-modal" id="receiptModal" role="dialog" aria-modal="true" aria-labelledby="receiptTitle" aria-hidden="true">
+    <div class="receipt-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close receipt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"/></svg></button>
+      <div class="receipt-brand"><span class="receipt-brand-mark" aria-hidden="true">C</span> Chigos</div>
+      <div class="receipt-heading"><span class="receipt-check" aria-hidden="true">✓</span><p>PAYMENT RECEIPT</p><h2 id="receiptTitle">Purchase complete</h2></div>
+      <div class="receipt-total"><span>Total paid</span><strong id="invTotal">₦0</strong></div>
+      <dl class="receipt-details">
+        <div><dt>Receipt number</dt><dd id="invId"></dd></div>
+        <div><dt>Purchase date</dt><dd id="invDate"></dd></div>
+        <div><dt>Course</dt><dd id="invCourse"></dd></div>
+        <div><dt>Instructor</dt><dd id="invInstructor"></dd></div>
+        <div><dt>Payment method</dt><dd id="invMethod"></dd></div>
+        <div><dt>Status</dt><dd id="invStatus"></dd></div>
+      </dl>
+      <div class="receipt-actions"><button class="button button--primary" id="modalDownload" type="button">Save as PDF</button><button class="button button--secondary" id="modalPrint" type="button">Print receipt</button></div>
+      <p class="receipt-note">Thank you for learning with Chigos.</p>
+    </div>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

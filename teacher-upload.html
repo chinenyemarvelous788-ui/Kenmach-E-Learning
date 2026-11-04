@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload course content — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/teacher-upload.css">
+  <link rel="stylesheet" href="css/teacher-sidebar.css">
+</head>
+<body>
+
+<!-- MOBILE HAMBURGER -->
+<button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+</button>
+
+<!-- BACKDROP -->
+<div class="backdrop" id="backdrop" aria-hidden="true"></div>
+
+<!-- SIDEBAR -->
+<div class="dashboard" id="dashboard">
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lgSide" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#FFD9BA"/>
+                <stop offset="0.5" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lgSide)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lgSide)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-role">
+        <span>Instructor</span>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Main</span>
+        <a href="teacher-dashboard.html" class="nav-item" data-tooltip="Dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="teacher-courses.html" class="nav-item is-active" aria-current="page" data-tooltip="My courses">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-label">My courses</span>
+          <span class="badge">4</span>
+        </a>
+        <a href="teacher-students.html" class="nav-item" data-tooltip="Students">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="nav-label">Students</span>
+        </a>
+        <a href="teacher-earnings.html" class="nav-item" data-tooltip="Earnings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="nav-label">Earnings</span>
+        </a>
+        <a href="teacher-reviews.html" class="nav-item" data-tooltip="Reviews">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z"/></svg>
+          <span class="nav-label">Reviews</span>
+          <span class="badge">12</span>
+        </a>
+      </div>
+
+      <div class="nav-group">
+        <span class="nav-group-label">Account</span>
+        <a href="teacher-profile.html" class="nav-item" data-tooltip="Profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Profile</span>
+        </a>
+        <a href="teacher-settings.html" class="nav-item" data-tooltip="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button type="button" class="user-pill" aria-haspopup="true" aria-expanded="false" aria-controls="userMenu">
+            <span class="user-avatar">SB</span>
+            <span class="user-meta">
+              <strong>Sarah Bello</strong>
+              <span>Product Management</span>
+            </span>
+            <svg class="user-pill-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="user-menu" id="userMenu">
+            <a href="login.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                <polyline points="10 17 15 12 10 7"/>
+                <line x1="15" y1="12" x2="3" y2="12"/>
+              </svg>
+              <span>Switch account</span>
+            </a>
+            <a href="teacher-help.html" class="user-menu-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/>
+                <path d="M12 17h.01"/>
+              </svg>
+              <span>Help &amp; support</span>
+            </a>
+            <div class="user-menu-divider" aria-hidden="true"></div>
+            <button type="button" class="user-menu-item user-menu-item--danger">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              <span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <header class="topbar">
+    <div>
+      <h1 class="page-title">Upload <span class="accent">content</span></h1>
+      <p class="page-sub">Add a new lesson to your course — video, audio, or documents.</p>
+    </div>
+    <div class="topbar-actions">
+      <a href="teacher-courses.html" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to courses
+      </a>
+      <a href="teacher-pricing.html" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Pricing
+      </a>
+    </div>
+  </header>
+
+  <!-- STEP PROGRESS -->
+  <div class="steps">
+    <div class="step done">
+      <span class="step-num">
+        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+      Course details
+    </div>
+    <div class="step current">
+      <span class="step-num">2</span>
+      Upload content
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      Pricing
+    </div>
+    <div class="step">
+      <span class="step-num">4</span>
+      Publish
+    </div>
+  </div>
+
+  <!-- LESSON DETAILS -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <h2>Lesson details</h2>
+        <p>Give your lesson a clear title and description</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <label for="lessonTitle">Lesson title <span class="req">*</span></label>
+        <input type="text" id="lessonTitle" placeholder="e.g. Introduction to Product Discovery" />
+      </div>
+
+      <div class="field">
+        <label for="lessonDesc">Description</label>
+        <textarea id="lessonDesc" placeholder="What will students learn in this lesson?"></textarea>
+        <span class="hint">Keep it short and specific — 2 to 3 sentences is ideal.</span>
+      </div>
+
+      <div class="row-2">
+        <div class="field">
+          <label for="lessonModule">Module</label>
+          <select id="lessonModule">
+            <option value="">Select a module</option>
+            <option>Module 1: Foundations</option>
+            <option>Module 2: Discovery</option>
+            <option>Module 3: Execution</option>
+            <option>Module 4: Launch</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="lessonDuration">Duration (minutes)</label>
+          <input type="number" id="lessonDuration" min="1" placeholder="e.g. 12" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD CONTENT -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <h2>Upload content</h2>
+        <p>Drag a file or browse — MP4, MOV, WebM, MP3, or PDF</p>
+      </div>
+      <span class="hint" style="font-size:12px;color:#8A7B73;font-weight:500">Max 2GB per file</span>
+    </div>
+    <div class="card-body">
+
+      <div class="upload-zone" id="uploadZone" role="button" tabindex="0" aria-label="Choose files to attach">
+        <input type="file" id="fileInput" multiple accept="video/*,audio/*,.pdf,.doc,.docx,.ppt,.pptx" />
+        <div class="upload-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <div class="upload-title">Drag & drop your files here</div>
+        <div class="upload-sub">or click below to browse your computer</div>
+        <span class="upload-browse" id="browseBtn">Choose files</span>
+        <div class="upload-hint">Video: MP4, MOV, WebM · Audio: MP3, WAV · Docs: PDF, DOC, PPT</div>
+        <div class="upload-hint">Demo only: files are not uploaded or saved to a server.</div>
+      </div>
+
+      <p class="upload-status" id="uploadStatus" role="status" aria-live="polite"></p>
+      <div class="uploads" id="uploads"></div>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="card">
+    <div class="card-head">
+      <div>
+        <h2>Lesson settings</h2>
+        <p>Control visibility and student access</p>
+      </div>
+    </div>
+    <div class="card-body" style="padding-top:10px;padding-bottom:10px">
+      <div class="toggle-row">
+        <div class="toggle-text">
+          <strong>Preview for everyone</strong>
+          <small>Allow non-enrolled students to watch a free preview</small>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <div class="toggle-text">
+          <strong>Downloadable resources</strong>
+          <small>Let students download the attached documents</small>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <div class="toggle-text">
+          <strong>Require completion to advance</strong>
+          <small>Students must finish this lesson before moving on</small>
+        </div>
+        <label class="toggle">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="actions">
+    <button type="button" class="btn btn-ghost" id="draftBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      Save as draft
+    </button>
+    <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+    <button type="button" class="btn btn-primary" id="saveBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Save &amp; continue
+    </button>
+  </div>
+
+</main>
+</div>
+
+<script src="js/teacher-upload.js"></script>
+<script src="js/teacher-user-menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.75,.25,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .course-grid .course-card:nth-child(2) { transition-delay: 70ms; }
+  .course-grid .course-card:nth-child(3) { transition-delay: 140ms; }
+  .hero.is-ready .hero__copy > * { animation: rise-in .65s both; }
+  .hero.is-ready .hero__copy > *:nth-child(2) { animation-delay: 70ms; }
+  .hero.is-ready .hero__copy > *:nth-child(3) { animation-delay: 130ms; }
+  .hero.is-ready .hero__copy > *:nth-child(4) { animation-delay: 190ms; }
+  .hero.is-ready .hero__visual { animation: rise-in .75s 100ms both; }
+  @keyframes rise-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

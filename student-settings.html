@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Chigos</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<script src="js/student.js" defer></script>
+<script src="js/student-settings.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/student.css">
+<link rel="stylesheet" href="css/student-settings.css">
+</head>
+<body class="settings-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
+<button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+</button>
+<div class="dashboard">
+<aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a href="index.html" class="brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="studentLogoGradient" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFD9BA"/>
+              <stop offset="0.5" stop-color="#E8590C"/>
+              <stop offset="1" stop-color="#BF4A06"/>
+            </linearGradient>
+          </defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#studentLogoGradient)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#studentLogoGradient)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+
+      <div class="student-label"><span></span> Student portal</div>
+
+      <nav class="navigation" aria-label="Dashboard">
+        <p class="nav-heading">Learning</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="student-my-courses.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>My courses</span><span class="nav-count" id="sidebarCourseCount">3</span>
+        </a>
+        <a class="nav-link" href="student-progress.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span>My progress</span>
+        </a>
+        <a class="nav-link" href="student-certificates.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1 8 4.8-2.8 4.8 2.8-1-8"/></svg>
+          <span>Certificates</span><span class="nav-count">3</span>
+        </a>
+        <a class="nav-link" href="student-wishlist.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+          <span>Wishlist</span><span class="nav-count" id="sidebarWishlistCount">5</span>
+        </a>
+
+        <p class="nav-heading nav-heading--account">Your account</p>
+        <a class="nav-link" href="student-purchases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span>Purchases</span>
+        </a>
+        <a class="nav-link" href="student-profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          <span>Profile</span>
+        </a>
+        <a class="nav-link is-active" href="student-settings.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button class="user-pill" id="userPill" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="userMenu">
+            <span class="user-avatar" id="sidebarAvatar">AJ</span>
+            <span class="user-meta"><strong id="sidebarName">Amara James</strong><span>Student account</span></span>
+            <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="user-menu" id="userMenu" role="menu" aria-label="Account options">
+            <a class="user-menu-item" href="login.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Switch account</span>
+            </a>
+            <a class="user-menu-item" href="student-notifications.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span>Notifications</span><span class="nav-count" id="sidebarNotifCount">4</span>
+            </a>
+            <a class="user-menu-item" href="student-help.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/><path d="M12 17h.01"/></svg><span>Help &amp; support</span>
+            </a>
+            <span class="user-menu-divider" role="separator"></span>
+            <button class="user-menu-item user-menu-item--danger" id="logoutBtn" type="button" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+<div class="backdrop" id="backdrop"></div>
+<main class="main" id="main">
+
+  <header class="topbar">
+    <div>
+      <div class="page-eyebrow">Account</div>
+      <h1 class="page-title">Settings</h1>
+      <p class="page-sub">Manage your account, notifications, security, and preferences.</p>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" class="btn btn--primary" id="saveAllBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Save changes
+      </button>
+    </div>
+  </header>
+
+  <div class="settings-layout">
+
+    <!-- SETTINGS NAV -->
+    <nav class="settings-nav" id="settingsNav" aria-label="Settings sections">
+      <button type="button" class="settings-nav-item active" data-section="account" aria-pressed="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Account
+      </button>
+      <button type="button" class="settings-nav-item" data-section="notifications" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        Notifications
+      </button>
+      <button type="button" class="settings-nav-item" data-section="security" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Security
+      </button>
+      <button type="button" class="settings-nav-item" data-section="preferences" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+        Preferences
+      </button>
+      <button type="button" class="settings-nav-item" data-section="danger" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Danger zone
+      </button>
+    </nav>
+
+    <!-- SETTINGS CONTENT -->
+    <div class="settings-content">
+
+      <!-- ACCOUNT -->
+      <div class="settings-panel active" data-panel="account">
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Profile photo</h2>
+            <p>This appears on your profile and in course discussions.</p>
+          </div>
+          <div class="section-body">
+            <div class="avatar-row-settings">
+              <div class="settings-avatar">TM</div>
+              <div class="avatar-info">
+                <strong>Profile photo</strong>
+                <span>JPG or PNG · max 5MB · 200×200px recommended</span>
+              </div>
+              <div class="avatar-actions">
+                <button type="button" class="btn btn--ghost" id="uploadPhotoBtn">Upload new</button>
+                <button type="button" class="btn btn--ghost" id="removePhotoBtn">Remove</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Personal information</h2>
+            <p>Your name and contact details.</p>
+          </div>
+          <div class="section-body">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" value="Tunde" />
+              </div>
+              <div class="form-field">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" value="Martins" />
+              </div>
+              <div class="form-field form-field--full">
+                <label for="email">Email address</label>
+                <input type="email" id="email" value="tunde.martins@example.com" />
+                <span class="form-hint">Used for login and important account updates.</span>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone number <span class="optional">optional</span></label>
+                <input type="tel" id="phone" value="+234 800 000 0000" />
+              </div>
+              <div class="form-field">
+                <label for="timezone">Timezone</label>
+                <select id="timezone">
+                  <option selected>Africa/Lagos (WAT)</option>
+                  <option>Africa/Nairobi (EAT)</option>
+                  <option>Europe/London (GMT)</option>
+                  <option>America/New_York (EST)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTIFICATIONS -->
+      <div class="settings-panel" data-panel="notifications">
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Email notifications</h2>
+            <p>Choose what lands in your inbox.</p>
+          </div>
+          <div class="section-body">
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Course updates</strong>
+                <small>New lessons, course announcements, and materials from instructors.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Progress reminders</strong>
+                <small>Gentle nudges if you haven't learned in a few days.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Certificate issued</strong>
+                <small>Get notified when you earn a new certificate.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Recommendations</strong>
+                <small>Courses we think you'll love, based on your learning history.</small>
+              </div>
+              <label class="toggle"><input type="checkbox"><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Product news</strong>
+                <small>Occasional updates about new Chigos features and improvements.</small>
+              </div>
+              <label class="toggle"><input type="checkbox"><span class="track"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Push notifications</h2>
+            <p>Browser and mobile push alerts.</p>
+          </div>
+          <div class="section-body">
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Browser push</strong>
+                <small>Receive notifications in this browser when you're not on Chigos.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Weekly digest</strong>
+                <small>A Sunday evening summary of your week's learning.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Weekly digest</h2>
+            <p>When we send your progress summary.</p>
+          </div>
+          <div class="section-body">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="digestDay">Day</label>
+                <select id="digestDay">
+                  <option>Monday</option>
+                  <option>Wednesday</option>
+                  <option>Friday</option>
+                  <option selected>Sunday</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="digestTime">Time</label>
+                <select id="digestTime">
+                  <option>Morning (8am)</option>
+                  <option selected>Afternoon (2pm)</option>
+                  <option>Evening (7pm)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="settings-panel" data-panel="security">
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Password</h2>
+            <p>Use a strong password you don't use elsewhere.</p>
+          </div>
+          <div class="section-body">
+            <div class="form-field" style="margin-bottom:16px">
+              <label for="currentPw">Current password</label>
+              <input type="password" id="currentPw" placeholder="••••••••" />
+            </div>
+            <div class="form-field" style="margin-bottom:16px">
+              <label for="newPw">New password</label>
+              <input type="password" id="newPw" placeholder="At least 8 characters" />
+              <div class="strength-meter">
+                <div class="strength-bar">
+                  <div class="strength-segment" data-seg="1"></div>
+                  <div class="strength-segment" data-seg="2"></div>
+                  <div class="strength-segment" data-seg="3"></div>
+                  <div class="strength-segment" data-seg="4"></div>
+                </div>
+                <div class="strength-label" id="strengthLabel">Enter a password</div>
+              </div>
+            </div>
+            <div class="form-field" style="margin-bottom:16px">
+              <label for="confirmPw">Confirm new password</label>
+              <input type="password" id="confirmPw" placeholder="Re-enter new password" />
+            </div>
+            <button type="button" class="btn btn--primary" id="updatePwBtn">Update password</button>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Two-factor authentication</h2>
+            <p>Add an extra layer of security to your account.</p>
+          </div>
+          <div class="section-body">
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Authenticator app</strong>
+                <small>Use Google Authenticator, Authy, or 1Password to generate codes.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" id="twofaToggle"><span class="track"></span></label>
+            </div>
+            <div class="form-field" id="twofaField" style="margin-top:16px;display:none">
+              <label for="twofaCode">Verification code</label>
+              <input type="text" id="twofaCode" placeholder="6-digit code from your app" maxlength="6" />
+              <span class="form-hint">Enter the code shown in your authenticator app to enable 2FA.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Active sessions</h2>
+            <p>Devices currently signed in to your account.</p>
+          </div>
+          <div class="section-body">
+            <div class="session-list">
+              <div class="session-item">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="session-info">
+                  <strong>Chrome on macOS</strong>
+                  <span>Lagos, Nigeria · <span class="current">Current session</span></span>
+                </div>
+              </div>
+              <div class="session-item">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <div class="session-info">
+                  <strong>Chigos iOS app</strong>
+                  <span>Lagos, Nigeria · Active 2 hours ago</span>
+                </div>
+                <button type="button" class="session-btn" data-session="ios">Revoke</button>
+              </div>
+              <div class="session-item">
+                <div class="session-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="session-info">
+                  <strong>Safari on iPad</strong>
+                  <span>Abuja, Nigeria · Active 3 days ago</span>
+                </div>
+                <button type="button" class="session-btn" data-session="ipad">Revoke</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREFERENCES -->
+      <div class="settings-panel" data-panel="preferences">
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Learning preferences</h2>
+            <p>Customize how you experience courses.</p>
+          </div>
+          <div class="section-body">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="language">Language</label>
+                <select id="language">
+                  <option selected>English</option>
+                  <option>Français</option>
+                  <option>Yorùbá</option>
+                  <option>Hausa</option>
+                  <option>Igbo</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="playback">Default video speed</label>
+                <select id="playback">
+                  <option>0.75×</option>
+                  <option selected>1×</option>
+                  <option>1.25×</option>
+                  <option>1.5×</option>
+                  <option>2×</option>
+                </select>
+              </div>
+            </div>
+            <div class="toggle-row" style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line)">
+              <div class="toggle-text">
+                <strong>Autoplay next lesson</strong>
+                <small>Automatically start the next lesson when the current one ends.</small>
+              </div>
+              <label class="toggle"><input type="checkbox" checked><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Show subtitles by default</strong>
+                <small>Turn on captions automatically for every lesson.</small>
+              </div>
+              <label class="toggle"><input type="checkbox"><span class="track"></span></label>
+            </div>
+            <div class="toggle-row">
+              <div class="toggle-text">
+                <strong>Compact curriculum view</strong>
+                <small>Collapse completed modules by default in the course player.</small>
+              </div>
+              <label class="toggle"><input type="checkbox"><span class="track"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <div class="section-header">
+            <h2>Appearance</h2>
+            <p>How Chigos looks to you.</p>
+          </div>
+          <div class="section-body">
+            <div class="form-field">
+              <label for="theme">Theme</label>
+              <select id="theme">
+                <option selected>Light</option>
+                <option>Dark</option>
+                <option>System default</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DANGER ZONE -->
+      <div class="settings-panel" data-panel="danger">
+        <div class="settings-section settings-section--danger">
+          <div class="section-header">
+            <h2>Danger zone</h2>
+            <p>These actions affect your entire account. Proceed carefully.</p>
+          </div>
+          <div class="section-body">
+            <div class="danger-row">
+              <div class="danger-text">
+                <strong>Pause account</strong>
+                <span>Take a break from learning. Your progress is kept, but you won't be able to log in until you resume.</span>
+              </div>
+              <button type="button" class="btn btn--danger-ghost" id="pauseBtn">Pause account</button>
+            </div>
+            <div class="danger-row">
+              <div class="danger-text">
+                <strong>Download your data</strong>
+                <span>Get a copy of all your Chigos data — courses, notes, and activity history.</span>
+              </div>
+              <button type="button" class="btn btn--ghost" id="downloadDataBtn">Request data</button>
+            </div>
+            <div class="danger-row">
+              <div class="danger-text">
+                <strong>Delete account</strong>
+                <span>Permanently remove your account, enrolled courses, and progress. This cannot be undone.</span>
+              </div>
+              <button type="button" class="btn btn--danger" id="deleteBtn">Delete account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+</div>
+
+<!-- DELETE MODAL -->
+<div class="modal-overlay" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle" aria-hidden="true">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 id="deleteModalTitle">Delete account</h2>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><strong>This action is permanent.</strong> All your courses, progress, notes, certificates, and purchase history will be deleted. You will not be able to recover any of it.</p>
+      <p>Type <strong>delete my account</strong> below to confirm.</p>
+      <div class="form-field" style="margin-top:14px">
+        <input type="text" id="deleteConfirm" placeholder="delete my account" />
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn--ghost" id="modalCancel">Cancel</button>
+      <button type="button" class="btn btn--danger" id="modalConfirm">Delete account</button>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

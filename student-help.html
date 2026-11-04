@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fffcfa">
+  <meta name="description" content="Find help with courses, certificates, payments, and your Chigos account.">
+  <title>Help &amp; Support — Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/student.css">
+  <link rel="stylesheet" href="css/student-help.css">
+  <script src="js/student.js" defer></script>
+  <script src="js/student-help.js" defer></script>
+</head>
+<body class="help-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar" aria-label="Student navigation">
+      <a href="index.html" class="brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="studentLogoGradient" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFD9BA"/><stop offset="0.5" stop-color="#E8590C"/><stop offset="1" stop-color="#BF4A06"/></linearGradient></defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#studentLogoGradient)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#studentLogoGradient)"/>
+        </svg><span>Chigos</span>
+      </a>
+      <div class="student-label"><span></span> Student portal</div>
+      <nav class="navigation" aria-label="Dashboard">
+        <p class="nav-heading">Learning</p>
+        <a class="nav-link" href="student-dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-link" href="student-my-courses.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>My courses</span><span class="nav-count" id="sidebarCourseCount">3</span>
+        </a>
+        <a class="nav-link" href="student-progress.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg>
+          <span>My progress</span>
+        </a>
+        <a class="nav-link" href="student-certificates.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="m8.2 13-1 8 4.8-2.8 4.8 2.8-1-8"/></svg>
+          <span>Certificates</span><span class="nav-count">3</span>
+        </a>
+        <a class="nav-link" href="student-wishlist.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z"/></svg>
+          <span>Wishlist</span><span class="nav-count" id="sidebarWishlistCount">5</span>
+        </a>
+
+        <p class="nav-heading nav-heading--account">Your account</p>
+        <a class="nav-link" href="student-purchases.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="10" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg>
+          <span>Purchases</span>
+        </a>
+        <a class="nav-link" href="student-profile.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+          <span>Profile</span>
+        </a>
+        <a class="nav-link" href="student-settings.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="user-account">
+          <button class="user-pill" id="userPill" type="button" aria-expanded="false" aria-haspopup="menu" aria-controls="userMenu">
+            <span class="user-avatar" id="sidebarAvatar">AJ</span>
+            <span class="user-meta"><strong id="sidebarName">Amara James</strong><span>Student account</span></span>
+            <svg class="user-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+          <div class="user-menu" id="userMenu" role="menu" aria-label="Account options">
+            <a class="user-menu-item" href="login.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg><span>Switch account</span>
+            </a>
+            <a class="user-menu-item" href="student-notifications.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg><span>Notifications</span><span class="nav-count" id="sidebarNotifCount">4</span>
+            </a>
+            <a class="user-menu-item" href="student-help.html" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.6 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.8 1.2-1.8 2.7"/><path d="M12 17h.01"/></svg><span>Help &amp; support</span>
+            </a>
+            <span class="user-menu-divider" role="separator"></span>
+            <button class="user-menu-item user-menu-item--danger" id="logoutBtn" type="button" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 17l5-5-5-5M15 12H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/></svg><span>Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <main class="main" id="main">
+      <header class="topbar">
+        <div class="page-heading">
+          <p class="page-eyebrow">Support</p>
+          <h1 class="page-title">Help &amp; Support</h1>
+          <p class="page-sub">Find answers, browse guides, or reach out to our team — usually within 2 hours.</p>
+        </div>
+      </header>
+
+      <section class="help-hero" aria-labelledby="helpHeroTitle">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Support center</p>
+          <h2 class="hero-title" id="helpHeroTitle">What do you need help with?</h2>
+          <p class="hero-sub">Search the knowledge base for answers about courses, certificates, payments, and account settings.</p>
+          <form class="search-box" id="searchForm" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="search" id="helpSearch" placeholder="Search help articles…" aria-label="Search help articles">
+            <button type="submit">Search</button>
+          </form>
+          <div class="popular" aria-label="Popular searches">
+            <span class="popular-label">Popular:</span>
+            <button type="button" data-search="certificate">Certificates</button><button type="button" data-search="refund">Refunds</button><button type="button" data-search="payment">Payments</button><button type="button" data-search="progress">Progress</button><button type="button" data-search="download">Downloads</button>
+          </div>
+          <p class="hero-status"><span aria-hidden="true"></span>Support team online — average reply 2 hours</p>
+        </div>
+      </section>
+
+      <section class="help-section" aria-labelledby="topicsTitle">
+        <div class="section-head"><div><h2 id="topicsTitle">Browse by topic</h2><p>Jump to the area you need help with</p></div><button type="button" class="clear-filter" id="clearFilter" hidden>Clear topic filter</button></div>
+        <div class="category-grid">
+          <button type="button" class="category-card" data-topic="learning"><span class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></span><span class="category-title">Watching &amp; learning</span><span class="category-desc">Video playback, notes, downloads, and your course curriculum.</span><span class="category-foot"><span>14 articles</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+          <button type="button" class="category-card" data-topic="certificates"><span class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><path d="m8.2 13-1 8 3.8-2.8 3.8 2.8-1-8"/></svg></span><span class="category-title">Certificates &amp; exams</span><span class="category-desc">Final exams, earning certificates, and verification.</span><span class="category-foot"><span>9 articles</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+          <button type="button" class="category-card" data-topic="payments"><span class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg></span><span class="category-title">Payments &amp; receipts</span><span class="category-desc">Billing, refunds, invoices, and payment methods.</span><span class="category-foot"><span>11 articles</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+          <button type="button" class="category-card" data-topic="account"><span class="category-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg></span><span class="category-title">Account &amp; profile</span><span class="category-desc">Profile settings, password, security, and privacy.</span><span class="category-foot"><span>12 articles</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span></button>
+        </div>
+      </section>
+
+      <section class="faq-contact-grid" aria-label="Frequently asked questions and contact support">
+        <section class="faq-panel" id="faqPanel" aria-labelledby="faqTitle">
+          <header class="faq-head"><h2 id="faqTitle">Frequently asked questions</h2><p>Quick answers to what we hear most</p></header>
+          <div class="faq-list" id="faqList">
+            <article class="faq-item" data-topic="certificates"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer1">How do I earn a certificate?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer1" hidden><p>Complete all lessons in the course, then pass the final exam with a score of 70% or higher. Your certificate is issued automatically and appears on your Certificates page within minutes. You can download it as a PDF or share a public verification link.</p></div></article>
+            <article class="faq-item" data-topic="certificates learning"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer2">Can I retake an exam if I fail?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer2" hidden><p>Yes. You get two attempts per exam. If you don't pass on the second attempt, there's a 24-hour cooldown before you can try again. Review the lessons you struggled with; your exam report shows which questions you missed.</p></div></article>
+            <article class="faq-item" data-topic="payments"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer3">How do I request a refund?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer3" hidden><p>You can request a full refund within 30 days of purchase if you've watched less than 25% of the course. Go to Purchases, find the transaction, and select "Request refund". Refunds are processed within 5–7 business days to your original payment method.</p></div></article>
+            <article class="faq-item" data-topic="learning"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer4">Can I download lessons for offline viewing?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer4" hidden><p>Downloads are available on the Chigos mobile app for iOS and Android. Tap the download icon next to a lesson to save it for offline viewing. Downloads expire after 30 days and can be renewed while you're enrolled in the course.</p></div></article>
+            <article class="faq-item" data-topic="learning"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer5">Why isn't my video playing?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer5" hidden><p>Try refreshing the page and clearing your browser cache. Make sure you're using the latest version of Chrome, Safari, Firefox, or Edge. Restricted networks can block video streaming; try another network to check.</p></div></article>
+            <article class="faq-item" data-topic="account"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer6">How do I change my email or password?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer6" hidden><p>Go to Settings → Account to update your email, or Settings → Security to change your password. If you've forgotten your password, sign out and choose "Forgot password" on the login screen. Email changes require verification from your new address.</p></div></article>
+            <article class="faq-item" data-topic="account learning"><h3><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer7">Can I share a course with someone else?<span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button></h3><div class="faq-answer" id="faqAnswer7" hidden><p>Enrollments are personal and can't be transferred. You can gift a course: find it in Explore and choose "Gift this course" to purchase it for someone else. They'll receive an email invitation to redeem it.</p></div></article>
+          </div>
+          <div class="no-results" id="noResults" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><h3>No results found</h3><p>Try another keyword or contact support below.</p></div>
+        </section>
+
+        <aside class="contact-panel" aria-labelledby="contactTitle">
+          <header class="contact-head"><h2 id="contactTitle">Still need help?</h2><p>Reach out directly — we're friendly</p></header>
+          <div class="contact-list">
+            <a href="mailto:support@chigos.com" class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><span class="contact-body"><strong>Email support</strong><span>support@chigos.com · 24h reply</span></span><svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a href="#faqPanel" class="contact-item" id="liveChatBtn"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="contact-body"><strong>Live chat</strong><span>Mon–Fri · 9am–6pm WAT</span></span><svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a href="tel:+2348000000000" class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span><span class="contact-body"><strong>Phone</strong><span>+234 800 000 0000 · weekdays</span></span><svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+          </div>
+          <p class="contact-status">Support team online — average reply 2h</p>
+        </aside>
+      </section>
+
+      <section class="help-section resources-section" aria-labelledby="resourcesTitle">
+        <div class="section-head"><div><h2 id="resourcesTitle">Guides &amp; resources</h2><p>Learn at your own pace with walkthroughs</p></div></div>
+        <div class="resource-grid">
+          <button type="button" class="resource-card" data-guide="Getting started on Chigos"><span class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 12 7-12 7V5Z"/></svg></span><span class="resource-body"><strong>Getting started on Chigos</strong><span>A 5-minute tour of your dashboard, courses, and how to learn efficiently.</span></span></button>
+          <button type="button" class="resource-card" data-guide="Learning tips &amp; study habits"><span class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a7 7 0 0 0-4 12.75V19h8v-3.25A7 7 0 0 0 12 3Z"/><path d="M9 22h6m-5-6h4"/></svg></span><span class="resource-body"><strong>Learning tips &amp; study habits</strong><span>Practical advice for finishing courses and retaining what you learn.</span></span></button>
+          <button type="button" class="resource-card" data-guide="Certificates &amp; sharing"><span class="resource-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><path d="m8.2 13-1 8 3.8-2.8 3.8 2.8-1-8"/></svg></span><span class="resource-body"><strong>Certificates &amp; sharing</strong><span>How to earn, verify, and share your certificates with employers.</span></span></button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

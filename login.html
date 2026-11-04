@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log in — Chigos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<main class="login-page">
+
+  <!-- LEFT — BRAND PANEL -->
+  <section class="brand-panel">
+    <div class="brand-noise"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="brand-inner">
+      <a href="index.html" class="brand-logo">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#FFD9BA"/>
+              <stop offset="0.5" stop-color="#E8590C"/>
+              <stop offset="1" stop-color="#BF4A06"/>
+            </linearGradient>
+          </defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#lg)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#lg)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+
+      <div class="brand-copy">
+        <span class="brand-eyebrow">Welcome back</span>
+        <h1>Pick up right where you <em>left off.</em></h1>
+        <p>Your courses, your progress, your next skill — all waiting for you. Sign in and keep building the future you're working toward.</p>
+      </div>
+
+      <ul class="brand-points">
+        <li>
+          <span class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Learn from practitioners, not textbooks
+        </li>
+        <li>
+          <span class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          340+ courses across 21 categories
+        </li>
+        <li>
+          <span class="point-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          Verifiable certificates, real outcomes
+        </li>
+      </ul>
+
+      <div class="brand-quote">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="quote-icon"><path d="M9.9 4.8C6.2 5.8 3.5 8.9 3.5 12.7c0 3.4 2.1 5.7 5 5.7 2.6 0 4.5-1.9 4.5-4.4 0-2.4-1.7-4.2-4-4.2-.4 0-.8 0-1.1.2.5-1.9 2.2-3.6 4.5-4.2L9.9 4.8zM20.4 4.8c-3.7 1-6.4 4.1-6.4 7.9 0 3.4 2.1 5.7 5 5.7 2.6 0 4.5-1.9 4.5-4.4 0-2.4-1.7-4.2-4-4.2-.4 0-.8 0-1.1.2.5-1.9 2.2-3.6 4.5-4.2l-2.5-1z"/></svg>
+        <p>"I went from zero coding experience to a full-time offer in 7 months. Chigos made the difference."</p>
+        <div class="quote-author">
+          <div class="quote-avatar">AO</div>
+          <div>
+            <strong>Adaeze Okafor</strong>
+            <span>Software Engineer · Google</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-footer">© 2025 Chigos Learning Ltd. · Made with 🔥 in Lagos</div>
+    </div>
+  </section>
+
+  <!-- RIGHT — FORM PANEL -->
+  <section class="form-panel">
+    <div class="form-inner">
+
+      <div class="form-top">
+        <a href="index.html" class="mobile-logo">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg2" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#E8590C"/>
+                <stop offset="1" stop-color="#BF4A06"/>
+              </linearGradient>
+            </defs>
+            <circle cx="256" cy="256" r="150" stroke="url(#lg2)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+            <circle cx="256" cy="256" r="32" fill="url(#lg2)"/>
+          </svg>
+          <span>Chigos</span>
+        </a>
+
+        <p class="form-switch">
+          New to Chigos?
+          <a href="signup-student.html">Create an account</a>
+        </p>
+      </div>
+
+      <!-- GOOGLE VIEW -->
+      <div class="provider-view" id="googleView">
+        <button type="button" class="provider-back" data-back>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+
+        <div class="provider-head">
+          <div class="provider-logo google-logo">
+            <svg viewBox="0 0 48 48">
+              <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.4-.4-3.5z"/>
+              <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+              <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+              <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C41.2 35.5 44 30.2 44 24c0-1.2-.1-2.4-.4-3.5z"/>
+            </svg>
+          </div>
+          <h2 class="provider-title">Sign in with Google</h2>
+          <p class="provider-sub">to continue to <strong>Chigos</strong></p>
+        </div>
+
+        <div class="provider-account">
+          <div class="account-avatar" style="background:linear-gradient(135deg,#4285F4,#1a73e8);">A</div>
+          <div class="account-info">
+            <strong>Adaeze Okafor</strong>
+            <span>adaeze.okafor@gmail.com</span>
+          </div>
+          <span class="account-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+        </div>
+
+        <div class="provider-account provider-account--alt">
+          <div class="account-avatar" style="background:linear-gradient(135deg,#EA4335,#B31412);">T</div>
+          <div class="account-info">
+            <strong>Tunde Martins</strong>
+            <span>tunde.m@gmail.com</span>
+          </div>
+        </div>
+
+        <button type="button" class="provider-use-other" data-use-other>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v8M8 12h8"/>
+          </svg>
+          Use another account
+        </button>
+
+        <button type="button" class="provider-continue" data-provider-continue="Google">
+          Continue as Adaeze
+        </button>
+
+        <p class="provider-terms">
+          To continue, Google will share your name, email address, language preference, and profile picture with Chigos.
+        </p>
+      </div>
+
+      <!-- APPLE VIEW -->
+      <div class="provider-view" id="appleView">
+        <button type="button" class="provider-back" data-back>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+
+        <div class="provider-head">
+          <div class="provider-logo apple-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+          </div>
+          <h2 class="provider-title">Sign in with Apple</h2>
+          <p class="provider-sub">to continue to <strong>Chigos</strong></p>
+        </div>
+
+        <div class="apple-id-field">
+          <label for="appleId">Apple ID</label>
+          <div class="apple-input-wrap">
+            <svg class="apple-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+            <input type="email" id="appleId" placeholder="you@icloud.com" value="adaeze.okafor@icloud.com">
+          </div>
+        </div>
+
+        <label class="apple-remember">
+          <input type="checkbox" checked>
+          <span class="checkmark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Remember me
+        </label>
+
+        <button type="button" class="provider-continue provider-continue--apple" data-provider-continue="Apple">
+          Continue with Apple ID
+        </button>
+
+        <p class="provider-terms">
+          Chigos will receive your name and email address. Apple will not share your real email if you choose Hide My Email.
+        </p>
+      </div>
+
+      <!-- EMAIL VIEW (default) -->
+      <div class="email-view" id="emailView">
+
+        <div class="form-head">
+          <h2>Welcome back</h2>
+          <p>Sign in to continue learning.</p>
+        </div>
+
+        <div class="alert alert--error" id="alertError">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span id="alertErrorText">Something went wrong.</span>
+        </div>
+
+        <div class="social-row">
+          <button type="button" class="social-btn" data-provider="Google">
+            <svg viewBox="0 0 48 48">
+              <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.4-.4-3.5z"/>
+              <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+              <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2c-2 1.5-4.5 2.4-7.2 2.4-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+              <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.2 5.2C41.2 35.5 44 30.2 44 24c0-1.2-.1-2.4-.4-3.5z"/>
+            </svg>
+            Google
+          </button>
+          <button type="button" class="social-btn" data-provider="Apple">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            Apple
+          </button>
+        </div>
+
+        <div class="divider">or continue with email</div>
+
+        <form class="login-form" id="loginForm" novalidate>
+          <div class="field">
+            <label for="email">Email address</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M2 7l10 7 10-7"/>
+              </svg>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+            <span class="field-error" data-error-for="email"></span>
+          </div>
+
+          <div class="field">
+            <div class="field-top">
+              <label for="password">Password</label>
+              <a href="#" class="field-forgot" id="forgotLink">Forgot password?</a>
+            </div>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+              <button type="button" class="toggle-password" id="togglePassword" aria-label="Show password">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="field-error" data-error-for="password"></span>
+          </div>
+
+          <div class="remember-row">
+            <label class="checkbox">
+              <input type="checkbox" id="remember" name="remember">
+              <span class="checkmark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Keep me signed in
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-label">Sign in</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </button>
+        </form>
+
+        <p class="form-footer">
+          By signing in you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>

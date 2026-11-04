@@ -1333,3 +1333,41 @@ body::before {
   .courses-page .footer-top { grid-template-columns: 1fr; }
   .courses-page .footer-brand { grid-column: auto; }
 }
+/* Search Filter Active Tag on courses.html */
+.search-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange-deep);
+  background: rgba(232, 89, 12, 0.1);
+  border: 1px solid rgba(232, 89, 12, 0.25);
+  border-radius: 100px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.clear-search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: rgba(232, 89, 12, 0.2);
+  color: var(--orange-deep);
+  border: none;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.clear-search-btn:hover {
+  background: #DC2626;
+  color: #fff;
+}

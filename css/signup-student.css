@@ -17,7 +17,7 @@
   --spring:cubic-bezier(0.34,1.56,0.64,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
+html, body { min-height: 100%; height: auto; }
 body{
   font-family:'Inter',sans-serif;
   background:var(--ivory);
@@ -31,7 +31,7 @@ body{
 .signup-page{
   display:grid;
   grid-template-columns:1.05fr 1fr;
-  min-height:100vh;
+  min-height: 100vh; min-height: 100dvh;
 }
 
 /* ==================== LEFT — BRAND PANEL ==================== */
@@ -137,8 +137,14 @@ body{
 /* ==================== RIGHT — FORM PANEL ==================== */
 .form-panel{
   position:relative;background:var(--ivory);
-  display:flex;align-items:center;justify-content:center;
-  padding:56px 48px;overflow-y:auto;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:56px 48px;overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  min-height:100vh;min-height:100dvh;
+}
+@media (min-width: 1025px){
+  .form-panel{justify-content:center}
+  .form-inner{margin:auto 0}
 }
 .form-panel::before{
   content:'';position:absolute;top:-220px;right:-200px;
@@ -152,7 +158,7 @@ body{
   background:radial-gradient(circle,rgba(255,217,186,.6) 0%,transparent 70%);
   filter:blur(60px);pointer-events:none;
 }
-.form-inner{position:relative;z-index:1;width:100%;max-width:440px}
+.form-inner { position: relative; z-index: 1; width: 100%; max-width: 440px; margin: 0 auto; }
 
 .form-top{
   display:flex;align-items:center;justify-content:space-between;
@@ -283,6 +289,7 @@ body{
 .field input:focus{border-color:var(--orange);box-shadow:0 0 0 4px rgba(232,89,12,.1)}
 .field input.has-error{border-color:var(--red);box-shadow:0 0 0 4px rgba(220,38,38,.08)}
 
+.input-wrap input[type="password"]{padding-right:44px}
 .toggle-password{
   position:absolute;right:10px;top:50%;transform:translateY(-50%);
   width:30px;height:30px;display:grid;place-items:center;
@@ -535,30 +542,285 @@ body{
 .success-btn:hover svg{transform:translateX(4px)}
 
 /* ==================== RESPONSIVE ==================== */
-@media (max-width:1024px){
-  .signup-page{grid-template-columns:1fr}
-  .brand-panel{display:none}
-  .form-panel{min-height:100vh;padding:72px 32px 48px}
-  .mobile-logo{display:inline-flex}
-  .form-top{margin-bottom:22px}
+@media (max-width: 1024px) {
+  .signup-page {
+    grid-template-columns: 1fr;
+    min-height: 100dvh;
+  }
+  .brand-panel {
+    display: none;
+  }
+  .form-panel {
+    min-height: 100dvh;
+    padding: 36px 24px 44px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .form-inner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 440px;
+  }
+  .mobile-logo {
+    display: inline-flex;
+  }
+  .form-top {
+    margin-bottom: 22px;
+  }
 }
-@media (max-width:640px){
-  .form-panel{padding:56px 20px 40px}
-  .form-inner{max-width:100%}
-  .form-top{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:22px}
-  .form-switch{margin-left:0}
-  .social-row{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .interests{grid-template-columns:1fr}
-  .code-inputs{gap:6px}
-  .code-inputs input{font-size:17px}
-  .stepper{padding:12px 12px;gap:6px;overflow-x:auto}
-  .step-label{font-size:11px}
-  .step-actions{flex-direction:column}
-  .step-actions .back-btn{width:100%}
-  .role-tab{font-size:12px;padding:10px 10px}
-  .role-tab svg{width:14px;height:14px}
+
+@media (max-width: 640px) {
+  .form-panel {
+    padding: 24px 16px 36px;
+    min-height: 100dvh;
+  }
+  .form-inner {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .form-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .mobile-logo svg {
+    width: 26px;
+    height: 26px;
+  }
+  .mobile-logo span {
+    font-size: 18px;
+  }
+  .form-switch {
+    margin-left: auto;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+  .role-tabs {
+    margin-bottom: 20px;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 12px;
+    width: 100%;
+  }
+  .role-tab {
+    font-size: 12px;
+    padding: 10px 8px;
+    gap: 6px;
+    min-width: 0;
+    border-radius: 9px;
+  }
+  .role-tab svg {
+    width: 14px;
+    height: 14px;
+  }
+  .form-head {
+    margin-bottom: 18px;
+  }
+  .form-head h2 {
+    font-size: 24px;
+    letter-spacing: -0.8px;
+  }
+  .form-head p {
+    font-size: 13.5px;
+  }
+  .stepper {
+    padding: 10px 12px;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+  .step {
+    gap: 6px;
+  }
+  .step-num {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+  .step-label {
+    font-size: 11px;
+  }
+  .step-line {
+    min-width: 10px;
+  }
+  .social-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .social-btn {
+    padding: 11px 10px;
+    font-size: 13px;
+    gap: 8px;
+    min-height: 44px;
+  }
+  .divider {
+    margin-bottom: 16px;
+    font-size: 10.5px;
+    width: 100%;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+  .field {
+    gap: 6px;
+    width: 100%;
+  }
+  .field label {
+    font-size: 12px;
+  }
+  .field input {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+    padding: 12px 14px 12px 38px;
+    border-radius: 10px;
+    min-height: 46px;
+    width: 100%;
+  }
+  .input-wrap input[type="password"] {
+    padding-right: 42px;
+  }
+  .input-icon {
+    left: 12px;
+    width: 15px;
+    height: 15px;
+  }
+  .toggle-password {
+    right: 8px;
+  }
+  .checkbox {
+    font-size: 12.5px;
+  }
+  .interests {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+  }
+  .interest {
+    padding: 9px 8px;
+    font-size: 11.5px;
+    gap: 7px;
+    min-height: 42px;
+  }
+  .interest-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .interest-icon svg {
+    width: 12px;
+    height: 12px;
+  }
+  .code-inputs {
+    gap: 6px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .code-inputs input {
+    font-size: 18px;
+    border-radius: 9px;
+  }
+  .submit-btn {
+    padding: 14px 20px;
+    font-size: 14px;
+    min-height: 48px;
+    margin-top: 4px;
+    width: 100%;
+  }
+  .step-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: 100%;
+  }
+  .step-actions .back-btn {
+    padding: 13px 16px;
+    font-size: 13.5px;
+    min-height: 48px;
+    flex: 0 0 auto;
+  }
+  .step-actions .submit-btn {
+    flex: 1;
+    margin-top: 0;
+  }
 }
-@media (max-width:400px){
-  .step-label{display:none}
+
+@media (max-width: 480px) {
+  .form-panel {
+    padding: 20px 14px 32px;
+  }
+  .form-head h2 {
+    font-size: 22px;
+  }
+  .form-head p {
+    font-size: 13px;
+  }
+  .stepper {
+    padding: 9px 10px;
+    gap: 5px;
+  }
+  .step {
+    gap: 5px;
+  }
+  .step-num {
+    width: 19px;
+    height: 19px;
+    font-size: 10.5px;
+  }
+  .step-label {
+    font-size: 10.5px;
+  }
+  .step-line {
+    min-width: 8px;
+  }
+  .role-tab {
+    font-size: 11.5px;
+    padding: 9px 5px;
+    gap: 4px;
+  }
+  .role-tab svg {
+    width: 13px;
+    height: 13px;
+  }
+  .interests {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .code-inputs {
+    gap: 4px;
+  }
+  .code-inputs input {
+    font-size: 16px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .form-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .form-switch {
+    margin-left: 0;
+    text-align: left;
+  }
+  .social-row {
+    grid-template-columns: 1fr;
+  }
+  .role-tab {
+    font-size: 10.5px;
+    padding: 8px 3px;
+    gap: 3px;
+  }
+  .step-label {
+    font-size: 10px;
+  }
+  .interests {
+    grid-template-columns: 1fr;
+  }
 }

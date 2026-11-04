@@ -133,10 +133,15 @@
 
   function formatNaira(n) { return '₦' + n.toLocaleString('en-NG'); }
   function getFilteredCourses() {
-    return allCourses.filter(course => {
+    const courses = (window.CHIGOS_CATALOG && window.CHIGOS_CATALOG.allCourses) ? window.CHIGOS_CATALOG.allCourses : allCourses;
+    return courses.filter(course => {
       const matchesCategory = state.category === 'all' || course.catId === state.category;
+      if (!matchesCategory) return false;
+      if (!state.query) return true;
+      const q = state.query.toLowerCase();
       const searchableText = `${course.title} ${course.category} ${course.instructor}`.toLowerCase();
-      return matchesCategory && searchableText.includes(state.query);
+      const kws = course.keywords || [];
+      return searchableText.includes(q) || kws.some(k => k.includes(q));
     });
   }
   function getSortedCourses() {
@@ -220,6 +225,44 @@
     return a;
   }
 
+    function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function updateURL() {
+    const url = new URL(window.location.href);
+    if (state.query) url.searchParams.set('q', state.query);
+    else url.searchParams.delete('q');
+    if (state.category && state.category !== 'all') url.searchParams.set('cat', state.category);
+    else url.searchParams.delete('cat');
+    if (state.sort && state.sort !== 'popular') url.searchParams.set('sort', state.sort);
+    else url.searchParams.delete('sort');
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  function initFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q') || params.get('search');
+    const cat = params.get('cat') || params.get('category');
+    const sort = params.get('sort');
+
+    if (q) {
+      state.query = q.trim();
+      if (navSearchInput) navSearchInput.value = q.trim();
+    }
+    if (cat && (cat === 'all' || CATEGORIES.some(c => c.id === cat))) {
+      state.category = cat;
+    }
+    if (sort && ['popular','rating','newest','price-low','price-high'].includes(sort)) {
+      state.sort = sort;
+      if (sortSelect) sortSelect.value = sort;
+    }
+  }
+
   function renderPage(page, shouldScroll = true) {
     const sorted = getSortedCourses();
     const totalPages = Math.max(1, Math.ceil(sorted.length / PER_PAGE));
@@ -247,11 +290,34 @@
       });
     }
 
-    const currentCat = CATEGORIES.find(c => c.id === state.category);
+        const currentCat = CATEGORIES.find(c => c.id === state.category);
+    let filterHTML = '';
+    if (state.category !== 'all' && currentCat) {
+      filterHTML += `<span class="filter-tag">${currentCat.name}</span>`;
+    }
+    if (state.query) {
+      filterHTML += `
+        <span class="search-filter-tag">
+          "${escapeHtml(state.query)}"
+          <button type="button" class="clear-search-btn" id="clearSearchQuery" aria-label="Clear search" title="Clear search">&times;</button>
+        </span>
+      `;
+    }
+
     resultsText.innerHTML = `
-      <strong>${sorted.length}</strong> courses found
-      ${state.category !== 'all' && currentCat ? `<span class="filter-tag">${currentCat.name}</span>` : ''}
+      <strong>${sorted.length}</strong> ${sorted.length === 1 ? 'course' : 'courses'} found
+      ${filterHTML}
     `;
+
+    const clearQueryBtn = document.getElementById('clearSearchQuery');
+    if (clearQueryBtn) {
+      clearQueryBtn.addEventListener('click', () => {
+        state.query = '';
+        if (navSearchInput) navSearchInput.value = '';
+        updateURL();
+        renderPage(1, false);
+      });
+    }
 
     clearBtn.classList.toggle('is-visible', state.category !== 'all');
 
@@ -425,9 +491,20 @@
 
     navSearchInput.addEventListener('input', () => {
       if (!catalogExists) return;
-      state.query = navSearchInput.value.trim().toLowerCase();
+      state.query = navSearchInput.value.trim();
       state.currentPage = 1;
+      updateURL();
       renderPage(1, false);
+    });
+
+    navSearchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        state.query = navSearchInput.value.trim();
+        state.currentPage = 1;
+        updateURL();
+        renderPage(1, true);
+      }
     });
 
     let ticking = false;
@@ -467,8 +544,19 @@
   }
 
   if (catalogExists) {
+    initFromURL();
     renderCategories();
-    renderPage(1);
+    renderPage(1, false);
+
+    if (state.query || (state.category && state.category !== 'all')) {
+      setTimeout(() => {
+        const target = document.querySelector('.results-head') || grid;
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY - 110;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 150);
+    }
   }
 
 })();

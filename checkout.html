@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -16,16 +16,503 @@
       color: #111827 !important;
     }
     /* Explicit light surface lock for mobile engines */
-    .navbar, .card, .course-card, .feature-card, .hero-section, .hero-container, .modal, .modal-wrapper, .modal-content, .dropdown {
+    .navbar, .card, .course-card, .feature-card, .hero-section, .hero-container, .modal, .modal-wrapper, .modal-content, .dropdown, .checkout-card, .summary-card {
       background-color: #ffffff;
       color: #111827;
     }
-  </style><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Review your Chigos lesson order."><meta name="theme-color" content="#f6f4ed">
-  <title>Checkout — Chigos</title><link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=2"><link rel="stylesheet" href="css/animations.css?v=2"><link rel="stylesheet" href="css/hero.css?v=2"><link rel="stylesheet" href="css/dashboard.css?v=2">
-  <script src="js/storage.js" defer></script><script src="js/seed.js" defer></script><script src="js/auth.js" defer></script><script src="js/payments.js" defer></script><script src="js/ui-cards.js" defer></script><script src="js/hero.js" defer></script><script src="js/app.js" defer></script>
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Secure checkout and enrollment for your Chigos course.">
+  <meta name="theme-color" content="#FFFAF5">
+  <title>Checkout — Chigos</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="css/checkout.css?v=2">
 </head>
-<body data-page="checkout"><a class="skip-link" href="#main">Skip to content</a><header id="site-navbar"></header><main id="main"></main><footer id="site-footer"></footer><div id="toast-region" aria-live="polite" aria-atomic="true"></div></body>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <header class="checkout-nav-wrapper">
+    <div class="checkout-nav">
+      <a href="index.html" class="checkout-brand" aria-label="Chigos home">
+        <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="chkLogoGrad" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#E8590C"/>
+              <stop offset="1" stop-color="#BF4A06"/>
+            </linearGradient>
+          </defs>
+          <circle cx="256" cy="256" r="150" stroke="url(#chkLogoGrad)" stroke-width="64" stroke-linecap="round" stroke-dasharray="642.5 300" transform="rotate(60 256 256)"/>
+          <circle cx="256" cy="256" r="32" fill="url(#chkLogoGrad)"/>
+        </svg>
+        <span>Chigos</span>
+      </a>
+
+      <div class="nav-security-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span>256-Bit SSL Encrypted Checkout</span>
+      </div>
+
+      <a href="courses.html" class="back-link" id="backToCourseLink">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to course
+      </a>
+    </div>
+  </header>
+
+  <!-- HEADER TITLE & STEPS -->
+  <div class="checkout-header-bar">
+    <div class="checkout-steps">
+      <div class="step-item is-done">
+        <span class="step-num">&#10003;</span>
+        <span>Course Selection</span>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-item is-active">
+        <span class="step-num">2</span>
+        <span>Checkout &amp; Payment</span>
+      </div>
+      <div class="step-divider"></div>
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <span>Start Learning</span>
+      </div>
+    </div>
+    <h1 class="checkout-title">Complete your enrollment</h1>
+    <p class="checkout-subtitle">You are one step away from instant lifetime access to your lessons.</p>
+  </div>
+
+  <!-- CHECKOUT MAIN GRID -->
+  <main class="checkout-container">
+
+    <!-- LEFT COLUMN: PAYMENT & ACCOUNT FORMS -->
+    <div class="checkout-main">
+      <form id="checkoutForm">
+
+        <!-- ACCOUNT DETAILS CARD -->
+        <div class="checkout-card" id="accountCard">
+          <div class="card-head">
+            <div class="card-title-group">
+              <div class="card-title-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <h3>1. Student Account</h3>
+            </div>
+            <span class="card-head-badge">Verified Learner</span>
+          </div>
+
+          <div class="account-banner">
+            <div class="account-user">
+              <div class="user-avatar" id="accAvatar">AJ</div>
+              <div class="user-details">
+                <strong id="accUserTitle">Amara James</strong>
+                <span id="accUserSub">student@chigos.test</span>
+              </div>
+            </div>
+            <button type="button" class="account-switch-btn" id="accSwitchBtn">Switch account</button>
+          </div>
+
+          <div class="account-form-grid">
+            <div class="form-group">
+              <label for="accName">Full name</label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <input type="text" id="accName" class="form-input" placeholder="e.g. Amara James" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="accEmail">Email address <span class="hint">Course access sent here</span></label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <input type="email" id="accEmail" class="form-input" placeholder="e.g. amara@example.com" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAYMENT METHOD SELECTION -->
+        <div class="checkout-card" style="margin-top:24px;">
+          <div class="card-head">
+            <div class="card-title-group">
+              <div class="card-title-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                  <line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <h3>2. Payment Method</h3>
+            </div>
+            <span class="card-head-badge">Instant Activation</span>
+          </div>
+
+          <div class="payment-methods-grid">
+            <!-- PAYSTACK -->
+            <label class="payment-method-card is-selected">
+              <input type="radio" name="paymentMethod" value="paystack" checked>
+              <span class="payment-method-badge">Recommended</span>
+              <div class="payment-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange-deep)" stroke-width="2.2">
+                  <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+                </svg>
+              </div>
+              <span class="payment-method-title">Paystack</span>
+              <span class="payment-method-sub">Cards &amp; USSD</span>
+            </label>
+
+            <!-- FLUTTERWAVE -->
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="flutterwave">
+              <div class="payment-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8590C" stroke-width="2.2">
+                  <path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/><path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="payment-method-title">Flutterwave</span>
+              <span class="payment-method-sub">African Banks</span>
+            </label>
+
+            <!-- BANK TRANSFER -->
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="bank">
+              <div class="payment-method-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4b5563" stroke-width="2.2">
+                  <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2 2 7h20z"/>
+                </svg>
+              </div>
+              <span class="payment-method-title">Bank Transfer</span>
+              <span class="payment-method-sub">Direct Deposit</span>
+            </label>
+          </div>
+
+          <!-- CARD DETAILS FORM (FOR PAYSTACK / CARDS) -->
+          <div class="card-details-box" id="cardDetailsBox">
+            <div class="form-group full-width">
+              <label for="cardNumber">
+                <span>Card number</span>
+                <span class="card-brand-badges">
+                  <span class="trust-badge-pill card-brand-icon" id="iconVisa">VISA</span>
+                  <span class="trust-badge-pill card-brand-icon" id="iconMastercard">MASTERCARD</span>
+                  <span class="trust-badge-pill card-brand-icon" id="iconVerve">VERVE</span>
+                </span>
+              </label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </span>
+                <input type="text" id="cardNumber" class="form-input" placeholder="4242 •••• •••• 4242" maxlength="19" value="4242 8820 1934 5601" required>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="cardName">Cardholder name</label>
+              <div class="form-input-wrapper">
+                <span class="form-input-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <input type="text" id="cardName" class="form-input" placeholder="Name on card" value="Amara James" required>
+              </div>
+            </div>
+
+            <div class="two-col-grid">
+              <div class="form-group">
+                <label for="cardExpiry">Expiration date</label>
+                <div class="form-input-wrapper">
+                  <span class="form-input-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </span>
+                  <input type="text" id="cardExpiry" class="form-input" placeholder="MM/YY" maxlength="5" value="12/28" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="cardCvv">CVV / CVC <span class="hint">3-4 digits on back</span></label>
+                <div class="form-input-wrapper">
+                  <span class="form-input-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  </span>
+                  <input type="password" id="cardCvv" class="form-input" placeholder="•••" maxlength="4" value="842" required>
+                </div>
+              </div>
+            </div>
+
+            <label class="checkbox-label" style="margin-top:6px;">
+              <input type="checkbox" checked>
+              <span>Save this payment method securely for future one-click course enrollments.</span>
+            </label>
+          </div>
+
+          <!-- DIRECT BANK TRANSFER DETAILS (PAYING DIRECTLY TO TEACHER) -->
+          <div class="card-details-box" id="bankDetailsBox" style="display:none;">
+            <div class="teacher-bank-card">
+              <div class="teacher-bank-header">
+                <div class="teacher-bank-avatar" id="teacherBankAvatar">AO</div>
+                <div class="teacher-bank-info">
+                  <span class="teacher-bank-eyebrow">&#128188; Teacher Direct Payout Account</span>
+                  <h4 class="teacher-bank-title" id="teacherBankNameTitle">Transfer directly to Adaeze Okafor</h4>
+                </div>
+                <span class="teacher-badge-verified">&#10003; Verified Teacher</span>
+              </div>
+
+              <div class="teacher-bank-details-grid">
+                <div class="bank-detail-item">
+                  <span class="bank-detail-label">Bank Name</span>
+                  <strong class="bank-detail-val" id="teacherBankName">Guaranty Trust Bank (GTBank)</strong>
+                </div>
+                <div class="bank-detail-item">
+                  <span class="bank-detail-label">Account Name</span>
+                  <strong class="bank-detail-val" id="teacherAccountName">Adaeze Okafor / Ada Makes</strong>
+                </div>
+                <div class="bank-detail-item full">
+                  <span class="bank-detail-label">Account Number</span>
+                  <div class="bank-acct-copy-row">
+                    <strong class="bank-detail-val acct-num" id="teacherAccountNumber">0128491024</strong>
+                    <button type="button" class="btn-copy-acct" id="copyAcctBtn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      <span id="copyAcctText">Copy Account</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="teacher-bank-notice">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>100% of this course payment (minus ₦100 platform fee) is credited directly to <strong id="teacherNoticeName">Adaeze Okafor</strong>. No middleman withholding.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRUST BADGES STRIP -->
+        <div class="trust-features-strip" style="margin-top:24px;">
+          <div class="trust-item">
+            <div class="trust-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="trust-item-text">
+              <strong>30-Day Guarantee</strong>
+              <span>100% refund if not happy</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="trust-item-text">
+              <strong>Lifetime Access</strong>
+              <span>Learn at your own pace</span>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/>
+              </svg>
+            </div>
+            <div class="trust-item-text">
+              <strong>Certificate Included</strong>
+              <span>Verifiable on LinkedIn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIDDEN SUBMIT BUTTON FOR FORM TRIGGER -->
+        <button type="submit" id="hiddenFormSubmit" style="display:none;"></button>
+      </form>
+    </div>
+
+    <!-- RIGHT COLUMN: STICKY ORDER SUMMARY -->
+    <aside class="checkout-sidebar">
+      <div class="summary-card">
+
+        <!-- COURSE HERO STRIP -->
+        <div class="summary-course-hero" id="summaryHero" data-watermark="JS">
+          <div class="summary-course-thumb" id="summaryThumb">JS</div>
+          <div class="summary-course-info">
+            <span class="summary-course-cat" id="summaryCat">Web Development</span>
+            <h4 class="summary-course-title" id="summaryTitle">Full-Stack JavaScript: From Zero to Deploy</h4>
+            <div class="summary-course-inst" id="summaryInstructor">Adaeze Okafor · Senior Engineer</div>
+          </div>
+        </div>
+
+        <div class="summary-body">
+          <!-- COURSE INCLUSIONS -->
+          <ul class="summary-includes-list">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Full curriculum with on-demand HD video</span>
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Direct access to instructor Q&amp;A and community</span>
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Downloadable project source code and assets</span>
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Verifiable digital certificate upon graduation</span>
+            </li>
+          </ul>
+
+          <!-- DIRECT TEACHER PAYOUT PILL -->
+          <div class="direct-payout-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Direct Payout: Funds sent to <strong id="summaryTeacherDirectName">Adaeze Okafor</strong></span>
+          </div>
+
+          <!-- COUPON CODE FIELD -->
+          <div class="coupon-box">
+            <input type="text" id="couponInput" class="coupon-input" placeholder="Promo code (e.g. CHIGOS20)">
+            <button type="button" id="applyCouponBtn" class="coupon-btn">Apply</button>
+          </div>
+          <div class="coupon-alert" id="couponAlert">
+            <span id="couponAlertText"></span>
+            <button type="button" id="couponAlertRemove" aria-label="Remove coupon">&times;</button>
+          </div>
+
+          <!-- PRICE BREAKDOWN -->
+          <div class="price-breakdown">
+            <div class="price-line">
+              <span>Course Tuition</span>
+              <strong id="summaryOriginalPrice">₦142,000</strong>
+            </div>
+            <div class="price-line discount" id="summaryDiscountLine" style="display:none;">
+              <span>Promo Discount Applied</span>
+              <strong id="summaryDiscountAmount">- ₦28,400</strong>
+            </div>
+            <div class="price-line">
+              <span>Platform Service Fee</span>
+              <span><strong>₦100</strong> (Flat Fee)</span>
+            </div>
+            <div class="price-line" style="color:var(--green-deep); font-weight:700;">
+              <span>Teacher Receives</span>
+              <strong id="summaryTeacherEarning" style="color:var(--green-deep)">₦141,900</strong>
+            </div>
+            <div class="price-line price-line-total">
+              <span>Total Due Today</span>
+              <div>
+                <span class="old-price-strike" id="summaryOldStrike">₦206,000</span>
+                <span class="total-amount" id="summaryFinalTotal">₦142,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAY CTA BUTTON -->
+          <button type="button" class="pay-cta-btn" id="payCtaBtn" onclick="document.getElementById('hiddenFormSubmit').click();">
+            <span class="shimmer"></span>
+            Pay ₦142,000 &amp; Enroll &rarr;
+          </button>
+
+          <p class="guarantee-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            30-Day Money-Back Guarantee · No questions asked
+          </p>
+
+          <!-- PAYMENT BADGES -->
+          <div class="payment-trust-logos">
+            <span class="trust-badge-pill">Paystack</span>
+            <span class="trust-badge-pill">Flutterwave</span>
+            <span class="trust-badge-pill">Mastercard</span>
+            <span class="trust-badge-pill">Visa</span>
+            <span class="trust-badge-pill">Verve</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- SUCCESS CONFIRMATION MODAL -->
+  <div class="success-overlay" id="successOverlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="success-dialog">
+      <div class="success-icon-wrap">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+
+      <h2 id="successTitle">Enrollment Confirmed! &#127881;</h2>
+      <p>Welcome to the class! Your order has been processed and your lessons are now unlocked with full lifetime access.</p>
+
+      <div class="success-receipt">
+        <div class="receipt-row">
+          <span>Order Reference</span>
+          <strong id="receiptOrderId">#CHG-842918</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Course Title</span>
+          <strong id="receiptCourseName">Full-Stack JavaScript: From Zero to Deploy</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Student Enrolled</span>
+          <strong id="receiptStudentName">Amara James</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Paid Directly To</span>
+          <strong id="receiptTeacherName" style="color:var(--orange-deep)">Adaeze Okafor (Teacher Account)</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Teacher Bank</span>
+          <strong id="receiptTeacherBank">GTBank · 0128491024</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Teacher Earnings</span>
+          <strong id="receiptTeacherEarning" style="color:var(--green-deep)">₦141,900</strong>
+        </div>
+        <div class="receipt-row">
+          <span>Platform Flat Fee</span>
+          <strong>₦100</strong>
+        </div>
+        <div class="receipt-row" style="border-top:1px dashed var(--border-light); padding-top:6px; margin-top:2px;">
+          <span>Total Paid</span>
+          <strong id="receiptPaidAmount" style="color:var(--charcoal); font-size:15px;">₦142,000</strong>
+        </div>
+      </div>
+
+      <div class="success-actions">
+        <a href="student-course-player.html" class="btn-primary-classroom">
+          Start Watching Lessons Now &rarr;
+        </a>
+        <a href="student-dashboard.html" class="btn-secondary-dash">
+          Go to Student Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/storage.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/payments.js"></script>
+  <script src="js/checkout.js?v=2"></script>
+</body>
 </html>

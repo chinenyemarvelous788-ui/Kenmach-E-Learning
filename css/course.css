@@ -1206,3 +1206,9 @@ body::before {
   .rate-hero-icon { width: 54px; height: 54px; }
   .rate-hero-icon svg { width: 24px; height: 24px; }
 }
+
+/* ==================== CURRICULUM SCROLL ANCHOR ==================== */
+#curriculum,
+.curriculum {
+  scroll-margin-top: 100px;
+}

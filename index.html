@@ -28,8 +28,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/homepage.css?v=2">
-  <script src="js/homepage.js" defer></script>
+  <link rel="stylesheet" href="css/homepage.css?v=4">
+  <script src="js/course-data.js?v=4" defer></script>
+  <script src="js/homepage.js?v=4" defer></script>
 </head>
 <body>
 
@@ -89,14 +90,19 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
 
-  <label class="nav-search" id="navSearch">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-         stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="11" cy="11" r="6"/>
-      <path d="M16 16l5 5"/>
-    </svg>
-    <input type="search" placeholder="Search courses…" aria-label="Search courses">
-  </label>
+    <div class="nav-search-wrapper" id="navSearchWrapper">
+    <form class="nav-search-form" id="navSearchForm" action="courses.html" method="GET" role="search">
+      <label class="nav-search" id="navSearch">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="6"/>
+          <path d="M16 16l5 5"/>
+        </svg>
+        <input type="search" name="q" id="navSearchInput" placeholder="Search courses..." aria-label="Search courses" autocomplete="off">
+      </label>
+    </form>
+    <div class="search-dropdown nav-dropdown" id="navSearchDropdown" role="listbox" aria-label="Search suggestions" hidden></div>
+  </div>
 
   <button class="search-toggle" id="searchToggle" type="button" aria-label="Open course search" aria-expanded="false" aria-controls="navSearch">
     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -154,14 +160,17 @@
         </a>
       </div>
 
-      <form class="hero-search" action="#courses">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <circle cx="11" cy="11" r="7"></circle>
-          <path d="m16 16 4 4"></path>
-        </svg>
-        <input type="search" placeholder="What would you like to learn?" aria-label="Search for a course">
-        <button type="submit">Find a course</button>
-      </form>
+            <div class="hero-search-wrapper" id="heroSearchWrapper">
+        <form class="hero-search" id="heroSearchForm" action="courses.html" method="GET" role="search">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input type="search" name="q" id="heroSearchInput" placeholder="What would you like to learn? (e.g. Web Dev, Python, Design)" aria-label="Search for a course" autocomplete="off">
+          <button type="submit">Find a course</button>
+        </form>
+        <div class="search-dropdown hero-dropdown" id="heroSearchDropdown" role="listbox" aria-label="Search suggestions" hidden></div>
+      </div>
 
       <div class="hero-trust">
         <div class="trust-avatars">
@@ -377,18 +386,18 @@
     </div>
 
     <div class="course-grid">
-      <article class="course-card">
-        <div class="card-thumb thumb-1"><span class="level-badge beginner">Beginner</span><span class="badge-hot">🔥 Bestseller</span><span class="watermark">JS</span>
+      <article class="course-card" data-course-id="course-js">
+        <div class="card-thumb thumb-1"><span class="level-badge beginner">Beginner</span><span class="badge-hot">&#128293; Bestseller</span><span class="watermark">JS</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-js#curriculum" class="overlay-btn ghost" aria-label="Preview Full-Stack JavaScript"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-js" class="overlay-btn primary" aria-label="Enroll now in Full-Stack JavaScript">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">Web Development</span>
-          <h3 class="card-title">Full-Stack JavaScript: From Zero to Deploy</h3>
+          <h3 class="card-title"><a href="course.html?id=course-js">Full-Stack JavaScript: From Zero to Deploy</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">AO</span><span class="instructor-name">Adaeze Okafor</span></div>
-          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="rating-count">(2,418)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-num">4.9</span><span class="rating-count">(2,418)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price">₦142,000<span class="old">₦206,000</span></span>
@@ -397,18 +406,18 @@
         </div>
       </article>
 
-      <article class="course-card">
+      <article class="course-card" data-course-id="course-systems">
         <div class="card-thumb thumb-2"><span class="level-badge intermediate">Intermediate</span><span class="watermark">UI</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-systems#curriculum" class="overlay-btn ghost" aria-label="Preview Design Systems That Scale"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-systems" class="overlay-btn primary" aria-label="Enroll now in Design Systems That Scale">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">UI / UX Design</span>
-          <h3 class="card-title">Design Systems That Scale With Your Product</h3>
+          <h3 class="card-title"><a href="course.html?id=course-systems">Design Systems That Scale With Your Product</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">TM</span><span class="instructor-name">Tunde Martins</span></div>
-          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.8</span><span class="rating-count">(1,106)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-num">4.8</span><span class="rating-count">(1,106)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price">₦110,000</span>
@@ -417,18 +426,18 @@
         </div>
       </article>
 
-      <article class="course-card">
+      <article class="course-card" data-course-id="course-api">
         <div class="card-thumb thumb-3"><span class="level-badge advanced">Advanced</span><span class="watermark">DA</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-api#curriculum" class="overlay-btn ghost" aria-label="Preview Python for Data Science"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-api" class="overlay-btn primary" aria-label="Enroll now in Python for Data Science">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">Data & Analytics</span>
-          <h3 class="card-title">Python for Data Science & Machine Learning</h3>
+          <h3 class="card-title"><a href="course.html?id=course-api">Python for Data Science &amp; Machine Learning</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">NK</span><span class="instructor-name">Ngozi Kalu</span></div>
-          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="rating-count">(3,204)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-num">4.9</span><span class="rating-count">(3,204)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price">₦158,000<span class="old">₦238,000</span></span>
@@ -437,18 +446,18 @@
         </div>
       </article>
 
-      <article class="course-card">
+      <article class="course-card" data-course-id="course-pricing">
         <div class="card-thumb thumb-4"><span class="level-badge beginner">Beginner</span><span class="watermark">PM</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-pricing#curriculum" class="overlay-btn ghost" aria-label="Preview Product Management"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-pricing" class="overlay-btn primary" aria-label="Enroll now in Product Management">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">Business</span>
-          <h3 class="card-title">Product Management: From Idea to Launch</h3>
+          <h3 class="card-title"><a href="course.html?id=course-pricing">Product Management: From Idea to Launch</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">SB</span><span class="instructor-name">Sarah Bello</span></div>
-          <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-num">4.7</span><span class="rating-count">(892)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span><span class="rating-num">4.7</span><span class="rating-count">(892)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price free">Free</span>
@@ -457,18 +466,18 @@
         </div>
       </article>
 
-      <article class="course-card">
-        <div class="card-thumb thumb-5"><span class="level-badge intermediate">Intermediate</span><span class="badge-hot">🔥 Trending</span><span class="watermark">MKT</span>
+      <article class="course-card" data-course-id="course-marketing">
+        <div class="card-thumb thumb-5"><span class="level-badge intermediate">Intermediate</span><span class="badge-hot">&#128293; Trending</span><span class="watermark">MKT</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-marketing#curriculum" class="overlay-btn ghost" aria-label="Preview Growth Marketing"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-marketing" class="overlay-btn primary" aria-label="Enroll now in Growth Marketing">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">Marketing</span>
-          <h3 class="card-title">Growth Marketing for Modern Startups</h3>
+          <h3 class="card-title"><a href="course.html?id=course-marketing">Growth Marketing for Modern Startups</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">EK</span><span class="instructor-name">Efe Kalu</span></div>
-          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.8</span><span class="rating-count">(1,547)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-num">4.8</span><span class="rating-count">(1,547)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price">₦126,000</span>
@@ -477,18 +486,18 @@
         </div>
       </article>
 
-      <article class="course-card">
+      <article class="course-card" data-course-id="course-figma">
         <div class="card-thumb thumb-6"><span class="level-badge advanced">Advanced</span><span class="watermark">AI</span>
           <div class="card-overlay"><div class="overlay-actions">
-            <button class="overlay-btn ghost"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</button>
-            <button class="overlay-btn primary">Enroll now</button>
+            <a href="course.html?id=course-figma#curriculum" class="overlay-btn ghost" aria-label="Preview Building AI-Powered Apps"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>Preview</a>
+            <a href="checkout.html?id=course-figma" class="overlay-btn primary" aria-label="Enroll now in Building AI-Powered Apps">Enroll now</a>
           </div></div>
         </div>
         <div class="card-body">
           <span class="card-cat">AI & Automation</span>
-          <h3 class="card-title">Building AI-Powered Apps with LLMs</h3>
+          <h3 class="card-title"><a href="course.html?id=course-figma">Building AI-Powered Apps with LLMs</a></h3>
           <div class="card-instructor"><span class="instructor-avatar">JA</span><span class="instructor-name">Jide Adeyemi</span></div>
-          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-num">4.9</span><span class="rating-count">(724)</span></div>
+          <div class="card-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-num">4.9</span><span class="rating-count">(724)</span></div>
           <div class="card-divider"></div>
           <div class="card-footer">
             <span class="price">₦190,000</span>
@@ -700,10 +709,6 @@
 
     <div class="bottom-cta">
       <p><strong>Over 60 expert instructors</strong> across code, design, data, business, and more.</p>
-      <a href="about.html" class="browse-instructors">
-        Meet all instructors
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
     </div>
   </section>
 
@@ -804,8 +809,8 @@
   </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
+<footer class="footer" id="footer">
+  <div class="container">
 
     <div class="footer-top">
 
@@ -834,29 +839,29 @@
         </p>
 
         <div class="social-row">
-          <a href="#" class="social-icon" aria-label="Twitter">
+          <a href="https://twitter.com" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.9 2H22l-7.5 8.6L23 22h-6.9l-5.4-7.1L4.5 22H1.4l8-9.2L1 2h7.1l4.9 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4l12.3 16.1z"/>
             </svg>
           </a>
-          <a href="#" class="social-icon" aria-label="LinkedIn">
+          <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
             </svg>
           </a>
-          <a href="#" class="social-icon" aria-label="Instagram">
+          <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5"/>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
           </a>
-          <a href="#" class="social-icon" aria-label="YouTube">
+          <a href="https://youtube.com" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M23 12s0-3.8-.5-5.6a2.8 2.8 0 0 0-2-2C18.8 4 12 4 12 4s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.8.5-5.6.5-5.6zM9.75 15.5v-7l6 3.5z"/>
             </svg>
           </a>
-          <a href="#" class="social-icon" aria-label="TikTok">
+          <a href="https://tiktok.com" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.6 6.7a4.9 4.9 0 0 1-3.8-4.2h-3v13.6a2.8 2.8 0 1 1-2.4-2.8V10a6.2 6.2 0 1 0 5.4 6.1V9.4a8 8 0 0 0 4.6 1.4V7.6a4.9 4.9 0 0 1-.8-.9z"/>
             </svg>
@@ -868,10 +873,10 @@
         <h4>Platform</h4>
         <ul>
           <li><a href="courses.html">Courses</a></li>
-          <li><a href="#paths">Learning Paths</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Mobile App</a></li>
-          <li><a href="#">Certificates</a></li>
+          <li><a href="index.html#paths">Learning Paths</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="mobile-app.html">Mobile App</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
         </ul>
       </div>
 
@@ -879,32 +884,32 @@
         <h4>Company</h4>
         <ul>
           <li><a href="about.html">About</a></li>
-          <li><a href="#">Careers<span class="link-badge">Hiring</span></a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Partners</a></li>
+          <li><a href="careers.html">Careers<span class="link-badge">Hiring</span></a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="partners.html">Partners</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Support</h4>
         <ul>
-          <li><a href="#">Help Center</a></li>
+          <li><a href="help.html">Help Center</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">System Status</a></li>
-          <li><a href="#">Accessibility</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="system-status.html">System Status</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Cookie Settings</a></li>
-          <li><a href="#">Refund Policy</a></li>
-          <li><a href="#">Security</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Settings</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="security.html">Security</a></li>
         </ul>
       </div>
 
@@ -913,7 +918,7 @@
     <div class="footer-middle">
 
       <div class="lang-switcher" id="langSwitcher">
-        <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
+        <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
           <span class="flag" id="currentFlag">🇳🇬</span>
           <span id="currentLang">English (NG)</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
@@ -922,19 +927,19 @@
         </button>
 
         <div class="lang-menu" role="menu">
-          <button data-flag="🇳🇬" data-label="English (NG)" class="active">
+          <button type="button" data-flag="🇳🇬" data-label="English (NG)" class="active">
             <span class="flag">🇳🇬</span> English (NG)
           </button>
-          <button data-flag="🇬🇧" data-label="English (UK)">
+          <button type="button" data-flag="🇬🇧" data-label="English (UK)">
             <span class="flag">🇬🇧</span> English (UK)
           </button>
-          <button data-flag="🇫🇷" data-label="Français">
+          <button type="button" data-flag="🇫🇷" data-label="Français">
             <span class="flag">🇫🇷</span> Français
           </button>
-          <button data-flag="🇪🇸" data-label="Español">
+          <button type="button" data-flag="🇪🇸" data-label="Español">
             <span class="flag">🇪🇸</span> Español
           </button>
-          <button data-flag="🇸🇦" data-label="العربية">
+          <button type="button" data-flag="🇸🇦" data-label="العربية">
             <span class="flag">🇸🇦</span> العربية
           </button>
         </div>
@@ -992,10 +997,10 @@
       </p>
 
       <div class="bottom-links">
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-        <a href="#">Cookies</a>
-        <a href="#">Sitemap</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="cookie-policy.html">Cookies</a>
+        <a href="sitemap.html">Sitemap</a>
       </div>
     </div>
 

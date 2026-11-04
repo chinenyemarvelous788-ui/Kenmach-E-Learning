@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   'use strict';
 
   /* ==================== ELEMENTS ==================== */
@@ -31,10 +31,10 @@
     successOverlay.classList.remove('is-active');
     stepperEl.style.display = '';
     formHead.style.display = '';
-    socialRow.style.display = '';
-    divider.style.display = '';
-    formFooter.style.display = '';
-    if (roleTabs) roleTabs.style.display = '';
+    socialRow.style.display = n === 1 ? '' : 'none';
+    divider.style.display = n === 1 ? '' : 'none';
+    formFooter.style.display = n === 1 ? '' : 'none';
+    if (roleTabs) roleTabs.style.display = n === 1 ? '' : 'none';
 
     const active = document.querySelector('.signup-form.is-active');
     if (active) {

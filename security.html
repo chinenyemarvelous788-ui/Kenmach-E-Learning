@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
+  <style>
+    :root {
+      color-scheme: light !important;
+      supported-color-schemes: light !important;
+      background-color: #ffffff;
+      color: #111827;
+    }
+    html, body {
+      background-color: #ffffff !important;
+      color: #111827 !important;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & Trust  &mdash; Chigos</title>
+  <meta name="description" content="Security practices and compliance at Chigos E-Learning: 256-bit encryption, PCI-DSS payment handling, and data protection.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/homepage.css?v=4">
+  <link rel="stylesheet" href="css/content-pages.css?v=2">
+  <script src="js/course-data.js?v=4" defer></script>
+  <script src="js/homepage.js?v=4" defer></script>
+</head>
+<body class="site-subpage">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar" aria-label="Main navigation">
+  <div class="nav-glow" id="navGlow"></div>
+
+  <a href="index.html" class="logo">
+    <div class="logo-mark">
+      <svg width="38" height="38" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navLogoGrad" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#E8590C"/>
+            <stop offset="1" stop-color="#BF4A06"/>
+          </linearGradient>
+        </defs>
+        <circle cx="256" cy="256" r="150" stroke="url(#navLogoGrad)" stroke-width="64"
+                stroke-linecap="round" stroke-dasharray="642.5 300"
+                transform="rotate(60 256 256)"/>
+        <circle cx="256" cy="256" r="32" fill="url(#navLogoGrad)"/>
+      </svg>
+    </div>
+    <span class="logo-text">Chigos</span>
+  </a>
+
+  <ul class="nav-links" id="primaryNav">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <form class="nav-search-form" id="navSearchForm" action="courses.html" method="GET" role="search" style="display:contents">
+    <label class="nav-search" id="navSearch">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="6"/>
+        <path d="M16 16l5 5"/>
+      </svg>
+      <input type="search" name="q" id="navSearchInput" placeholder="Search courses..." aria-label="Search courses" autocomplete="off">
+    </label>
+  </form>
+
+  <button class="search-toggle" id="searchToggle" type="button" aria-label="Open course search" aria-expanded="false" aria-controls="navSearch">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="6"/>
+      <path d="m16 16 5 5"/>
+    </svg>
+  </button>
+
+  <div class="nav-actions">
+    <a href="login.html" class="btn btn--ghost">Log in</a>
+    <a href="signup-student.html" class="btn btn--orange">
+      <span class="shimmer"></span>
+      Get Started
+    </a>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<main class="content-main" id="main">
+  <div class="content-container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      <span aria-current="page">Security</span>
+    </nav>
+
+    <!-- HERO -->
+    <header class="content-hero">
+      <div class="content-eyebrow">Platform Security</div>
+      <h1 class="content-title">Security & <span class='accent'>Trust.</span></h1>
+      <p class="content-subtitle">How we protect your account, your learning progress, and your financial transactions.</p>
+      <div class="content-meta-bar">
+        <span class="meta-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Bank-Grade 256-Bit SSL Â· PCI-DSS Compliant
+        </span>
+        <span>Official Chigos Learning Documentation</span>
+      </div>
+    </header>
+
+    <div class="content-card">
+  <div class="content-body">
+    <h2>Bank-Grade Security for Learners & Creators</h2>
+    <p>At Chigos, safeguarding your personal data, video assets, and financial transactions is foundational to everything we build. Here is how we maintain security across our infrastructure.</p>
+
+    <div class="feature-grid-3">
+      <div class="feature-tile">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>256-Bit SSL/TLS Encryption</h3>
+        <p>All traffic between your browser and our servers is encrypted with modern TLS 1.3 ciphers, preventing interception.</p>
+      </div>
+
+      <div class="feature-tile">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>PCI-DSS Level 1 Compliance</h3>
+        <p>All financial transactions are processed through certified gateways. We never touch or store raw card numbers.</p>
+      </div>
+
+      <div class="feature-tile">
+        <div class="feature-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </div>
+        <h3>Continuous Vulnerability Scans</h3>
+        <p>Automated static code analysis, dependency patching, and penetration testing are baked into our deployment pipelines.</p>
+      </div>
+    </div>
+
+    <h2>Responsible Disclosure</h2>
+    <p>If you are a security researcher and believe you have discovered a vulnerability in Chigos, please report it to <a href="mailto:security@chigos.com" style="color:var(--page-orange);font-weight:700;">security@chigos.com</a>. We acknowledge all reports within 24 hours and reward valid submissions.</p>
+  </div>
+</div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="index.html" class="footer-brand-logo">
+          <div class="footer-brand-logo-mark">
+            <svg width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footerBrandGrad" x1="120" y1="80" x2="400" y2="440" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#FFD9BA"/>
+                  <stop offset="0.5" stop-color="#E8590C"/>
+                  <stop offset="1" stop-color="#BF4A06"/>
+                </linearGradient>
+              </defs>
+              <circle cx="256" cy="256" r="150" stroke="url(#footerBrandGrad)" stroke-width="64"
+                      stroke-linecap="round" stroke-dasharray="642.5 300"
+                      transform="rotate(60 256 256)"/>
+              <circle cx="256" cy="256" r="32" fill="url(#footerBrandGrad)"/>
+            </svg>
+          </div>
+          <span class="footer-brand-logo-text">Chigos</span>
+        </a>
+
+        <p class="brand-tagline">
+          Real skills, real teachers, real outcomes. Learn from practitioners who've shipped the work they teach.
+        </p>
+
+        <div class="social-row">
+          <a href="https://twitter.com" class="social-icon" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.9 2H22l-7.5 8.6L23 22h-6.9l-5.4-7.1L4.5 22H1.4l8-9.2L1 2h7.1l4.9 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4l12.3 16.1z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://youtube.com" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23 12s0-3.8-.5-5.6a2.8 2.8 0 0 0-2-2C18.8 4 12 4 12 4s-6.8 0-8.5.4a2.8 2.8 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.8 2.8 0 0 0 2 2c1.7.4 8.5.4 8.5.4s6.8 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.8.5-5.6.5-5.6zM9.75 15.5v-7l6 3.5z"/>
+            </svg>
+          </a>
+          <a href="https://tiktok.com" class="social-icon" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.6 6.7a4.9 4.9 0 0 1-3.8-4.2h-3v13.6a2.8 2.8 0 1 1-2.4-2.8V10a6.2 6.2 0 1 0 5.4 6.1V9.4a8 8 0 0 0 4.6 1.4V7.6a4.9 4.9 0 0 1-.8-.9z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="index.html#paths">Learning Paths</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="mobile-app.html">Mobile App</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="careers.html">Careers<span class="link-badge">Hiring</span></a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="partners.html">Partners</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="system-status.html">System Status</a></li>
+          <li><a href="accessibility.html">Accessibility</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Settings</a></li>
+          <li><a href="refund-policy.html">Refund Policy</a></li>
+          <li><a href="security.html">Security</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-middle">
+
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="flag" id="currentFlag">🇳🇬</span>
+          <span id="currentLang">English (NG)</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+
+        <div class="lang-menu" role="menu">
+          <button type="button" data-flag="🇳🇬" data-label="English (NG)" class="active">
+            <span class="flag">🇳🇬</span> English (NG)
+          </button>
+          <button type="button" data-flag="🇬🇧" data-label="English (UK)">
+            <span class="flag">🇬🇧</span> English (UK)
+          </button>
+          <button type="button" data-flag="🇫🇷" data-label="Français">
+            <span class="flag">🇫🇷</span> Français
+          </button>
+          <button type="button" data-flag="🇪🇸" data-label="Español">
+            <span class="flag">🇪🇸</span> Español
+          </button>
+          <button type="button" data-flag="🇸🇦" data-label="العربية">
+            <span class="flag">🇸🇦</span> العربية
+          </button>
+        </div>
+      </div>
+
+      <div class="badge-row">
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+          Visa
+        </span>
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="12" r="6"/>
+            <circle cx="15" cy="12" r="6"/>
+          </svg>
+          Mastercard
+        </span>
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <path d="M6 15h4"/>
+          </svg>
+          Verve
+        </span>
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Paystack
+        </span>
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l7 5v10l-7 5-7-5V7l7-5z"/>
+          </svg>
+          Flutterwave
+        </span>
+        <span class="pay-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="10" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          SSL Secured
+        </span>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © 2025 <strong>Chigos Learning Ltd.</strong> · Made with 🔥 in Lagos, Nigeria.
+      </p>
+
+      <div class="bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="cookie-policy.html">Cookies</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" type="button" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="m5 12 7-7 7 7"/>
+  </svg>
+</button>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   /* ==================== NAVBAR SCROLL ==================== */
@@ -59,7 +59,7 @@
   ];
 
   function renderCurriculum() {
-    const container = document.getElementById('curriculum');
+    const container = document.getElementById('curriculumList') || document.getElementById('curriculum');
     if (!container) return;
 
     CURRICULUM.forEach((section, idx) => {
@@ -373,11 +373,60 @@
     window.addEventListener('resize', check);
   }
 
+  /* ==================== CURRICULUM SCROLL & ENROLLMENT ==================== */
+  function initCurriculumScrollAndEnroll() {
+    const params = new URLSearchParams(window.location.search);
+    const courseId = params.get('id') || 'course-js';
+    const checkoutUrl = 'checkout.html?id=' + encodeURIComponent(courseId);
+
+    // Scroll to curriculum if #curriculum or ?preview=1 is requested
+    const scrollToCurriculum = () => {
+      const el = document.getElementById('curriculum');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    if (window.location.hash === '#curriculum' || params.get('preview') === '1' || params.get('preview') === 'true') {
+      setTimeout(scrollToCurriculum, 250);
+    }
+
+    const previewBtn = document.querySelector('.preview-btn');
+    if (previewBtn) {
+      previewBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        scrollToCurriculum();
+      });
+    }
+
+    // Set side enroll button link
+    const sideEnroll = document.querySelector('.side-enroll');
+    if (sideEnroll) {
+      sideEnroll.href = checkoutUrl;
+    }
+
+    // Wire enroll buttons
+    const enrollBtn = document.querySelector('.enroll-btn');
+    if (enrollBtn) {
+      enrollBtn.addEventListener('click', () => {
+        window.location.href = checkoutUrl;
+      });
+    }
+
+    const mbBtn = document.querySelector('.mb-btn');
+    if (mbBtn) {
+      mbBtn.addEventListener('click', () => {
+        window.location.href = checkoutUrl;
+      });
+    }
+  }
+
   /* ==================== INIT ==================== */
   renderCurriculum();
   renderReviews();
   renderRelated();
   startCountdown();
   initMobileBar();
+  initCurriculumScrollAndEnroll();
 
 })();

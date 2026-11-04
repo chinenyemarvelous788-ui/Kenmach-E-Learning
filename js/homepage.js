@@ -1,4 +1,4 @@
-/* PRELOADER */
+﻿/* PRELOADER */
 (function () {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
@@ -108,10 +108,10 @@ navbar.addEventListener('mousemove', (e) => {
 
 /* LEARNING PATHS */
 const paths = [
-  { title:'Become a Full-Stack Developer', tagline:'Master front-end, back-end, databases, and deployment in 6 months.', courses:12, hours:168, level:'Career Track', thumb:'hero-1', watermark:'</>', price:'₦180,000', oldPrice:'₦250,000' },
-  { title:'Become a UX/UI Designer', tagline:'Learn research, wireframing, prototyping, and design systems from scratch.', courses:9, hours:124, level:'Career Track', thumb:'hero-2', watermark:'UX', price:'₦150,000', oldPrice:null },
-  { title:'Data Science & AI Specialist', tagline:'Python, statistics, machine learning, and deploying real AI models.', courses:11, hours:156, level:'Advanced', thumb:'hero-3', watermark:'AI', price:'₦220,000', oldPrice:'₦295,000' },
-  { title:'Digital Marketing Mastery', tagline:'SEO, paid ads, content, email, and analytics for modern startups.', courses:8, hours:92, level:'Beginner', thumb:'hero-4', watermark:'MKT', price:'₦120,000', oldPrice:null }
+  { title:'Become a Full-Stack Developer', tagline:'Master front-end, back-end, databases, and deployment in 6 months.', courses:12, hours:168, level:'Career Track', thumb:'hero-1', watermark:'</>', price:'₦180,000', oldPrice:'₦250,000', url:'courses.html?cat=web' },
+  { title:'Become a UX/UI Designer', tagline:'Learn research, wireframing, prototyping, and design systems from scratch.', courses:9, hours:124, level:'Career Track', thumb:'hero-2', watermark:'UX', price:'₦150,000', oldPrice:null, url:'courses.html?cat=design' },
+  { title:'Data Science & AI Specialist', tagline:'Python, statistics, machine learning, and deploying real AI models.', courses:11, hours:156, level:'Advanced', thumb:'hero-3', watermark:'AI', price:'₦220,000', oldPrice:'₦295,000', url:'courses.html?cat=data' },
+  { title:'Digital Marketing Mastery', tagline:'SEO, paid ads, content, email, and analytics for modern startups.', courses:8, hours:92, level:'Beginner', thumb:'hero-4', watermark:'MKT', price:'₦120,000', oldPrice:null, url:'courses.html?cat=marketing' }
 ];
 
 function buildPathCard(path) {
@@ -127,7 +127,7 @@ function buildPathCard(path) {
       </div>
     </div>
     <div class="path-body">
-      <h3 class="path-title">${path.title}</h3>
+      <h3 class="path-title"><a href="${path.url}">${path.title}</a></h3>
       <p class="path-tagline">${path.tagline}</p>
       <div class="path-meta">
         <span class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>${path.courses} courses</span>
@@ -139,12 +139,30 @@ function buildPathCard(path) {
           <span class="label">Full path</span>
           <span class="value">${path.price}${path.oldPrice ? `<span class="old">${path.oldPrice}</span>` : ''}</span>
         </div>
-        <button class="path-cta" aria-label="Start path">
+        <a href="${path.url}" class="path-cta" aria-label="Explore ${path.title} learning path">
           <span class="shimmer"></span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
+        </a>
       </div>
     </div>`;
+
+  const navigate = () => {
+    window.location.href = path.url;
+  };
+
+  const cta = card.querySelector('.path-cta');
+  if (cta) {
+    cta.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      navigate();
+    });
+  }
+
+  card.addEventListener('click', () => {
+    navigate();
+  });
+
   return card;
 }
 
@@ -162,10 +180,10 @@ function renderPaths() {
 
 /* WHY CHOOSE US */
 const features = [
-  { num:'01', title:'Learn at your own pace', desc:'No deadlines, no pressure. Watch lessons on your schedule, on any device — and pick up exactly where you left off.', link:'See how it works', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>` },
-  { num:'02', title:'Taught by expert instructors', desc:'Every course is created by people who actually build, ship, and hire. Real-world lessons — not recycled textbook theory.', link:'Meet the instructors', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>` },
-  { num:'03', title:'Build real projects', desc:'You learn by doing. Every path ships with portfolio-ready projects you can show employers or clients from day one.', link:'See sample projects', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>` },
-  { num:'04', title:'Earn recognized certificates', desc:'Finish a path and get a verifiable certificate you can add to LinkedIn, your CV, and your portfolio in one click.', link:'View sample certificate', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></svg>` }
+  { num:'01', title:'Learn at your own pace', desc:'No deadlines, no pressure. Watch lessons on your schedule, on any device — and pick up exactly where you left off.', link:'See how it works', url:'#how', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>` },
+  { num:'02', title:'Taught by expert instructors', desc:'Every course is created by people who actually build, ship, and hire. Real-world lessons — not recycled textbook theory.', link:'Meet the instructors', url:'#instructors', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>` },
+  { num:'03', title:'Build real projects', desc:'You learn by doing. Every path ships with portfolio-ready projects you can show employers or clients from day one.', link:'See sample projects', url:'courses.html', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>` },
+  { num:'04', title:'Earn recognized certificates', desc:'Finish a path and get a verifiable certificate you can add to LinkedIn, your CV, and your portfolio in one click.', link:'View sample certificate', url:'student-certificates.html', icon:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></svg>` }
 ];
 
 function buildFeatureCard(feature) {
@@ -176,10 +194,23 @@ function buildFeatureCard(feature) {
     <div class="feature-icon">${feature.icon}</div>
     <h3 class="feature-title">${feature.title}</h3>
     <p class="feature-desc">${feature.desc}</p>
-    <a class="feature-link" href="#" onclick="event.stopPropagation(); event.preventDefault();">
+    <a class="feature-link" href="${feature.url}">
       ${feature.link}
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>`;
+
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    if (feature.url.startsWith('#')) {
+      const target = document.querySelector(feature.url);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = feature.url;
+    }
+  });
+
   return card;
 }
 
@@ -553,7 +584,230 @@ function initMobileNav() {
 }
 
 /* INIT */
+
+/* SEARCH AUTOCOMPLETE & LIVE DROPDOWN */
+function setupSearchAutocomplete(opts) {
+  const { input, form, dropdown } = opts;
+  if (!input || !form || !dropdown) return;
+
+  let activeIndex = -1;
+  let debounceTimer = null;
+
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return escapeHtml(text);
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
+    return escapeHtml(text).replace(regex, '<mark>$1</mark>');
+  }
+
+  function openDropdown() {
+    dropdown.removeAttribute('hidden');
+    input.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown() {
+    dropdown.setAttribute('hidden', '');
+    input.setAttribute('aria-expanded', 'false');
+    activeIndex = -1;
+  }
+
+  function renderSuggestions(query) {
+    const q = (query || '').trim();
+    const catalog = window.CHIGOS_CATALOG;
+
+    if (!q) {
+      dropdown.innerHTML = `
+        <div class="search-sec-head">Popular searches</div>
+        <div class="search-pills">
+          <a href="courses.html?q=Web+Development" class="search-pill">&#9889; Web Development</a>
+          <a href="courses.html?q=UI+%2F+UX+Design" class="search-pill">&#127912; UI / UX Design</a>
+          <a href="courses.html?q=Python" class="search-pill">&#129302; Python &amp; AI</a>
+          <a href="courses.html?q=Marketing" class="search-pill">&#128200; Marketing</a>
+          <a href="courses.html?q=Cybersecurity" class="search-pill">&#128737; Cybersecurity</a>
+          <a href="courses.html?q=Business" class="search-pill">&#128188; Business</a>
+          <a href="courses.html?q=Finance" class="search-pill">&#128176; Finance</a>
+        </div>
+      `;
+      openDropdown();
+      return;
+    }
+
+    if (!catalog) {
+      dropdown.innerHTML = `
+        <a href="courses.html?q=${encodeURIComponent(q)}" class="search-view-all">
+          Search all courses for "${escapeHtml(q)}" &rarr;
+        </a>
+      `;
+      openDropdown();
+      return;
+    }
+
+    const res = catalog.search(q, 4);
+
+    if (res.courses.length === 0 && res.categories.length === 0) {
+      dropdown.innerHTML = `
+        <div class="search-empty">
+          <span>No exact courses found matching "<strong>${escapeHtml(q)}</strong>"</span>
+          <small>Search the entire catalog of 340+ courses:</small>
+        </div>
+        <a href="courses.html?q=${encodeURIComponent(q)}" class="search-view-all">
+          Search all courses for "${escapeHtml(q)}" &rarr;
+        </a>
+      `;
+      openDropdown();
+      return;
+    }
+
+    let html = '';
+
+    if (res.categories.length > 0) {
+      html += `<div class="search-sec-head">Categories</div>`;
+      res.categories.forEach(cat => {
+        html += `
+          <a href="courses.html?cat=${encodeURIComponent(cat.id)}" class="search-category-item" role="option">
+            <span>Browse <strong>${escapeHtml(cat.name)}</strong> courses</span>
+            <span>&#8599;</span>
+          </a>
+        `;
+      });
+    }
+
+    if (res.courses.length > 0) {
+      html += `<div class="search-sec-head">Courses (${res.totalCount})</div>`;
+      res.courses.forEach(c => {
+        html += `
+          <a href="course.html?id=${c.id}" class="search-item" role="option">
+            <div class="search-item-badge">${escapeHtml(c.watermark || 'JS')}</div>
+            <div class="search-item-info">
+              <span class="search-item-title">${highlightMatch(c.title, q)}</span>
+              <span class="search-item-meta">
+                <span>${escapeHtml(c.category)}</span>
+                <span>&middot;</span>
+                <span>${escapeHtml(c.instructor)}</span>
+                <span>&middot;</span>
+                <span>&#9733; ${c.rating}</span>
+              </span>
+            </div>
+            <div class="search-item-price ${c.price === 0 ? 'free' : ''}">
+              ${catalog.formatNaira(c.price)}
+            </div>
+          </a>
+        `;
+      });
+    }
+
+    html += `
+      <a href="courses.html?q=${encodeURIComponent(q)}" class="search-view-all" role="option">
+        <span>View all ${res.totalCount} results for "${escapeHtml(q)}" in Courses</span>
+        <span>&rarr;</span>
+      </a>
+    `;
+
+    dropdown.innerHTML = html;
+    openDropdown();
+  }
+
+  input.addEventListener('focus', () => {
+    renderSuggestions(input.value);
+  });
+
+  input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      renderSuggestions(input.value);
+    }, 120);
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const items = dropdown.querySelectorAll('.search-item, .search-category-item, .search-view-all, .search-pill');
+    if (!items.length || dropdown.hasAttribute('hidden')) {
+      return;
+    }
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = (activeIndex + 1) % items.length;
+      updateActiveItem(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = (activeIndex - 1 + items.length) % items.length;
+      updateActiveItem(items);
+    } else if (e.key === 'Enter') {
+      if (activeIndex >= 0 && activeIndex < items.length) {
+        e.preventDefault();
+        items[activeIndex].click();
+      }
+    } else if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+
+  function updateActiveItem(items) {
+    items.forEach((item, idx) => {
+      item.classList.toggle('is-selected', idx === activeIndex);
+      if (idx === activeIndex) {
+        item.scrollIntoView({ block: 'nearest' });
+      }
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (q) {
+      window.location.href = `courses.html?q=${encodeURIComponent(q)}`;
+    } else {
+      window.location.href = 'courses.html';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!form.contains(e.target) && !dropdown.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+}
+
+function initSearchAutocomplete() {
+  const heroInput = document.getElementById('heroSearchInput');
+  const heroForm = document.getElementById('heroSearchForm');
+  const heroDropdown = document.getElementById('heroSearchDropdown');
+  if (heroInput && heroForm && heroDropdown) {
+    setupSearchAutocomplete({ input: heroInput, form: heroForm, dropdown: heroDropdown });
+  }
+
+  const navInput = document.getElementById('navSearchInput');
+  const navForm = document.getElementById('navSearchForm');
+  const navDropdown = document.getElementById('navSearchDropdown');
+  if (navInput && navForm && navDropdown) {
+    setupSearchAutocomplete({ input: navInput, form: navForm, dropdown: navDropdown });
+  }
+}
+
+function initCourseCards() {
+  document.querySelectorAll('.course-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Allow links and buttons inside the card to trigger normally
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      const titleLink = card.querySelector('.card-title a') || card.querySelector('a.overlay-btn');
+      if (titleLink && titleLink.href) {
+        window.location.href = titleLink.href;
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initSearchAutocomplete();
+  initCourseCards();
   renderPaths();
   renderFeatures();
   renderInstructors();

@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
   <style>
     :root {
-      color-scheme: light only;
+      color-scheme: light !important;
+      supported-color-schemes: light !important;
       background-color: #ffffff;
-      color: #000000;
+      color: #111827;
     }
     html, body {
       background-color: #ffffff !important;
-      color: #000000 !important;
+      color: #111827 !important;
+    }
+    /* Explicit light surface lock for mobile engines */
+    .navbar, .card, .course-card, .feature-card, .hero-section, .hero-container, .modal, .modal-wrapper, .modal-content, .dropdown {
+      background-color: #ffffff;
+      color: #111827;
     }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/teacher-upload.css">
+  <link rel="stylesheet" href="css/teacher-upload.css?v=2">
   <style>
     .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .review-value { min-width: 0; padding: 16px; border-radius: 12px; background: #FFF8F2; overflow-wrap: anywhere; }
@@ -30,7 +37,7 @@
     .publish-status { margin-top: 14px; color: #685D57; font-size: 13px; }
     @media (max-width: 700px) { .review-grid { grid-template-columns: 1fr; } }
   </style>
-  <link rel="stylesheet" href="css/teacher-sidebar.css">
+  <link rel="stylesheet" href="css/teacher-sidebar.css?v=2">
 </head>
 <body>
   <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">

@@ -1,5 +1,6 @@
 ﻿:root {
-  color-scheme: light only;
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
   --notif-orange: #e8590c;
   --notif-orange-deep: #bf4a06;
   --notif-muted-light: #8a7b73;

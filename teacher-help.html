@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
   <style>
     :root {
-      color-scheme: light only;
+      color-scheme: light !important;
+      supported-color-schemes: light !important;
       background-color: #ffffff;
-      color: #000000;
+      color: #111827;
     }
     html, body {
       background-color: #ffffff !important;
-      color: #000000 !important;
+      color: #111827 !important;
+    }
+    /* Explicit light surface lock for mobile engines */
+    .navbar, .card, .course-card, .feature-card, .hero-section, .hero-container, .modal, .modal-wrapper, .modal-content, .dropdown {
+      background-color: #ffffff;
+      color: #111827;
     }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -453,7 +460,7 @@
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
-  <link rel="stylesheet" href="css/teacher-sidebar.css">
+  <link rel="stylesheet" href="css/teacher-sidebar.css?v=2">
 </head>
 <body>
   <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">

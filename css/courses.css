@@ -1,5 +1,6 @@
 ﻿:root {
-  color-scheme: light only;
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
   --orange: #E8590C;
   --orange-deep: #BF4A06;
   --ivory: #FFFAF5;
@@ -58,7 +59,9 @@ body::before {
   margin: 0 auto;
   padding: 8px 12px 8px 14px;
   border-radius: 14px;
-  background: rgba(255, 250, 245, 0.85);
+  background-color: #ffffff;
+  background: #ffffff;
+  color: #111827;
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   border: 1px solid rgba(232, 89, 12, 0.1);
@@ -67,7 +70,9 @@ body::before {
 }
 .navbar-wrap.scrolled .navbar {
   padding: 6px 12px 6px 14px;
-  background: rgba(255, 250, 245, 0.96);
+  background-color: #ffffff;
+  background: #ffffff;
+  color: #111827;
   box-shadow: 0 10px 30px rgba(31, 26, 23, 0.1);
 }
 

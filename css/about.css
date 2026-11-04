@@ -1,5 +1,6 @@
 ﻿:root {
-  color-scheme: light only;
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
   --about-orange: #E8590C;
   --about-orange-deep: #BF4A06;
   --about-ivory: #FFFAF5;

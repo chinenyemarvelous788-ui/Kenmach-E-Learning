@@ -1,5 +1,6 @@
 ﻿:root {
-  color-scheme: light only;
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
   --contact-orange: #E8590C;
   --contact-orange-deep: #BF4A06;
   --contact-ivory: #FFFAF5;

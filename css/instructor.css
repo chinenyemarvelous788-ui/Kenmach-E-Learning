@@ -1,0 +1,659 @@
+/**
+ * Chigos E-Learning — Instructor / Creator Profile Stylesheet
+ * TikTok-style Creator Channel Experience with Interactive Tabs, Badges & Course Grid.
+ */
+
+:root {
+  color-scheme: light !important;
+  supported-color-schemes: light !important;
+  --creator-bg: #FCFAF8;
+  --creator-surface: #FFFFFF;
+  --creator-charcoal: #1F1A17;
+  --creator-muted: #665C54;
+  --creator-muted-light: #94867C;
+  --creator-border: rgba(232, 89, 12, 0.12);
+  --creator-orange: #E8590C;
+  --creator-orange-deep: #BF4A06;
+  --creator-peach: #FFF0E4;
+  --creator-peach-light: #FFF8F2;
+  --creator-green: #10B981;
+  --creator-blue: #0284C7;
+  --creator-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+body.creator-page {
+  background-color: var(--creator-bg) !important;
+  color: var(--creator-charcoal) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.creator-main {
+  min-height: 80vh;
+  padding: 104px 20px 80px;
+}
+
+.creator-container {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+/* Breadcrumbs */
+.creator-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--creator-muted-light);
+  margin-bottom: 20px;
+}
+
+.creator-breadcrumb a {
+  color: var(--creator-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.creator-breadcrumb a:hover {
+  color: var(--creator-orange);
+}
+
+.creator-breadcrumb svg {
+  flex-shrink: 0;
+  color: var(--creator-muted-light);
+}
+
+/* TikTok-style Creator Banner & Card */
+.creator-card {
+  background: var(--creator-surface);
+  border: 1px solid var(--creator-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(31, 26, 23, 0.05);
+  margin-bottom: 32px;
+}
+
+.creator-banner {
+  height: 180px;
+  background: linear-gradient(135deg, #FFD9BA 0%, #E8590C 50%, #BF4A06 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.creator-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.25) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+
+.creator-banner-watermark {
+  position: absolute;
+  right: 28px;
+  bottom: -20px;
+  font-size: 140px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.15);
+  user-select: none;
+  line-height: 1;
+}
+
+/* Profile Details Header */
+.creator-header {
+  padding: 0 36px 32px;
+  position: relative;
+}
+
+.creator-avatar-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: -64px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.creator-avatar-wrap {
+  position: relative;
+}
+
+.creator-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #FFFFFF;
+  box-shadow: 0 8px 24px rgba(31, 26, 23, 0.12);
+  object-fit: cover;
+  background: linear-gradient(135deg, #FFD9BA, #E8590C);
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  font-weight: 900;
+  color: #FFF;
+}
+
+.creator-verified-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  background: #FFF;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: grid;
+  place-items: center;
+}
+
+/* Creator Action Buttons */
+.creator-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, var(--creator-orange), var(--creator-orange-deep));
+  color: #FFF;
+  box-shadow: 0 6px 18px rgba(232, 89, 12, 0.35);
+  transition: all 0.25s var(--creator-spring);
+}
+
+.btn-follow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(232, 89, 12, 0.45);
+}
+
+.btn-follow.following {
+  background: var(--creator-peach);
+  color: var(--creator-orange-deep);
+  box-shadow: none;
+  border: 1px solid rgba(232, 89, 12, 0.25);
+}
+
+.btn-action-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #FFF;
+  color: var(--creator-charcoal);
+  border: 1px solid rgba(104, 93, 87, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action-ghost:hover {
+  background: var(--creator-peach-light);
+  border-color: rgba(232, 89, 12, 0.3);
+  color: var(--creator-orange-deep);
+}
+
+/* Creator Info Typography */
+.creator-identity h1 {
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 900;
+  color: var(--creator-charcoal);
+  letter-spacing: -1px;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.creator-handle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--creator-muted-light);
+  margin-bottom: 6px;
+}
+
+.creator-headline {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--creator-orange-deep);
+  margin: 0 0 14px;
+}
+
+.creator-bio {
+  font-size: 15.5px;
+  color: var(--creator-muted);
+  line-height: 1.65;
+  max-width: 760px;
+  margin: 0 0 20px;
+}
+
+/* Creator Badges Pill Row */
+.creator-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.creator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  background: var(--creator-peach-light);
+  color: var(--creator-orange-deep);
+  border: 1px solid rgba(232, 89, 12, 0.2);
+}
+
+.creator-pill.blue {
+  background: #F0F9FF;
+  color: var(--creator-blue);
+  border-color: rgba(2, 132, 199, 0.2);
+}
+
+.creator-pill.green {
+  background: #ECFDF5;
+  color: var(--creator-green);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+/* TikTok-Style Metrics Stats Row */
+.creator-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 20px 24px;
+  border-radius: 18px;
+  background: var(--creator-peach-light);
+  border: 1px solid rgba(232, 89, 12, 0.15);
+}
+
+.creator-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creator-stat-num {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  color: var(--creator-charcoal);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.creator-stat-num svg {
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+.creator-stat-label {
+  font-size: 13px;
+  color: var(--creator-muted);
+  font-weight: 600;
+}
+
+/* Channel Tabs (TikTok / YouTube Style) */
+.creator-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid rgba(232, 89, 12, 0.12);
+  margin-bottom: 28px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.creator-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--creator-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.creator-tab-btn:hover {
+  color: var(--creator-orange);
+}
+
+.creator-tab-btn.active {
+  color: var(--creator-orange-deep);
+  border-bottom-color: var(--creator-orange);
+}
+
+.creator-tab-count {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  background: rgba(232, 89, 12, 0.12);
+  color: var(--creator-orange-deep);
+}
+
+.creator-tab-pane {
+  display: none;
+}
+
+.creator-tab-pane.active {
+  display: block;
+}
+
+/* Course Cards Grid */
+.creator-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.creator-course-card {
+  background: #FFF;
+  border: 1px solid var(--creator-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(31, 26, 23, 0.04);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--creator-spring), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.creator-course-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232, 89, 12, 0.35);
+  box-shadow: 0 16px 36px rgba(232, 89, 12, 0.12);
+}
+
+.creator-course-cover {
+  height: 160px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFE8D6, #E8590C);
+}
+
+.creator-course-wm {
+  font-size: 72px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: -4px;
+  user-select: none;
+}
+
+.creator-course-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--creator-charcoal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.creator-course-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.creator-course-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--creator-charcoal);
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.creator-course-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--creator-muted);
+  margin-bottom: 18px;
+}
+
+.creator-course-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--creator-charcoal);
+}
+
+.creator-course-rating svg {
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+.creator-course-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(232, 89, 12, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.creator-course-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--creator-charcoal);
+}
+
+.creator-course-price small {
+  font-size: 13px;
+  color: var(--creator-muted-light);
+  text-decoration: line-through;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.creator-course-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--creator-peach);
+  color: var(--creator-orange-deep);
+  transition: all 0.2s ease;
+}
+
+.creator-course-card:hover .creator-course-btn {
+  background: var(--creator-orange);
+  color: #FFF;
+}
+
+/* About Tab Section */
+.creator-about-box {
+  background: #FFF;
+  border: 1px solid var(--creator-border);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(31, 26, 23, 0.04);
+}
+
+.creator-about-box h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: var(--creator-charcoal);
+}
+
+.creator-about-box p {
+  font-size: 15.5px;
+  color: var(--creator-muted);
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.skills-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 28px;
+}
+
+.skill-tag {
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: #F5F3EF;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--creator-charcoal);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Reviews Tab */
+.creator-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.creator-review-card {
+  background: #FFF;
+  border: 1px solid var(--creator-border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(31, 26, 23, 0.03);
+}
+
+.creator-review-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.creator-review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD9BA, #E8590C);
+  color: #FFF;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.creator-review-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--creator-charcoal);
+}
+
+.creator-review-role {
+  font-size: 12.5px;
+  color: var(--creator-muted);
+}
+
+.creator-review-stars {
+  color: #F59E0B;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.creator-review-text {
+  font-size: 14.5px;
+  color: var(--creator-charcoal);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Toast Notification */
+.creator-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1F1A17;
+  color: #FFF;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s var(--creator-spring);
+  pointer-events: none;
+}
+
+.creator-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .creator-header {
+    padding: 0 20px 24px;
+  }
+
+  .creator-avatar-row {
+    margin-top: -48px;
+  }
+
+  .creator-avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 32px;
+  }
+
+  .creator-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .creator-courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

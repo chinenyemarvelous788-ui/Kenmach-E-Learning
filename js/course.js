@@ -421,6 +421,26 @@
     }
   }
 
+
+  /* ==================== TIKTOK-STYLE SWIPE LEFT FOR CREATOR ==================== */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches || !e.changedTouches[0]) return;
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    if (!e.changedTouches || !e.changedTouches[0]) return;
+    const diffX = touchStartX - e.changedTouches[0].screenX;
+    const diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+    // User swiped left across screen (at least 90px horizontally with minimal vertical angle)
+    if (diffX > 90 && diffY < 60) {
+      window.location.href = 'instructor.html?instructor=adaeze-okafor';
+    }
+  }, { passive: true });
+
   /* ==================== INIT ==================== */
   renderCurriculum();
   renderReviews();

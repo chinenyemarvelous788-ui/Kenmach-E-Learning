@@ -1,5 +1,5 @@
 ﻿:root{
-  color-scheme: only light;
+  color-scheme: light only;
   font-family:'Inter',sans-serif;
   font-synthesis:none;
   text-rendering:optimizeLegibility;
@@ -7,7 +7,7 @@
 }
 
 :root{
-  color-scheme: only light;
+  color-scheme: light only;
   --orange:#E8590C;
   --orange-deep:#BF4A06;
   --ivory:#FFFAF5;

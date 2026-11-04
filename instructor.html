@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/homepage.css?v=4">
-  <link rel="stylesheet" href="css/instructor.css?v=1">
+  <link rel="stylesheet" href="css/instructor.css?v=2">
   <script src="js/course-data.js?v=4" defer></script>
   <script src="js/homepage.js?v=4" defer></script>
 </head>
@@ -95,29 +95,44 @@
 <main class="creator-main" id="main">
   <div class="creator-container">
 
-    <!-- BREADCRUMB -->
-    <nav class="creator-breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <a href="courses.html">Instructors</a>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span id="breadcrumbName" aria-current="page">Adaeze Okafor</span>
-    </nav>
+    <!-- TOP NAVIGATION: BACK TO COURSE + BREADCRUMB -->
+    <div class="creator-top-nav">
+      <a href="course.html" class="creator-back-btn" id="creatorBackBtn" title="Return to course">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Course</span>
+      </a>
+
+      <nav class="creator-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="courses.html">Instructors</a>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        <span id="breadcrumbName" aria-current="page">Adaeze Okafor</span>
+      </nav>
+    </div>
 
     <!-- TIKTOK-STYLE CREATOR PROFILE CARD -->
     <section class="creator-card">
       <div class="creator-banner" id="creatorBanner">
-        <span class="creator-banner-watermark" id="creatorWatermark">JS</span>
+        <div class="creator-banner-overlay"></div>
+        <div class="creator-banner-tags">
+          <span class="banner-pill"><span class="live-dot"></span> Official Creator Channel</span>
+          <span class="banner-pill">Top Rated Practitioner</span>
+        </div>
       </div>
 
       <div class="creator-header">
         <div class="creator-avatar-row">
           <div class="creator-avatar-wrap">
-            <div class="creator-avatar" id="creatorAvatar">AO</div>
+            <img class="creator-avatar-img" id="creatorAvatarImg" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&amp;h=400&amp;fit=crop&amp;crop=faces&amp;auto=format&amp;q=80" alt="Adaeze Okafor" width="124" height="124" onerror="this.style.display='none';document.getElementById('creatorAvatarFallback').style.display='grid';">
+            <div class="creator-avatar-fallback" id="creatorAvatarFallback" style="display:none;">AO</div>
             <span class="creator-verified-badge" title="Verified Chigos Instructor">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#0284C7">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#0284C7">
                 <path d="M12 2l2.4 2.4 3.4-.4 1.4 3.2 3.1 1.6-1 3.3 1.8 3-2.3 2.6.2 3.4-3.4 1-1.6 3-3.1-.8-2.9 1.9-2-2.8-3.4-.2.2-3.4-2.8-2 1.8-3-1-3.3 3.1-1.6 1.4-3.2 3.4.4L12 2z"/>
-                <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </span>
           </div>
@@ -130,7 +145,7 @@
               </svg>
               <span id="followText">Follow</span>
             </button>
-            <a href="contact.html" class="btn-action-ghost">
+            <a href="contact.html?recipient=adaeze-okafor" class="btn-action-ghost" id="msgBtn">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               Message
             </a>
@@ -149,7 +164,7 @@
             Led payments infrastructure at Paystack, where she scaled systems to millions of users. Now teaching the exact skills she hires for — practical, current, and battle-tested.
           </p>
 
-          <div class="creator-tags-row">
+          <div class="creator-tags-row" id="creatorTagsRow">
             <span class="creator-pill blue">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               Verified Creator
@@ -177,7 +192,7 @@
               <div class="creator-stat-label">Courses</div>
             </div>
             <div class="creator-stat-item">
-              <div class="creator-stat-num">98%</div>
+              <div class="creator-stat-num" id="statCompletion">98%</div>
               <div class="creator-stat-label">Completion Rate</div>
             </div>
           </div>
@@ -201,7 +216,7 @@
       <button type="button" class="creator-tab-btn" role="tab" aria-selected="false" data-tab="tab-reviews">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Student Reviews
-        <span class="creator-tab-count">2.4K</span>
+        <span class="creator-tab-count" id="tabReviewCount">2.4K</span>
       </button>
     </div>
 
@@ -215,13 +230,14 @@
     <!-- TAB 2: ABOUT & JOURNEY -->
     <div class="creator-tab-pane" id="tab-about">
       <div class="creator-about-box">
-        <h3>Career Background</h3>
-        <p>Adaeze began her engineering career in Yaba, Lagos, writing backend services and distributed databases. Over the last decade, she led core payment routing and settlement systems at Paystack (acquired by Stripe), scaling critical infrastructure that processes billions in annual volume for African businesses.</p>
-        
-        <p>Her teaching philosophy is rooted in production reality: <em>"We don't teach toy todo-apps. Every single project in my curriculum is architected the way high-growth tech companies actually write, test, and deploy code."</em></p>
+        <h3 id="aboutTitle">Career Background</h3>
+        <div id="aboutText">
+          <p>Adaeze began her engineering career in Yaba, Lagos, writing backend services and distributed databases. Over the last decade, she led core payment routing and settlement systems at Paystack (acquired by Stripe), scaling critical infrastructure that processes billions in annual volume for African businesses.</p>
+          <p>Her teaching philosophy is rooted in production reality: <em>"We don't teach toy todo-apps. Every single project in my curriculum is architected the way high-growth tech companies actually write, test, and deploy code."</em></p>
+        </div>
 
         <h3>Core Tech Stack &amp; Specialties</h3>
-        <div class="skills-pill-grid">
+        <div class="skills-pill-grid" id="skillsGrid">
           <span class="skill-tag">JavaScript / ESNext</span>
           <span class="skill-tag">TypeScript</span>
           <span class="skill-tag">Node.js &amp; Express</span>
@@ -234,7 +250,7 @@
         </div>
 
         <h3>Teaching Standards &amp; Safety</h3>
-        <p>Adaeze's instructor channel is verified under Chigos Teacher Accreditation. 100% of course sales (minus flat ₦100 platform fee) are credited directly to the instructor's verified account. All courses include lifetime updates and 30-day money-back guarantee.</p>
+        <p>This instructor channel is accredited under Chigos Practitioner Certification. 100% of course sales (minus flat ₦100 platform fee) are credited directly to the instructor's verified account. All courses include lifetime updates and 30-day money-back guarantee.</p>
       </div>
     </div>
 
@@ -491,24 +507,205 @@
   (function () {
     'use strict';
 
-    // 1. Instructor Data Map
-    const INSTRUCTOR_COURSES = [
-      { id: 'web-dev-flagship', title: 'Complete Web Development Bootcamp', wm: 'JS', hours: 42, rating: 4.9, students: '12,400', price: '₦45,000', origPrice: '₦75,000', badge: '🔥 Bestseller', link: 'course.html' },
-      { id: 'nodejs-microservices', title: 'Node.js & Microservices Architecture', wm: 'NODE', hours: 34, rating: 4.9, students: '4,850', price: '₦40,000', origPrice: '₦60,000', badge: 'Popular', link: 'course.html?id=nodejs' },
-      { id: 'react-nextjs-prod', title: 'Modern React & Next.js for Production', wm: 'REACT', hours: 38, rating: 4.8, students: '6,200', price: '₦38,000', origPrice: '₦55,000', badge: 'Updated 2025', link: 'course.html?id=react' },
-      { id: 'payment-systems-api', title: 'Building Resilient Payment APIs in Africa', wm: 'PAY', hours: 26, rating: 4.9, students: '3,100', price: '₦42,000', origPrice: '₦65,000', badge: 'Ex-Paystack', link: 'course.html?id=payments' },
-      { id: 'typescript-enterprise', title: 'TypeScript for Enterprise Systems', wm: 'TS', hours: 28, rating: 4.8, students: '2,900', price: '₦35,000', origPrice: '₦50,000', badge: 'Advanced', link: 'course.html?id=typescript' },
-      { id: 'system-design-africa', title: 'System Design for African High-Scale Apps', wm: 'SYS', hours: 30, rating: 4.9, students: '5,140', price: '₦48,000', origPrice: '₦70,000', badge: 'Staff Pick', link: 'course.html?id=system-design' },
-      { id: 'database-indexing', title: 'High-Performance PostgreSQL & Redis', wm: 'SQL', hours: 22, rating: 4.8, students: '1,890', price: '₦32,000', origPrice: '₦45,000', badge: 'Backend', link: 'course.html?id=postgres' },
-      { id: 'devops-fullstack', title: 'Docker, CI/CD & Cloud Deployment', wm: 'OPS', hours: 24, rating: 4.7, students: '2,400', price: '₦35,000', origPrice: '₦50,000', badge: 'DevOps', link: 'course.html?id=devops' }
-    ];
+    // 1. Creator Registry
+    const CREATORS = {
+      'adaeze-okafor': {
+        name: 'Adaeze Okafor',
+        handle: '@adaeze.okafor · Lagos, Nigeria 🇳🇬',
+        headline: 'Senior Engineer · Ex-Paystack',
+        initials: 'AO',
+        photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=faces&auto=format&q=80',
+        bio: 'Led payments infrastructure at Paystack, where she scaled systems to millions of users. Now teaching the exact skills she hires for — practical, current, and battle-tested.',
+        tags: [
+          { text: 'Verified Creator', blue: true },
+          { text: 'Ex-Paystack Payments' },
+          { text: '10+ Yrs Experience', green: true },
+          { text: 'Top 1% Instructor' }
+        ],
+        students: '12.4K',
+        rating: '4.9',
+        reviewsCount: '2,418',
+        coursesCount: 8,
+        completionRate: '98%',
+        aboutTitle: 'Career Background',
+        aboutHTML: `<p>Adaeze began her engineering career in Yaba, Lagos, writing backend services and distributed databases. Over the last decade, she led core payment routing and settlement systems at Paystack (acquired by Stripe), scaling critical infrastructure that processes billions in annual volume for African businesses.</p><p>Her teaching philosophy is rooted in production reality: <em>"We don't teach toy todo-apps. Every single project in my curriculum is architected the way high-growth tech companies actually write, test, and deploy code."</em></p>`,
+        skills: ['JavaScript / ESNext', 'TypeScript', 'Node.js & Express', 'React & Next.js', 'PostgreSQL & Redis', 'Docker & Microservices', 'Payment Gateway Integrations', 'System Design & Architecture', 'CI/CD & Automated Testing'],
+        courses: [
+          { id: 'web-dev-flagship', title: 'Complete Web Development Bootcamp', wm: 'JS', hours: 42, rating: 4.9, students: '12,400', price: '₦45,000', origPrice: '₦75,000', badge: '🔥 Bestseller', link: 'course.html', gradient: 'linear-gradient(135deg, #FFE8D6, #E8590C)' },
+          { id: 'nodejs-microservices', title: 'Node.js & Microservices Architecture', wm: 'NODE', hours: 34, rating: 4.9, students: '4,850', price: '₦40,000', origPrice: '₦60,000', badge: 'Popular', link: 'course.html?id=nodejs', gradient: 'linear-gradient(135deg, #ECFDF5, #059669)' },
+          { id: 'react-nextjs-prod', title: 'Modern React & Next.js for Production', wm: 'REACT', hours: 38, rating: 4.8, students: '6,200', price: '₦38,000', origPrice: '₦55,000', badge: 'Updated 2025', link: 'course.html?id=react', gradient: 'linear-gradient(135deg, #EBF5FF, #0284C7)' },
+          { id: 'payment-systems-api', title: 'Building Resilient Payment APIs in Africa', wm: 'PAY', hours: 26, rating: 4.9, students: '3,100', price: '₦42,000', origPrice: '₦65,000', badge: 'Ex-Paystack', link: 'course.html?id=payments', gradient: 'linear-gradient(135deg, #FFF1F2, #E11D48)' },
+          { id: 'typescript-enterprise', title: 'TypeScript for Enterprise Systems', wm: 'TS', hours: 28, rating: 4.8, students: '2,900', price: '₦35,000', origPrice: '₦50,000', badge: 'Advanced', link: 'course.html?id=typescript', gradient: 'linear-gradient(135deg, #EFF6FF, #2563EB)' },
+          { id: 'system-design-africa', title: 'System Design for African High-Scale Apps', wm: 'SYS', hours: 30, rating: 4.9, students: '5,140', price: '₦48,000', origPrice: '₦70,000', badge: 'Staff Pick', link: 'course.html?id=system-design', gradient: 'linear-gradient(135deg, #FEF3C7, #D97706)' },
+          { id: 'database-indexing', title: 'High-Performance PostgreSQL & Redis', wm: 'SQL', hours: 22, rating: 4.8, students: '1,890', price: '₦32,000', origPrice: '₦45,000', badge: 'Backend', link: 'course.html?id=postgres', gradient: 'linear-gradient(135deg, #F0FDF4, #16A34A)' },
+          { id: 'devops-fullstack', title: 'Docker, CI/CD & Cloud Deployment', wm: 'OPS', hours: 24, rating: 4.7, students: '2,400', price: '₦35,000', origPrice: '₦50,000', badge: 'DevOps', link: 'course.html?id=devops', gradient: 'linear-gradient(135deg, #FAF5FF, #7C3AED)' }
+        ]
+      },
+      'tunde-martins': {
+        name: 'Tunde Martins',
+        handle: '@tunde.martins · Lagos, Nigeria 🇳🇬',
+        headline: 'Design Lead · Ex-Flutterwave',
+        initials: 'TM',
+        photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces&auto=format&q=80',
+        bio: 'Built design systems used by 2M+ users across Africa. Teaches craft that scales with the product, from Figma design tokens to high-converting user interfaces.',
+        tags: [
+          { text: 'Verified Creator', blue: true },
+          { text: 'Ex-Flutterwave Design' },
+          { text: '8+ Yrs Experience', green: true },
+          { text: 'Design Systems Lead' }
+        ],
+        students: '9.8K',
+        rating: '4.8',
+        reviewsCount: '1,840',
+        coursesCount: 6,
+        completionRate: '96%',
+        aboutTitle: 'Design Philosophy',
+        aboutHTML: `<p>Tunde spent over 8 years architecting design systems for top African fintechs including Flutterwave. He believes great design isn't just about beautiful mockups, but about clarity, accessibility, and high conversion.</p><p>Every assignment in his courses requires testing with real users and translating Figma designs into component tokens that engineers can build without friction.</p>`,
+        skills: ['Figma & FigJam', 'UI Systems & Tokens', 'UX Research', 'Mobile App Design', 'Interaction Prototyping', 'Design-to-Code Handover'],
+        courses: [
+          { id: 'product-design-mastery', title: 'Complete Product Design & Figma Mastery', wm: 'UI', hours: 36, rating: 4.9, students: '5,800', price: '₦40,000', origPrice: '₦65,000', badge: '🔥 Bestseller', link: 'courses.html', gradient: 'linear-gradient(135deg, #FAF5FF, #7C3AED)' },
+          { id: 'design-systems-scale', title: 'Building Scalable Design Systems in Figma', wm: 'SYS', hours: 24, rating: 4.8, students: '2,400', price: '₦36,000', origPrice: '₦50,000', badge: 'Popular', link: 'courses.html', gradient: 'linear-gradient(135deg, #FFE8D6, #E8590C)' },
+          { id: 'ux-research-africa', title: 'UX Research & Usability Testing in Emerging Markets', wm: 'UX', hours: 20, rating: 4.8, students: '1,600', price: '₦30,000', origPrice: '₦45,000', badge: 'Essential', link: 'courses.html', gradient: 'linear-gradient(135deg, #ECFDF5, #059669)' }
+        ]
+      },
+      'ngozi-kalu': {
+        name: 'Ngozi Kalu',
+        handle: '@ngozi.kalu · Abuja, Nigeria 🇳🇬',
+        headline: 'Data Scientist · Ex-Google',
+        initials: 'NK',
+        photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces&auto=format&q=80',
+        bio: 'Shipped machine learning and predictive analytics models at Google and two high-growth African startups. Makes complex data algorithms feel simple and actionable.',
+        tags: [
+          { text: 'Verified Creator', blue: true },
+          { text: 'Ex-Google AI' },
+          { text: '12+ Yrs Experience', green: true },
+          { text: 'Data & ML Specialist' }
+        ],
+        students: '14.2K',
+        rating: '4.9',
+        reviewsCount: '3,100',
+        coursesCount: 7,
+        completionRate: '97%',
+        aboutTitle: 'Data Science Journey',
+        aboutHTML: `<p>Ngozi spent over 12 years in data engineering and machine learning. She breaks down mathematics and data algorithms into step-by-step intuition that anyone can master.</p><p>Her projects use real African financial and retail datasets, giving students work portfolios that immediately catch the eyes of tech recruiters.</p>`,
+        skills: ['Python', 'SQL & BigQuery', 'Machine Learning', 'TensorFlow', 'Data Visualization', 'Pandas & NumPy', 'Predictive Modeling'],
+        courses: [
+          { id: 'python-data-science', title: 'Python for Data Science & Machine Learning', wm: 'PY', hours: 44, rating: 4.9, students: '8,200', price: '₦45,000', origPrice: '₦70,000', badge: '🔥 Bestseller', link: 'courses.html', gradient: 'linear-gradient(135deg, #FEF3C7, #D97706)' },
+          { id: 'sql-analytics-pro', title: 'SQL & Business Analytics for High Growth', wm: 'SQL', hours: 28, rating: 4.9, students: '3,900', price: '₦35,000', origPrice: '₦50,000', badge: 'Popular', link: 'courses.html', gradient: 'linear-gradient(135deg, #ECFDF5, #059669)' }
+        ]
+      },
+      'efe-kalu': {
+        name: 'Efe Kalu',
+        handle: '@efe.kalu · Lagos, Nigeria 🇳🇬',
+        headline: 'Growth Lead · 3x Founder',
+        initials: 'EK',
+        photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=faces&auto=format&q=80',
+        bio: 'Grew three African startups from zero to seven figures. Teaches customer acquisition, performance marketing, and product growth strategies that convert.',
+        tags: [
+          { text: 'Verified Creator', blue: true },
+          { text: '3x Founder' },
+          { text: '9+ Yrs Experience', green: true },
+          { text: 'Growth & Marketing' }
+        ],
+        students: '8.4K',
+        rating: '4.8',
+        reviewsCount: '1,520',
+        coursesCount: 5,
+        completionRate: '95%',
+        aboutTitle: 'Growth Playbook',
+        aboutHTML: `<p>Efe has generated hundreds of millions in revenue across direct-to-consumer and B2B SaaS businesses. His courses focus on ROI, data-driven experimentation, and viral acquisition.</p>`,
+        skills: ['Paid Ads (Meta/Google)', 'SEO & Content Growth', 'Conversion Rate Optimization', 'Product-Led Growth', 'Email Automation'],
+        courses: [
+          { id: 'growth-marketing-blueprint', title: 'Growth Marketing & Customer Acquisition', wm: 'GROW', hours: 32, rating: 4.8, students: '4,500', price: '₦38,000', origPrice: '₦60,000', badge: '🔥 Bestseller', link: 'courses.html', gradient: 'linear-gradient(135deg, #FFE8D6, #E8590C)' }
+        ]
+      }
+    };
 
-    // Render Courses Grid
+    // 2. Identify Selected Instructor from Query Param
+    const params = new URLSearchParams(window.location.search);
+    const slug = (params.get('instructor') || 'adaeze-okafor').toLowerCase().trim();
+    const creator = CREATORS[slug] || CREATORS['adaeze-okafor'];
+
+    // 3. Populate Page Metadata & DOM
+    document.title = `${creator.name} — Creator Profile · Chigos`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', `${creator.name} - ${creator.headline}. Explore courses, reviews, and developer resources on Chigos.`);
+
+    const breadcrumbName = document.getElementById('breadcrumbName');
+    if (breadcrumbName) breadcrumbName.textContent = creator.name;
+
+    const creatorName = document.getElementById('creatorName');
+    if (creatorName) creatorName.textContent = creator.name;
+
+    const creatorHandle = document.getElementById('creatorHandle');
+    if (creatorHandle) creatorHandle.textContent = creator.handle;
+
+    const creatorHeadline = document.getElementById('creatorHeadline');
+    if (creatorHeadline) creatorHeadline.textContent = creator.headline;
+
+    const creatorBio = document.getElementById('creatorBio');
+    if (creatorBio) creatorBio.textContent = creator.bio;
+
+    const avatarImg = document.getElementById('creatorAvatarImg');
+    const avatarFallback = document.getElementById('creatorAvatarFallback');
+    if (avatarImg) {
+      avatarImg.src = creator.photo;
+      avatarImg.alt = creator.name;
+    }
+    if (avatarFallback) {
+      avatarFallback.textContent = creator.initials;
+    }
+
+    const statStudents = document.getElementById('statStudents');
+    if (statStudents) statStudents.textContent = creator.students;
+
+    const statRating = document.getElementById('statRating');
+    if (statRating) statRating.textContent = creator.rating;
+
+    const statReviews = document.getElementById('statReviews');
+    if (statReviews) statReviews.textContent = creator.reviewsCount;
+
+    const statCourses = document.getElementById('statCourses');
+    if (statCourses) statCourses.textContent = String(creator.coursesCount);
+
+    const statCompletion = document.getElementById('statCompletion');
+    if (statCompletion) statCompletion.textContent = creator.completionRate;
+
+    const tabCourseCount = document.getElementById('tabCourseCount');
+    if (tabCourseCount) tabCourseCount.textContent = String(creator.coursesCount);
+
+    const tabReviewCount = document.getElementById('tabReviewCount');
+    if (tabReviewCount) tabReviewCount.textContent = creator.reviewsCount;
+
+    const tagsRow = document.getElementById('creatorTagsRow');
+    if (tagsRow && creator.tags) {
+      tagsRow.innerHTML = creator.tags.map(t => {
+        const cls = t.blue ? 'creator-pill blue' : (t.green ? 'creator-pill green' : 'creator-pill');
+        const icon = t.blue ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>` : '';
+        return `<span class="${cls}">${icon}${t.text}</span>`;
+      }).join('');
+    }
+
+    const aboutTitle = document.getElementById('aboutTitle');
+    if (aboutTitle) aboutTitle.textContent = creator.aboutTitle;
+
+    const aboutText = document.getElementById('aboutText');
+    if (aboutText) aboutText.innerHTML = creator.aboutHTML;
+
+    const skillsGrid = document.getElementById('skillsGrid');
+    if (skillsGrid && creator.skills) {
+      skillsGrid.innerHTML = creator.skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+    }
+
+    const msgBtn = document.getElementById('msgBtn');
+    if (msgBtn) msgBtn.href = `contact.html?recipient=${encodeURIComponent(slug)}`;
+
+    // 4. Render Courses Grid
     const grid = document.getElementById('creatorCoursesGrid');
-    if (grid) {
-      grid.innerHTML = INSTRUCTOR_COURSES.map(c => `
+    if (grid && creator.courses) {
+      grid.innerHTML = creator.courses.map(c => `
         <article class="creator-course-card">
-          <div class="creator-course-cover">
+          <div class="creator-course-cover" style="background:${c.gradient || 'linear-gradient(135deg, #FFE8D6, #E8590C)'}">
             <span class="creator-course-wm">${c.wm}</span>
             <span class="creator-course-badge">${c.badge}</span>
           </div>
@@ -539,7 +736,7 @@
       `).join('');
     }
 
-    // 2. Tab Navigation
+    // 5. Tab Navigation
     const tabs = document.querySelectorAll('.creator-tab-btn');
     const panes = document.querySelectorAll('.creator-tab-pane');
 
@@ -559,37 +756,38 @@
       });
     });
 
-    // 3. Interactive Follow Button (Saved in LocalStorage)
+    // 6. Interactive Follow Button (Saved in LocalStorage)
     const followBtn = document.getElementById('followBtn');
     const followText = document.getElementById('followText');
     const followIcon = document.getElementById('followIcon');
-    const statStudents = document.getElementById('statStudents');
+    const storageKey = `chigos_follow_${slug}`;
 
-    let isFollowing = localStorage.getItem('chigos_follow_adaeze') === 'true';
+    let isFollowing = localStorage.getItem(storageKey) === 'true';
 
     function updateFollowState() {
+      if (!followBtn) return;
       if (isFollowing) {
         followBtn.classList.add('following');
         followText.textContent = 'Following ✓';
         followIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
-        statStudents.textContent = '12.4K+';
       } else {
         followBtn.classList.remove('following');
         followText.textContent = 'Follow';
         followIcon.innerHTML = '<line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>';
-        statStudents.textContent = '12.4K';
       }
     }
     updateFollowState();
 
-    followBtn.addEventListener('click', () => {
-      isFollowing = !isFollowing;
-      localStorage.setItem('chigos_follow_adaeze', isFollowing ? 'true' : 'false');
-      updateFollowState();
-      showToast(isFollowing ? 'You are now following Adaeze Okafor!' : 'Unfollowed Adaeze Okafor');
-    });
+    if (followBtn) {
+      followBtn.addEventListener('click', () => {
+        isFollowing = !isFollowing;
+        localStorage.setItem(storageKey, isFollowing ? 'true' : 'false');
+        updateFollowState();
+        showToast(isFollowing ? `You are now following ${creator.name}!` : `Unfollowed ${creator.name}`);
+      });
+    }
 
-    // 4. Share Button (Clipboard copy + Toast)
+    // 7. Share Button (Clipboard copy + Toast)
     const shareBtn = document.getElementById('shareBtn');
     const toast = document.getElementById('creatorToast');
     const toastMsg = document.getElementById('toastMsg');
@@ -609,12 +807,23 @@
       shareBtn.addEventListener('click', () => {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(window.location.href).then(() => {
-            showToast('Creator profile link copied to clipboard!');
+            showToast('Creator channel link copied to clipboard!');
           }).catch(() => {
-            showToast('Creator profile URL ready to share!');
+            showToast('Creator profile link ready to share!');
           });
         } else {
-          showToast('Creator profile URL ready to share!');
+          showToast('Creator profile link ready to share!');
+        }
+      });
+    }
+
+    // 8. Back to Course Button Behavior
+    const backBtn = document.getElementById('creatorBackBtn');
+    if (backBtn) {
+      backBtn.addEventListener('click', (e) => {
+        if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
+          e.preventDefault();
+          window.history.back();
         }
       });
     }
@@ -624,4 +833,3 @@
 
 </body>
 </html>
-

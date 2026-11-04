@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color-scheme: light !important;
   supported-color-schemes: light !important;
   --orange: #E8590C;
@@ -178,17 +178,22 @@ body::before {
 .meta-item svg { width: 15px; height: 15px; color: var(--orange); }
 .meta-item strong { color: var(--charcoal); font-weight: 800; }
 
+/* ==================== HERO INSTRUCTOR CARD ==================== */
 .hero-instructor {
-  display: inline-flex; align-items: center; gap: 12px;
-  padding: 10px 18px 10px 10px; background: #fff;
-  border: 1px solid rgba(232, 89, 12, 0.14);
-  border-radius: 100px;
-  box-shadow: 0 4px 14px rgba(31, 26, 23, 0.04);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px 8px 10px;
+  background: #ffffff;
+  border: 1px solid rgba(232, 89, 12, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(31, 26, 23, 0.05);
   text-decoration: none;
   color: inherit;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
+  max-width: 100%;
 }
 
 .hero-instructor:hover {
@@ -198,47 +203,177 @@ body::before {
   background: #FFFDFB;
 }
 
-.inst-view-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 5px 12px;
-  border-radius: 100px;
-  background: var(--peach);
-  color: var(--orange-deep);
-  font-size: 11.5px;
+.inst-avatar-wrap {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+}
+
+.inst-avatar-img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.inst-avatar-fallback {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD9BA, #E8590C);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  display: none;
+  place-items: center;
+  border: 2px solid #ffffff;
+}
+
+.inst-verified-dot {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  display: grid;
+  place-items: center;
+}
+
+.inst-verified-dot svg {
+  width: 14px;
+  height: 14px;
+}
+
+.inst-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-width: 0;
+}
+
+.inst-label {
+  font-size: 10.5px;
+  color: var(--muted-lt);
   font-weight: 700;
-  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 2px;
+}
+
+.inst-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.inst-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--charcoal);
+  white-space: nowrap;
+}
+
+.inst-badge-chip {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--orange-deep);
+  background: var(--peach);
+  padding: 1.5px 7px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+.inst-subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.inst-chevron {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(232, 89, 12, 0.08);
+  color: var(--orange-deep);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-left: 4px;
   transition: all 0.2s ease;
 }
 
-.inst-view-pill svg {
-  width: 13px;
-  height: 13px;
+.inst-chevron svg {
+  width: 15px;
+  height: 15px;
   transition: transform 0.2s ease;
 }
 
-.hero-instructor:hover .inst-view-pill {
+.hero-instructor:hover .inst-chevron {
   background: var(--orange);
-  color: #fff;
+  color: #ffffff;
 }
 
-.hero-instructor:hover .inst-view-pill svg {
-  transform: translateX(3px);
+.hero-instructor:hover .inst-chevron svg {
+  transform: translateX(2px);
 }
-.inst-avatar, .inst-avatar-lg {
-  display: grid; place-items: center; border-radius: 50%;
-  color: #fff; font-weight: 900; letter-spacing: -1px;
-  background: linear-gradient(135deg, #FFD9BA, #E8590C);
+
+/* Big Instructor Block in Body */
+.inst-avatar-wrap-lg {
+  position: relative;
+  width: 96px;
+  height: 96px;
   flex-shrink: 0;
 }
-.inst-avatar { width: 44px; height: 44px; font-size: 15px; }
-.inst-avatar-lg { width: 96px; height: 96px; font-size: 30px; }
 
-.inst-info { display: flex; flex-direction: column; line-height: 1.25; }
-.inst-info span { font-size: 11px; color: var(--muted-lt); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
-.inst-info strong { font-size: 14px; font-weight: 800; color: var(--charcoal); }
-.inst-info em { font-size: 12px; color: var(--muted); font-style: normal; }
+.inst-avatar-lg-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.inst-avatar-lg-fallback {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD9BA, #E8590C);
+  color: #fff;
+  font-weight: 900;
+  font-size: 32px;
+  display: none;
+  place-items: center;
+  border: 3px solid #ffffff;
+}
+
+.inst-verified-dot-lg {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  display: grid;
+  place-items: center;
+}
+
+.inst-verified-dot-lg svg {
+  width: 20px;
+  height: 20px;
+}
 
 /* ==================== ENROLL CARD ==================== */
 .enroll-card {
@@ -539,6 +674,43 @@ body::before {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(232, 89, 12, 0.12);
+  background: #FFF;
+  transition: all 0.25s ease;
+}
+.instructor-block:hover {
+  transform: translateY(-2px);
+  border-color: var(--orange);
+  box-shadow: 0 10px 30px rgba(232, 89, 12, 0.1);
+}
+.inst-profile-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--peach);
+  color: var(--orange-deep);
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.inst-profile-link-btn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+.instructor-block:hover .inst-profile-link-btn {
+  background: var(--orange);
+  color: #fff;
+}
+.instructor-block:hover .inst-profile-link-btn svg {
+  transform: translateX(4px);
 }
 .inst-detail { flex: 1; min-width: 0; }
 .inst-detail h3 {
@@ -1236,6 +1408,7 @@ body::before {
   .nav-logo span { display: none; }
   .block { padding: 22px; }
   .hero-main h1 { font-size: 28px; }
+  .hero-instructor { width: 100%; justify-content: space-between; box-sizing: border-box; }
   .enroll-body { padding: 18px; }
   .price { font-size: 26px; }
   .cd-seg strong { font-size: 16px; }
@@ -1252,52 +1425,4 @@ body::before {
 #curriculum,
 .curriculum {
   scroll-margin-top: 100px;
-}
-
-.instructor-block {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  text-decoration: none;
-  color: inherit;
-  padding: 24px;
-  border-radius: 18px;
-  border: 1px solid rgba(232, 89, 12, 0.12);
-  background: #FFF;
-  transition: all 0.25s ease;
-}
-
-.instructor-block:hover {
-  transform: translateY(-2px);
-  border-color: var(--orange);
-  box-shadow: 0 10px 30px rgba(232, 89, 12, 0.1);
-}
-
-.inst-profile-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: var(--peach);
-  color: var(--orange-deep);
-  font-size: 13px;
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.inst-profile-link-btn svg {
-  width: 14px;
-  height: 14px;
-  transition: transform 0.2s ease;
-}
-
-.instructor-block:hover .inst-profile-link-btn {
-  background: var(--orange);
-  color: #fff;
-}
-
-.instructor-block:hover .inst-profile-link-btn svg {
-  transform: translateX(4px);
 }

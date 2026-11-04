@@ -1,4 +1,4 @@
-﻿/* PRELOADER */
+/* PRELOADER */
 (function () {
   const preloader = document.getElementById('preloader');
   if (!preloader) return;
@@ -324,6 +324,12 @@ function buildInstructorCard(inst) {
       <span class="divider-dot"></span>
       <span class="stat">${icons.star}${inst.rating}</span>
     </div>`;
+  card.style.cursor = 'pointer';
+  card.title = `View ${inst.name}'s creator channel`;
+  card.addEventListener('click', () => {
+    const slug = inst.name.toLowerCase().replace(/\s+/g, '-');
+    window.location.href = `instructor.html?instructor=${slug}`;
+  });
   return card;
 }
 

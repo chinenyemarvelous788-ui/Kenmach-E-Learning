@@ -133,7 +133,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --orange:        #E8590C;
   --orange-deep:   #BF4A06;
   --ivory:         #FFFAF5;

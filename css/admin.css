@@ -1,9 +1,10 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    CHIGOS ADMIN PORTAL — CORE STYLESHEET
    Design System: Warm Ivory Paper, Dark Luxury Sidebar, Chigos Warm Orange
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
   /* Brand Palette */

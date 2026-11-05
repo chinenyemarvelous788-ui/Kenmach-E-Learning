@@ -1,3 +1,11 @@
+/* Ensure i18n translation engine is loaded */
+if (typeof window.ChigosI18n === 'undefined' && !document.querySelector('script[src*="i18n.js"]')) {
+  const i18nTag = document.createElement('script');
+  i18nTag.src = 'js/i18n.js';
+  i18nTag.defer = true;
+  document.head.appendChild(i18nTag);
+}
+
 /* PRELOADER */
 (function () {
   const preloader = document.getElementById('preloader');
@@ -453,7 +461,8 @@ function initSuccessCounters() {
   const btn      = document.getElementById('langBtn');
   const flagEl   = document.getElementById('currentFlag');
   const labelEl  = document.getElementById('currentLang');
-  if (!switcher || !btn) return;
+  if (!switcher || !btn || switcher.dataset.i18nBound === 'true') return;
+  switcher.dataset.i18nBound = 'true';
   const options = switcher.querySelectorAll('.lang-menu button');
 
   btn.addEventListener('click', (e) => {
@@ -480,13 +489,16 @@ function initSuccessCounters() {
     opt.addEventListener('click', () => {
       const flag  = opt.dataset.flag;
       const label = opt.dataset.label;
+      const lang  = opt.dataset.lang || label;
       flagEl.textContent  = flag;
       labelEl.textContent = label;
       options.forEach(o => o.classList.remove('active'));
       opt.classList.add('active');
       switcher.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
-      console.log(`Language switched to: ${label}`);
+      if (window.ChigosI18n) {
+        window.ChigosI18n.setLanguage(lang, true);
+      }
     });
   });
 })();

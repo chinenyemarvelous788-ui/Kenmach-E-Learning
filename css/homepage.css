@@ -1,4 +1,4 @@
-﻿/* ==========================================
+/* ==========================================
    PRELOADER
 ========================================== */
 #preloader {
@@ -4614,6 +4614,8 @@ body::after {
   bottom: calc(100% + 8px);
   left: 0;
   min-width: 180px;
+  max-height: 290px;
+  overflow-y: auto;
   padding: 6px;
   background: rgba(20,16,13,0.96);
   backdrop-filter: blur(20px) saturate(180%);
@@ -5422,4 +5424,48 @@ body::after {
   .search-item-price {
     font-size: 12px;
   }
+}
+
+/* ==================== RTL LAYOUT (ARABIC) ==================== */
+html[dir="rtl"], html.rtl-mode {
+  text-align: right;
+}
+
+html[dir="rtl"] .nav-links,
+html[dir="rtl"] .nav-actions,
+html[dir="rtl"] .hero-buttons,
+html[dir="rtl"] .footer-top,
+html[dir="rtl"] .featured-head,
+html[dir="rtl"] .stats-row {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .hero-btn-arrow,
+html[dir="rtl"] .floating-arrow,
+html[dir="rtl"] .view-all svg,
+html[dir="rtl"] .feature-link svg {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .hero-eyebrow,
+html[dir="rtl"] .featured-eyebrow,
+html[dir="rtl"] .why-eyebrow,
+html[dir="rtl"] .hiw-eyebrow,
+html[dir="rtl"] .teacher-eyebrow {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .lang-menu {
+  left: auto;
+  right: 0;
+  transform-origin: bottom right;
+}
+
+html[dir="rtl"] .lang-menu button {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .footer-col ul {
+  padding-right: 0;
 }

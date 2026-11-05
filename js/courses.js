@@ -327,6 +327,10 @@
 
     renderPagination(totalPages);
 
+    if (window.ChigosI18n) {
+      window.ChigosI18n.translate();
+    }
+
     if (shouldScroll) {
       const top = grid.getBoundingClientRect().top + window.scrollY - 130;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -522,7 +526,8 @@
   const langButton = document.getElementById('langBtn');
   const flag = document.getElementById('currentFlag');
   const langLabel = document.getElementById('currentLang');
-  if (langSwitcher && langButton && flag && langLabel) {
+  if (langSwitcher && langButton && flag && langLabel && langSwitcher.dataset.i18nBound !== 'true') {
+    langSwitcher.dataset.i18nBound = 'true';
     const langOptions = langSwitcher.querySelectorAll('.lang-menu button');
     langButton.addEventListener('click', () => {
       const isOpen = langSwitcher.classList.toggle('open');
@@ -540,6 +545,9 @@
       langOptions.forEach(item => item.classList.toggle('active', item === option));
       langSwitcher.classList.remove('open');
       langButton.setAttribute('aria-expanded', 'false');
+      if (window.ChigosI18n) {
+        window.ChigosI18n.setLanguage(option.dataset.lang || option.dataset.label, true);
+      }
     }));
   }
 

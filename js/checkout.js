@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Chigos E-Learning — Checkout Engine
  * Dynamic order population, live card formatting, coupon calculation,
  * and direct teacher payout integration with ChigosStorage & ChigosPayments.
@@ -220,6 +220,16 @@
     const instEl = document.getElementById('summaryInstructor');
     if (instEl) instEl.textContent = course.instructor + ' · ' + course.role;
 
+    // Mobile Order Glance banner
+    const glanceThumb = document.getElementById('glanceThumb');
+    if (glanceThumb) glanceThumb.textContent = course.watermark;
+    const glanceCat = document.getElementById('glanceCat');
+    if (glanceCat) glanceCat.textContent = course.cat;
+    const glanceTitle = document.getElementById('glanceTitle');
+    if (glanceTitle) glanceTitle.textContent = course.title;
+    const glanceInst = document.getElementById('glanceInstructor');
+    if (glanceInst) glanceInst.textContent = course.instructor;
+
     // Direct teacher payout notification in sidebar
     const directTeacherName = document.getElementById('summaryTeacherDirectName');
     if (directTeacherName) directTeacherName.textContent = course.instructor;
@@ -286,6 +296,17 @@
     const ctaBtn = document.getElementById('payCtaBtn');
     if (ctaBtn) {
       ctaBtn.innerHTML = '<span class="shimmer"></span>Pay ' + formatNaira(finalTotal) + ' &amp; Enroll &rarr;';
+    }
+
+    const glancePriceEl = document.getElementById('glancePrice');
+    if (glancePriceEl) glancePriceEl.textContent = formatNaira(finalTotal);
+
+    const mobileBarTotalEl = document.getElementById('mobileBarTotal');
+    if (mobileBarTotalEl) mobileBarTotalEl.textContent = formatNaira(finalTotal);
+
+    const mobileBarBtn = document.getElementById('mobileBarPayBtn');
+    if (mobileBarBtn) {
+      mobileBarBtn.innerHTML = '<span class="shimmer"></span>Pay ' + formatNaira(finalTotal) + ' &rarr;';
     }
   }
 
@@ -466,12 +487,19 @@
   /* Complete Purchase & Display Celebration */
   function initPurchaseAction() {
     const btn = document.getElementById('payCtaBtn');
+    const mobileBtn = document.getElementById('mobileBarPayBtn');
     const form = document.getElementById('checkoutForm');
     const successModal = document.getElementById('successOverlay');
     const receiptOrder = document.getElementById('receiptOrderId');
     const receiptCourse = document.getElementById('receiptCourseName');
     const receiptAmount = document.getElementById('receiptPaidAmount');
     const receiptStudent = document.getElementById('receiptStudentName');
+
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        document.getElementById('hiddenFormSubmit')?.click();
+      });
+    }
 
     if (!btn || !form) return;
 
@@ -480,6 +508,10 @@
 
       btn.disabled = true;
       btn.innerHTML = '<span class="shimmer"></span>Processing Secure Payment...';
+      if (mobileBtn) {
+        mobileBtn.disabled = true;
+        mobileBtn.innerHTML = '<span class="shimmer"></span>Processing...';
+      }
 
       const studentName = document.getElementById('accName')?.value.trim() || 'Amara James';
       const studentEmail = document.getElementById('accEmail')?.value.trim() || 'student@chigos.test';
@@ -558,6 +590,8 @@
           if (successModal) {
             successModal.classList.add('is-active');
             document.body.style.overflow = 'hidden';
+            const mobileBar = document.getElementById('mobileStickyBar');
+            if (mobileBar) mobileBar.style.display = 'none';
           }
         } catch (err) {
           console.error(err);

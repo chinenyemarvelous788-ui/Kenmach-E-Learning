@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -59,7 +59,8 @@
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
         </svg>
-        <span>256-Bit SSL Encrypted Checkout</span>
+        <span class="badge-text-full">256-Bit SSL Encrypted Checkout</span>
+        <span class="badge-text-mobile">SSL Secure</span>
       </div>
 
       <a href="courses.html" class="back-link" id="backToCourseLink">
@@ -67,7 +68,7 @@
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Back to course
+        <span class="back-link-text">Back<span class="back-link-full"> to course</span></span>
       </a>
     </div>
   </header>
@@ -77,17 +78,17 @@
     <div class="checkout-steps">
       <div class="step-item is-done">
         <span class="step-num">&#10003;</span>
-        <span>Course Selection</span>
+        <span class="step-label">Course Selection</span>
       </div>
       <div class="step-divider"></div>
       <div class="step-item is-active">
         <span class="step-num">2</span>
-        <span>Checkout &amp; Payment</span>
+        <span class="step-label">Checkout &amp; Payment</span>
       </div>
       <div class="step-divider"></div>
       <div class="step-item">
         <span class="step-num">3</span>
-        <span>Start Learning</span>
+        <span class="step-label">Start Learning</span>
       </div>
     </div>
     <h1 class="checkout-title">Complete your enrollment</h1>
@@ -99,6 +100,24 @@
 
     <!-- LEFT COLUMN: PAYMENT & ACCOUNT FORMS -->
     <div class="checkout-main">
+
+      <!-- MOBILE ORDER GLANCE (VISIBLE ON TABLETS & PHONES) -->
+      <div class="mobile-order-glance" id="mobileOrderGlance">
+        <div class="glance-thumb" id="glanceThumb">JS</div>
+        <div class="glance-info">
+          <span class="glance-cat" id="glanceCat">Web Development</span>
+          <h4 class="glance-title" id="glanceTitle">Full-Stack JavaScript: From Zero to Deploy</h4>
+          <div class="glance-price-row">
+            <span class="glance-price" id="glancePrice">₦142,000</span>
+            <span class="glance-inst" id="glanceInstructor">Adaeze Okafor</span>
+          </div>
+        </div>
+        <a href="#summaryHero" class="glance-btn" id="glanceBtn" aria-label="View full order summary">
+          <span>Summary</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+      </div>
+
       <form id="checkoutForm">
 
         <!-- ACCOUNT DETAILS CARD -->
@@ -507,6 +526,20 @@
       </div>
     </div>
   </div>
+
+  <!-- MOBILE STICKY ENROLLMENT FOOTER -->
+  <aside class="mobile-sticky-bar" id="mobileStickyBar" aria-label="Mobile checkout bar">
+    <div class="mobile-sticky-inner">
+      <div class="mobile-sticky-price">
+        <span class="mobile-sticky-label">Total to pay</span>
+        <strong class="mobile-sticky-amount" id="mobileBarTotal">₦142,000</strong>
+      </div>
+      <button type="button" class="mobile-sticky-btn" id="mobileBarPayBtn">
+        <span class="shimmer"></span>
+        Pay &amp; Enroll &rarr;
+      </button>
+    </div>
+  </aside>
 
   <!-- SCRIPTS -->
   <script src="js/storage.js"></script>

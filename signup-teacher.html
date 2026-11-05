@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -105,7 +105,7 @@
 
         <p class="form-switch">
           Already teaching?
-          <a href="login.html">Sign in</a>
+          <a href="login.html?role=teacher">Sign in</a>
         </p>
       </div>
 
@@ -384,6 +384,13 @@
         </div>
         <h3>Your channel is live! 🎉</h3>
         <p>Welcome to Chigos, <strong id="successName">instructor</strong>. Your ₦2,000 payment is confirmed.</p>
+        <p class="success-redirect-note" id="redirectNote" style="font-size:14px;color:var(--muted);margin-bottom:22px;">
+          Redirecting to your Teacher Dashboard in <strong id="countdownSec" style="color:var(--orange-deep)">3</strong> seconds…
+        </p>
+        <a href="teacher-dashboard.html" class="success-btn" id="toTeacherDashboardBtn">
+          Go to Teacher Dashboard
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
 
       <p class="form-footer">

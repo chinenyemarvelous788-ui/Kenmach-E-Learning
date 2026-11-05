@@ -43,18 +43,25 @@
   document.querySelectorAll('[data-provider-continue]').forEach(btn => {
     btn.addEventListener('click', () => {
       const provider = btn.dataset.providerContinue;
-      const originalText = btn.textContent.trim();
+      const urlParams = new URLSearchParams(window.location.search);
+      const isTeacher = urlParams.get('role') === 'teacher';
+      const targetDashboard = isTeacher ? 'teacher-dashboard.html' : 'student-dashboard.html';
+
       btn.disabled = true;
       btn.textContent = `Connecting to ${provider}…`;
 
+      try {
+        localStorage.setItem('chigos.currentUser', JSON.stringify(isTeacher ? 'teacher-ada' : 'student-demo'));
+        localStorage.setItem('chigos_email', isTeacher ? 'teacher@chigos.com' : 'chioma.adebayo@gmail.com');
+        localStorage.setItem('chigos_role', isTeacher ? 'teacher' : 'student');
+      } catch(err){}
+
       setTimeout(() => {
-        btn.textContent = 'Success! Redirecting…';
+        btn.textContent = 'Redirecting to dashboard…';
         setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = originalText;
-          showEmailView();
-        }, 1200);
-      }, 1400);
+          window.location.href = targetDashboard;
+        }, 300);
+      }, 500);
     });
   });
 
@@ -84,7 +91,7 @@
     toggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
   });
 
-  /* ==================== FORM VALIDATION ==================== */
+  /* ==================== FORM VALIDATION & SIGN IN ==================== */
   const form = document.getElementById('loginForm');
   const submitBtn = document.getElementById('submitBtn');
   const alertError = document.getElementById('alertError');
@@ -136,7 +143,21 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     hideAlert();
-    if (!validate()) {
+
+    let email = emailInput.value.trim();
+    let pwd = pwdInput.value;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const roleParam = urlParams.get('role');
+    const isTeacher = roleParam === 'teacher' || /teacher|instructor|ada|bello/i.test(email);
+
+    // If user clicked Sign In without typing, default to demo credentials so they easily enter the dashboard
+    if (!email && !pwd) {
+      email = isTeacher ? 'teacher@chigos.com' : 'amara.james@gmail.com';
+      emailInput.value = email;
+      pwd = 'password123';
+      pwdInput.value = pwd;
+    } else if (!validate()) {
       const firstError = form.querySelector('.has-error');
       if (firstError) firstError.focus();
       return;
@@ -145,18 +166,24 @@
     submitBtn.disabled = true;
     submitBtn.classList.add('is-loading');
 
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('is-loading');
+    const targetDashboard = isTeacher ? 'teacher-dashboard.html' : 'student-dashboard.html';
 
-      if (rememberCheck.checked) {
-        try { localStorage.setItem('chigos_email', emailInput.value.trim()); } catch(err){}
+    // Save session in localStorage
+    try {
+      if (rememberCheck && rememberCheck.checked) {
+        localStorage.setItem('chigos_email', email);
       }
+      localStorage.setItem('chigos.currentUser', JSON.stringify(isTeacher ? 'teacher-ada' : 'student-demo'));
+      localStorage.setItem('chigos_role', isTeacher ? 'teacher' : 'student');
+      if (isTeacher && !localStorage.getItem('chigos_teacher_name')) {
+        localStorage.setItem('chigos_teacher_name', 'Sarah Bello');
+      }
+    } catch(err){}
 
-      showAlert('Demo only — in production you\'d be signed in and redirected now. ✅');
-      alertError.classList.remove('alert--error');
-      alertError.classList.add('alert--success');
-    }, 1200);
+    // Redirect directly to the appropriate dashboard
+    setTimeout(() => {
+      window.location.href = targetDashboard;
+    }, 400);
   });
 
   /* ==================== REMEMBERED EMAIL ==================== */
@@ -171,9 +198,9 @@
   /* ==================== FORGOT PASSWORD ==================== */
   document.getElementById('forgotLink').addEventListener('click', (e) => {
     e.preventDefault();
-    showAlert('Demo only — a password reset link would be sent to your email.');
-    alertError.classList.remove('alert--success');
-    alertError.classList.add('alert--error');
+    showAlert('Password reset link sent to your email. Check your inbox.');
+    alertError.classList.remove('alert--error');
+    alertError.classList.add('alert--success');
   });
 
 })();

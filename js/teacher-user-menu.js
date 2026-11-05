@@ -116,7 +116,17 @@
 
       if (item.classList.contains('user-menu-item--danger')) {
         event.preventDefault();
-        alert('Log out clicked — hook this up to your auth flow.');
+        try {
+          if (window.ChigosAuth && typeof window.ChigosAuth.logout === 'function') {
+            window.ChigosAuth.logout();
+            return;
+          }
+          sessionStorage.clear();
+          localStorage.removeItem('chigos_auth');
+          localStorage.removeItem('chigos_user');
+        } catch (e) {}
+        window.location.href = 'login.html';
+        return;
       }
 
       pill.setAttribute('aria-expanded', 'false');

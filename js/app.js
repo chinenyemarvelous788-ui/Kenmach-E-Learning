@@ -137,7 +137,7 @@
     if (!user || user.role !== 'student') return roleGate('student');
     var purchases = S.getPurchasesByStudent(user.id);
     var courses = purchases.map(function (item) { return S.getCourseById(item.courseId); }).filter(Boolean);
-    setPage('My learning', '<section class="dashboard-page"><div class="container"><div class="dash-heading"><div><span class="eyebrow">Your learning</span><h1>Keep going, ' + escapeHtml(user.name.split(' ')[0]) + '.</h1><p>Your lessons are right where you left them.</p></div><a class="btn btn--orange" href="courses.html">Find a new lesson <span aria-hidden="true">↗</span></a></div><div class="dash-stats"><div><span>Lessons owned</span><strong>' + courses.length + '</strong></div><div><span>Learning since</span><strong>' + new Date(user.createdAt).toLocaleDateString('en-NG', { month: 'short', year: 'numeric' }) + '</strong></div><div><span>Learning style</span><strong>At your pace</strong></div></div><div class="section-heading section-heading--compact"><div><span class="eyebrow">Your library</span><h2>Ready when you are.</h2></div></div><div class="course-grid">' + (courses.length ? courses.map(function (course) { return courseCard(course).replace(/course\.html\?id=/g, 'watch.html?id=').replace('View lesson', 'Watch now'); }).join('') : '<div class="empty-state"><span>◎</span><h2>Your library is ready for a first lesson.</h2><p>Find a practical skill and learn whenever it suits you.</p><a class="btn btn--orange" href="courses.html">Explore lessons</a></div>') + '</div></div></section>');
+    setPage('My learning', '<section class="dashboard-page"><div class="container"><div class="dash-heading"><div><span class="eyebrow">Your learning</span><h1>Keep going, ' + escapeHtml(user.name.split(' ')[0]) + '.</h1><p>Your lessons are right where you left them.</p></div><a class="btn btn--orange" href="courses.html">Find a new lesson <span aria-hidden="true">↗</span></a></div><div class="dash-stats"><div><span>Lessons owned</span><strong>' + courses.length + '</strong></div><div><span>Learning since</span><strong>' + new Date(user.createdAt).toLocaleDateString('en-NG', { month: 'short', year: 'numeric' }) + '</strong></div><div><span>Learning style</span><strong>At your pace</strong></div></div><div class="section-heading section-heading--compact"><div><span class="eyebrow">Your library</span><h2>Ready when you are.</h2></div></div><div class="course-grid">' + (courses.length ? courses.map(function (course) { return courseCard(course).replace(/course\.html\?id=/g, 'student-course-player.html?id=').replace('View lesson', 'Watch now'); }).join('') : '<div class="empty-state"><span>◎</span><h2>Your library is ready for a first lesson.</h2><p>Find a practical skill and learn whenever it suits you.</p><a class="btn btn--orange" href="courses.html">Explore lessons</a></div>') + '</div></div></section>');
   }
   function roleGate(role) {
     var title = role === 'teacher' ? 'Your teaching space starts here.' : 'Sign in to open your learning space.';
@@ -310,7 +310,7 @@
       var courseId = target.getAttribute('data-buy');
       var current = Auth.current();
       if (current && ownsCourse(current.id, courseId)) {
-        window.location.href = 'watch.html?id=' + encodeURIComponent(courseId);
+        window.location.href = 'student-course-player.html?id=' + encodeURIComponent(courseId);
       } else if (!current || current.role !== 'student') {
         window.location.href = 'login.html';
       } else {
@@ -320,7 +320,7 @@
     if (target.hasAttribute('data-confirm-purchase')) {
       try {
         var result = Payments.purchase(target.getAttribute('data-confirm-purchase'));
-        window.location.href = 'watch.html?id=' + encodeURIComponent(result.course.id);
+        window.location.href = 'student-course-player.html?id=' + encodeURIComponent(result.course.id);
       } catch (error) { toast(error.message, 'error'); }
     }
     if (target.hasAttribute('data-delete-course')) {

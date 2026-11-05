@@ -158,7 +158,7 @@
 
   const previewProfileBtn = document.getElementById('previewProfileBtn');
   previewProfileBtn.addEventListener('click', () => {
-    alert('Public profile preview is a demo and is not connected yet.');
+    window.open('instructor.html?instructor=adaeze-okafor', '_blank');
   });
 
   document.getElementById('shareBtn').addEventListener('click', async (event) => {

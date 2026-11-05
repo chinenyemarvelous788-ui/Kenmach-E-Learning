@@ -30,7 +30,6 @@
       toggle.focus();
       return;
     }
-
   });
 
   toggle.addEventListener('click', (e) => {
@@ -149,4 +148,25 @@
   });
 
   renderChart('7d');
+
+  // Sync teacher name if saved in localStorage
+  try {
+    const savedName = localStorage.getItem('chigos_teacher_name');
+    if (savedName) {
+      const accent = document.querySelector('.topbar-copy h1 .accent');
+      if (accent) accent.textContent = savedName.split(' ')[0];
+
+      const strongName = document.querySelector('.user-meta strong');
+      if (strongName) strongName.textContent = savedName;
+
+      const avatar = document.querySelector('.user-pill .user-avatar');
+      if (avatar) {
+        const parts = savedName.trim().split(/\s+/);
+        avatar.textContent = parts.length > 1
+          ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+          : parts[0].slice(0, 2).toUpperCase();
+      }
+    }
+  } catch(e) {}
+
 })();

@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
   'use strict';
 
   /* ==================== ELEMENTS ==================== */
@@ -261,7 +261,11 @@
       setTimeout(() => {
         btn.disabled = false;
         btn.innerHTML = original;
-        showAlert(`Demo only — real ${p} signup would open ${p}'s auth flow.`);
+        window.__signup = window.__signup || {};
+        window.__signup.firstName = p === 'google' ? 'Google Learner' : 'Apple Learner';
+        window.__signup.lastName = '';
+        window.__signup.email = (p === 'google' ? 'learner@gmail.com' : 'learner@icloud.com');
+        goToStep(2);
       }, 900);
     });
   });

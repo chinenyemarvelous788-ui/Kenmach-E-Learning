@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
   'use strict';
 
   /* ==================== ELEMENTS ==================== */
@@ -142,6 +142,7 @@
 
     window.__signup = window.__signup || {};
     window.__signup.firstName = fn;
+    window.__signup.lastName = ln;
     window.__signup.email = em;
     goToStep(2);
   });
@@ -217,9 +218,33 @@
         formFooter.style.display = 'none';
         if (roleTabs) roleTabs.style.display = 'none';
 
-        document.getElementById('successName').textContent = window.__signup.firstName || 'instructor';
+        const teacherFirstName = (window.__signup && window.__signup.firstName) || 'instructor';
+        const teacherFullName = (window.__signup && window.__signup.firstName)
+          ? `${window.__signup.firstName} ${window.__signup.lastName || ''}`.trim()
+          : 'Instructor';
+
+        document.getElementById('successName').textContent = teacherFirstName;
         successOverlay.classList.add('is-active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Save teacher session
+        try {
+          localStorage.setItem('chigos.currentUser', JSON.stringify('teacher-ada'));
+          localStorage.setItem('chigos_teacher_name', teacherFullName);
+          localStorage.setItem('chigos_role', 'teacher');
+        } catch (err) {}
+
+        // Automatic countdown and redirect to teacher dashboard
+        let secondsLeft = 3;
+        const countdownEl = document.getElementById('countdownSec');
+        const timer = setInterval(() => {
+          secondsLeft--;
+          if (countdownEl) countdownEl.textContent = String(secondsLeft);
+          if (secondsLeft <= 0) {
+            clearInterval(timer);
+            window.location.href = 'teacher-dashboard.html';
+          }
+        }, 1000);
       }, 800);
     }, 1400);
   });
